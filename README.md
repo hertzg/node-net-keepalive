@@ -1,6 +1,7 @@
 [![Discuss](http://img.shields.io/badge/discuss-gitter-brightgreen.svg?style=flat)](https://gitter.im/hertzg/node-net-keepalive/discuss) [![Build Status](https://travis-ci.org/hertzg/node-net-keepalive.svg?branch=master)](https://travis-ci.org/hertzg/node-net-keepalive)  [![Dependency Status](https://gemnasium.com/hertzg/node-net-keepalive.svg)](https://gemnasium.com/hertzg/node-net-keepalive)
 
 # net-keepalive
+[![NPM](https://nodei.co/npm/net-keepalive.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/net-keepalive/)[![NPM](https://nodei.co/npm-dl/net-keepalive.png?months=3&height=2)](https://nodei.co/npm/net-keepalive/)
 
 Missing (`TCP_KEEPINTVL` and `TCP_KEEPCNT`) `SO_KEEPALIVE` socket option setters for Node using [`ffi`](https://www.npmjs.com/package/ffi) module. Tested on `linux`, should work on `osx`.
 
