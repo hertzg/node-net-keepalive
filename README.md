@@ -1,4 +1,4 @@
- [![Discuss](https://img.shields.io/badge/discuss-gitter-brightgreen.svg?style=flat)](https://gitter.im/hertzg/node-net-keepalive/discuss) [![Build Status](https://travis-ci.org/hertzg/node-net-keepalive.svg?branch=master)](https://travis-ci.org/hertzg/node-net-keepalive)  [![Dependency Status](https://gemnasium.com/hertzg/node-net-keepalive.svg)](https://gemnasium.com/hertzg/node-net-keepalive)
+[![Discuss](http://img.shields.io/badge/discuss-gitter-brightgreen.svg?style=flat)](https://gitter.im/hertzg/node-net-keepalive/discuss) [![Build Status](https://travis-ci.org/hertzg/node-net-keepalive.svg?branch=master)](https://travis-ci.org/hertzg/node-net-keepalive)  [![Dependency Status](https://gemnasium.com/hertzg/node-net-keepalive.svg)](https://gemnasium.com/hertzg/node-net-keepalive)
 
 # net-keepalive
 
