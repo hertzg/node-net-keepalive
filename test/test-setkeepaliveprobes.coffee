@@ -63,7 +63,7 @@ describe 'setKeepAliveProbes', ->
     ).should.throw errorMessage
 
   it 'should throw when setsockopt returns -1', (done) ->
-    errorMessage = "setsockopt EINVAL"
+    errorMessage = /^setsockopt /i
     socket = null
     Net.createServer().listen 0, ->
       addr = @address()
