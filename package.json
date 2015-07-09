@@ -1,0 +1,28 @@
+{
+  "name": "net-keepalive",
+  "version": "0.0.1",
+  "description": "Provides high-level access to socket options like TCP_KEEPIDLE, TCP_KEEPINTVL, TCP_KEEPCNT",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hertzg/node-net-keepalive.git"
+  },
+  "keywords": [
+    "ffi",
+    "setsockopt",
+    "getsockopt",
+    "ref",
+    "net",
+    "keep-alive",
+    "tcp"
+  ],
+  "author": "George Kotchlamazashvili <georgedot@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hertzg/node-net-keepalive/issues"
+  },
+  "homepage": "https://github.com/hertzg/node-net-keepalive"
+}
