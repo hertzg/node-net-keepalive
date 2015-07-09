@@ -6,13 +6,13 @@ Missing (`TCP_KEEPINTVL` and `TCP_KEEPCNT`) `SO_KEEPALIVE` socket option setters
 
 ## Install
 
-```
+```bash
 $ npm install --save net-keepalive
 ```
 
 
 ## Demo
-```
+```CoffeeScript
 #server.coffee
 Net = require 'net'
 NetKeepAlive =  require 'net-keepalive'
@@ -42,7 +42,7 @@ s = Net.createConnection {port:1337}, ->
 ```
 
 Now using `iptables` add rule to drop all `tcp` packets on `INPUT` chain to port `1337`.
-```
+```bash
 $ iptables -I INPUT -m tcp -p tcp --dport 1337 -j DROP
 ``` 
 If you were monitoring packets on `loopback` with `tcp.srcport == 1337 || tcp.dstport == 1337` filter in `wireshark`.  You will see the following output:
@@ -61,7 +61,7 @@ More info about `SO_KEEPALIVE` here: [TCP Keepalive HOWTO](http://tldp.org/HOWTO
   TCP_KEEPIDLE (since Linux 2.4) 
   The time (in seconds) the connection needs to remain idle before TCP starts sending keepalive probes, if the socket option SO_KEEPALIVE has been set on this socket. This option should not be used in code intended to be portable.
 
-```
+```CoffeeScript
 NetSocket = require 'net-socket'
 
 # .....
@@ -75,7 +75,7 @@ socket.setKeepAlive(enable, initialDuration) # sets SO_KEEPALIVE and TCP_KEEPIDL
 probeInterval = 1000 # after initialDuration send probes every 1 second
 NetSocket.setKeepAliveInterval(socket, probeInterval) #sets TCP_KEEPINTVL
 
-maxProbesBeforeFail = 10 # after 10 failed probes will connection will be dropped 
+maxProbesBeforeFail = 10 # after 10 failed probes connection will be dropped 
 NetSocket.setKeepAliveProbes(socket, maxProbesBeforeFail) #sets TCP_KEEPCNT
 
 # ....
