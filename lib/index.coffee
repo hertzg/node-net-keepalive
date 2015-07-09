@@ -5,6 +5,12 @@ Ref = require 'ref'
 Util = require 'util'
 UV = null
 
+
+try
+  UV = process.binding? 'uv'
+catch ex
+
+
 ## CONSTANTS
 SOL_TCP   = 6
 
@@ -18,15 +24,16 @@ bindings = FFI.Library null,
   #getsockopt: ['int',     ['int', 'int', 'int', 'pointer', 'pointer']]
   #strerror:   ['string',  ['int']]
 
-_errnoException = (errno, syscall) ->
+_errnoException = (errno, syscall, original) ->
   if Util._errnoException
     return Util._errnoException -errno, syscall
 
-  unless UV
-    UV = process.binding? 'uv'
+  if UV
+    errname = UV.errname -errno
+  else
+    errname = "UNKNOWN"
 
-  errname = UV.errname -errno
-  message = "#{syscall} #{errname}"
+  message = "#{syscall} #{errname} (#{errno})"
   if original
     message += " #{original}"
   e = new Error message
