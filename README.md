@@ -58,8 +58,7 @@ More info about `SO_KEEPALIVE` here: [TCP Keepalive HOWTO](http://tldp.org/HOWTO
 
 ***Note: For these methods to work you must enable `SO_KEEPALIVE` and set the `TCP_KEEPIDLE` options for socket using `Net.Socket`-s built in method [`socket.setKeepAlive([enable][, initialDelay])`](https://nodejs.org/api/net.html#net_socket_setkeepalive_enable_initialdelay) !***
 
-  TCP_KEEPIDLE (since Linux 2.4) 
-  The time (in seconds) the connection needs to remain idle before TCP starts sending keepalive probes, if the socket option SO_KEEPALIVE has been set on this socket. This option should not be used in code intended to be portable.
+    TCP_KEEPIDLE (since Linux 2.4) The time (in seconds) the connection needs to remain idle before TCP starts sending keepalive probes, if the socket option SO_KEEPALIVE has been set on this socket. This option should not be used in code intended to be portable.
 
 ```CoffeeScript
 NetSocket = require 'net-socket'
@@ -89,8 +88,7 @@ NetSocket.setKeepAliveProbes(socket, maxProbesBeforeFail) #sets TCP_KEEPCNT
 
 Sets `TCP_KEEPINTVL` to `msecs` miliseconds (converted to seconds `int` internally) for the `socket` based on its file descriptor (`fd`)
 
-  TCP_KEEPINTVL (since Linux 2.4)
-  The time (in seconds) between individual keepalive probes. This option should not be used in code intended to be portable.
+    TCP_KEEPINTVL (since Linux 2.4) The time (in seconds) between individual keepalive probes. This option should not be used in code intended to be portable.
 
 ### setKeepAliveProbes(socket, count) 
 * `socket` - `instanceof Net.Socket`- Socket to modify
@@ -99,5 +97,4 @@ Sets `TCP_KEEPINTVL` to `msecs` miliseconds (converted to seconds `int` internal
 
 Sets `TCP_KEEPCNT` to `count` number of probes for the `socket` based on its file descriptor (`fd`)
 
-  TCP_KEEPCNT (since Linux 2.4)
-  The maximum number of keepalive probes TCP should send before dropping the connection. This option should not be used in code intended to be portable.
+    TCP_KEEPCNT (since Linux 2.4) - The maximum number of keepalive probes TCP should send before dropping the connection. This option should not be used in code intended to be portable.
