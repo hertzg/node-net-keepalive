@@ -1,5 +1,4 @@
-[![Discuss](http://img.shields.io/badge/discuss-gitter-brightgreen.svg?style=flat)](https://gitter.im/hertzg/node-net-keepalive) [![Build Status](https://travis-ci.org/hertzg/node-net-keepalive.svg?branch=master)](https://travis-ci.org/hertzg/node-net-keepalive)  <!-- [![Build status](https://ci.appveyor.com/api/projects/status/dtuloo6liv5njsg9?svg=true)](https://ci.appveyor.com/project/hertzg/node-net-keepalive) -->
- [![Dependency Status](https://gemnasium.com/hertzg/node-net-keepalive.svg)](https://gemnasium.com/hertzg/node-net-keepalive)
+[![Discuss](http://img.shields.io/badge/discuss-gitter-brightgreen.svg?style=flat)](https://gitter.im/hertzg/node-net-keepalive) [![Build Status](https://travis-ci.org/hertzg/node-net-keepalive.svg?branch=master)](https://travis-ci.org/hertzg/node-net-keepalive) [![Dependency Status](https://gemnasium.com/hertzg/node-net-keepalive.svg)](https://gemnasium.com/hertzg/node-net-keepalive)
 
 # net-keepalive
 [![NPM](https://nodei.co/npm/net-keepalive.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/net-keepalive/)[![NPM](https://nodei.co/npm-dl/net-keepalive.png?months=3&height=2)](https://nodei.co/npm/net-keepalive/)
