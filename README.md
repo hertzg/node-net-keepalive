@@ -1,4 +1,25 @@
-[![Discuss](http://img.shields.io/badge/discuss-gitter-brightgreen.svg?style=flat)](https://gitter.im/hertzg/node-net-keepalive) [![Build Status](https://travis-ci.org/hertzg/node-net-keepalive.svg?branch=master)](https://travis-ci.org/hertzg/node-net-keepalive) [![Dependency Status](https://gemnasium.com/hertzg/node-net-keepalive.svg)](https://gemnasium.com/hertzg/node-net-keepalive)
+[![NPM][npm_shield]][npm_url]
+[![Node][node_shield]][node_url]
+[![OS][os_shield]][npm_url]
+[![Gitter][gitter_shield]][gitter_url]
+[![CI][travis_sheild]][travis_url]
+[![Dependecies][gemnasium_shield]][gemnasium_url]
+[![License][license_shield]][license_url]
+
+[npm_url]: https://www.npmjs.com/package/net-keepalive
+[npm_shield]: https://img.shields.io/npm/v/net-keepalive.svg?style=flat
+[node_url]: https://dist.nodejs.org
+[node_shield]: https://img.shields.io/badge/node-%3E%3D0.10%20%3C%3D0.12-green.svg
+[gitter_url]: https://gitter.im/hertzg/node-net-keepalive
+[gitter_shield]: http://img.shields.io/badge/discuss-gitter-brightgreen.svg?style=flat
+[os_shield]: https://img.shields.io/badge/os-linux%2Cosx-green.svg
+[travis_url]: https://travis-ci.org/hertzg/node-net-keepalive
+[travis_sheild]: https://travis-ci.org/hertzg/node-net-keepalive.svg?branch=master
+[gemnasium_url]: https://gemnasium.com/hertzg/node-net-keepalive
+[gemnasium_shield]: https://gemnasium.com/hertzg/node-net-keepalive.svg
+[license_url]: https://raw.githubusercontent.com/hertzg/node-net-keepalive/master/LICENSE
+[license_shield]: https://img.shields.io/badge/license-MIT-blue.svg
+
 
 # net-keepalive
 [![NPM](https://nodei.co/npm/net-keepalive.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/net-keepalive/)[![NPM](https://nodei.co/npm-dl/net-keepalive.png?months=3&height=2)](https://nodei.co/npm/net-keepalive/)
