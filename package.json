@@ -1,6 +1,6 @@
 {
   "name": "net-keepalive",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Provides high-level access to socket options like TCP_KEEPIDLE, TCP_KEEPINTVL, TCP_KEEPCNT",
   "main": "index.js",
   "scripts": {
