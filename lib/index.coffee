@@ -1,6 +1,7 @@
 Assert = require 'assert'
 FFI = require 'ffi'
 Net = require 'net'
+OS = require 'os'
 Ref = require 'ref'
 Util = require 'util'
 UV = null
@@ -14,9 +15,14 @@ catch ex
 ## CONSTANTS
 SOL_TCP   = 6
 
-TCP_KEEPIDLE   = 4
-TCP_KEEPINTVL   = 5
-TCP_KEEPCNT     = 6
+if OS.platform() is 'darwin'
+  #TCP_KEEPIDLE    = 0x10 # Managed by libuv
+  TCP_KEEPINTVL   = 0x101
+  TCP_KEEPCNT     = 0x102
+else
+  #TCP_KEEPIDLE    = 4 # Managed by libuv
+  TCP_KEEPINTVL   = 5
+  TCP_KEEPCNT     = 6
 
 ## FFI Bindings
 bindings = FFI.Library null,
