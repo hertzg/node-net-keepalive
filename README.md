@@ -9,7 +9,7 @@
 [npm_url]: https://www.npmjs.com/package/net-keepalive
 [npm_shield]: https://img.shields.io/npm/v/net-keepalive.svg?style=flat
 [node_url]: https://dist.nodejs.org
-[node_shield]: https://img.shields.io/badge/node-%3E%3D0.10%20%3C%3D0.12-green.svg
+[node_shield]: https://img.shields.io/badge/node-%3E%3D0.10%20%3C%3D0.12%7C%7C%3E%3D4.0%20%3C%3D4.1-green.svg
 [gitter_url]: https://gitter.im/hertzg/node-net-keepalive
 [gitter_shield]: http://img.shields.io/badge/discuss-gitter-brightgreen.svg?style=flat
 [os_shield]: https://img.shields.io/badge/os-linux%2Cosx-green.svg
