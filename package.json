@@ -4,7 +4,7 @@
   "description": "Provides high-level access to socket options like TCP_KEEPIDLE, TCP_KEEPINTVL, TCP_KEEPCNT",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers coffee:coffee-script/register"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,6 @@
   },
   "homepage": "https://github.com/hertzg/node-net-keepalive",
   "dependencies": {
-    "coffee-script": ">=1.8.0",
     "ffi": ">=1.0.0",
     "ref": ">=1.0.0"
   },

@@ -1,17 +1,14 @@
 language: cpp
 
 os:
-  - osx
   - linux
+  - osx
 
 env:
   matrix:
   - TRAVIS_NODE_VERSION="4"
-  - TRAVIS_NODE_VERSION="3.2"
   - TRAVIS_NODE_VERSION="2"
-  - TRAVIS_NODE_VERSION="1"
   - TRAVIS_NODE_VERSION="0.12"
-  - TRAVIS_NODE_VERSION="0.11"
   - TRAVIS_NODE_VERSION="0.10"
 
 sudo: false
@@ -23,16 +20,19 @@ addons:
     packages:
       - g++-4.8
 
-#Fix for missing NVM on travis-ci on osx
 install:
   - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
-  - npm install npm
-  - mv node_modules npm
-  - npm/.bin/npm --version
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then export CXX=g++-4.8; fi
   - $CXX --version
-  - npm/.bin/npm install
-  - $CXX --version
+  - PATH="`npm bin`:`npm bin -g`:$PATH"
+  # Node 0.8 comes with a too obsolete npm
+  - if [[ "`node --version`" =~ ^v0\.8\. ]]; then npm install -g npm@1.4.28 ; fi
+  # Install dependencies and build
+  - npm install
+
+script:
+  # Output useful info for debugging
   - node --version
-  - npm/.bin/npm --version
-  - npm/.bin/npm test
+  - npm --version
+  # Run tests
+  - npm test
