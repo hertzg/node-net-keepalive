@@ -34,33 +34,36 @@ $ npm install --save net-keepalive
 
 
 ## Demo
-```CoffeeScript
-#server.coffee
-Net = require 'net'
-NetKeepAlive =  require 'net-keepalive'
+```Javascript
+var Net = require('net')
+  , NetKeepAlive = require('net-keepalive')
+;
 
-# Create a TCP Server
-srv = Net.createServer (s)->
-  console.log 'Connected %j', s.address()
-  # Doesn't matter what it does
+// Create a TCP Server
+var srv = Net.createServer(function(s){>
+  console.log('Connected %j', s.address())
+  // Doesn't matter what it does
   s.pipe(s)
+});
 
-# Start on a some port
-srv.listen 1337, ->
-  console.log 'Listening on %j', srv.address();
+// Start on a some port
+srv.listen(1337, function(){
+  console.log('Listening on %j', srv.address())
+});
 
-# Connect to that server
-s = Net.createConnection {port:1337}, ->
-  console.log 'Connected to %j', s.address()
+// Connect to that server
+var s = Net.createConnection({port:1337}, function(){
+  console.log('Connected to %j', s.address())
   
-  # IMPORTANT: KeepAlive must be enabled for this to work
-  s.setKeepAlive true, 1000
+  //IMPORTANT: KeepAlive must be enabled for this to work
+  s.setKeepAlive(true, 1000)
 
-  # Set TCP_KEEPINTVL for this specific socket
-  NetKeepAlive.setKeepAliveInterval s, 1000
+  // Set TCP_KEEPINTVL for this specific socket
+  NetKeepAlive.setKeepAliveInterval(s, 1000)
 
-  # and TCP_KEEPCNT
-  NetKeepAlive.setKeepAliveProbes s, 1
+  // and TCP_KEEPCNT
+  NetKeepAlive.setKeepAliveProbes(s, 1)
+});
 ```
 
 Now using `iptables` add rule to drop all `tcp` packets on `INPUT` chain to port `1337`.
@@ -82,25 +85,25 @@ More info about `SO_KEEPALIVE` here: [TCP Keepalive HOWTO](http://tldp.org/HOWTO
 
     TCP_KEEPIDLE (since Linux 2.4) The time (in seconds) the connection needs to remain idle before TCP starts sending keepalive probes, if the socket option SO_KEEPALIVE has been set on this socket. This option should not be used in code intended to be portable.
 
-```CoffeeScript
-NetSocket = require 'net-socket'
+```JavaScript
+var NetSocket = require('net-keepalive')
 
-# .....
-# get socket somehow
-# .....
+// .....
+// get socket somehow
+// .....
 
-enable = true # enable SO_KEEPALIVE
-initialDuration = 1000 # start probing after 1 second of inactivity
-socket.setKeepAlive(enable, initialDuration) # sets SO_KEEPALIVE and TCP_KEEPIDLE
+var enable = true                                           // enable SO_KEEPALIVE
+var initialDuration = 1000                                  // start probing after 1 second of inactivity
+socket.setKeepAlive(enable, initialDuration)                // sets SO_KEEPALIVE and TCP_KEEPIDLE
 
-probeInterval = 1000 # after initialDuration send probes every 1 second
-NetSocket.setKeepAliveInterval(socket, probeInterval) #sets TCP_KEEPINTVL
+var probeInterval = 1000                                    // after initialDuration send probes every 1 second
+NetSocket.setKeepAliveInterval(socket, probeInterval)       //sets TCP_KEEPINTVL
 
-maxProbesBeforeFail = 10 # after 10 failed probes connection will be dropped 
-NetSocket.setKeepAliveProbes(socket, maxProbesBeforeFail) #sets TCP_KEEPCNT
+var maxProbesBeforeFail = 10                                // after 10 failed probes connection will be dropped 
+NetSocket.setKeepAliveProbes(socket, maxProbesBeforeFail)   // sets TCP_KEEPCNT
 
-# ....
-# ....
+// ....
+// ....
 ```
 
 ### setKeepAliveInterval(socket, msecs)
