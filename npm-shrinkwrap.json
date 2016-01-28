@@ -1,6 +1,6 @@
 {
   "name": "net-keepalive",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "dependencies": {
     "ffi": {
       "version": "2.0.0",
