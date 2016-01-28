@@ -46,7 +46,7 @@ var srv = Net.createServer(function(s){>
   s.pipe(s)
 });
 
-// Start on a some port
+// Start on some port
 srv.listen(1337, function(){
   console.log('Listening on %j', srv.address())
 });
