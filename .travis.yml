@@ -13,7 +13,7 @@ env:
   - TRAVIS_NODE_VERSION="0.12"
   - TRAVIS_NODE_VERSION="0.10"
 
-sudo: false
+sudo: required
 
 addons:
   apt:
@@ -21,20 +21,20 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
-
-install:
-  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
-  - if [[ $TRAVIS_OS_NAME == "linux" ]]; then export CXX=g++-4.8; fi
-  - $CXX --version
-  - PATH="`npm bin`:`npm bin -g`:$PATH"
-  # Node 0.8 comes with a too obsolete npm
-  - if [[ "`node --version`" =~ ^v0\.8\. ]]; then npm install -g npm@1.4.28 ; fi
-  # Install dependencies and build
-  - npm install
+      - tcpdump
 
 script:
-  # Output useful info for debugging
-  - node --version
-  - npm --version
-  # Run tests
-  - npm test
+  - >
+    sudo -E bash -c 'rm -rf ~/.nvm
+    && git clone https://github.com/creationix/nvm.git ~/.nvm
+    && (cd ~/.nvm && git checkout $(git describe --abbrev=0 --tags))
+    && . ~/.nvm/nvm.sh
+    && nvm install $TRAVIS_NODE_VERSION
+    && if [[ $TRAVIS_OS_NAME == "linux" ]]; then export CXX=g++-4.8; fi
+    && $CXX --version
+    && export PATH="$(npm bin):$(npm bin -g):$PATH"
+    && if [[ "$(node --version)" =~ ^v0\.8\. ]]; then npm install -g npm@1.4.28 ; fi
+    && npm install
+    && node --version
+    && npm --version
+    && npm test'
