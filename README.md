@@ -40,7 +40,7 @@ var Net = require('net')
 ;
 
 // Create a TCP Server
-var srv = Net.createServer(function(s){>
+var srv = Net.createServer(function(s){
   console.log('Connected %j', s.address())
   // Doesn't matter what it does
   s.pipe(s)
