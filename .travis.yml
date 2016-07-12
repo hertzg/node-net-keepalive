@@ -38,3 +38,6 @@ script:
     && node --version
     && npm --version
     && npm test'
+
+after_success:
+  - sudo -E bash <(curl -s https://codecov.io/bash)
