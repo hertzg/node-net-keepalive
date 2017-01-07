@@ -11,6 +11,7 @@
     "url": "https://github.com/hertzg/node-net-keepalive.git"
   },
   "os": [
+    "freebsd",
     "darwin",
     "linux",
     "!win32"

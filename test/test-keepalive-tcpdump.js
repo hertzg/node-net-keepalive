@@ -15,7 +15,7 @@ describe('net-keepalive', function(){
     for(var ifaceName in ifaces) {
       var iface = ifaces[ifaceName]
         , found = false;
-      for(var i=0; iface.length; i++) {
+      for(var i=0; i < iface.length; i++) {
         if(iface[i].internal) {
           found = true;
           break;

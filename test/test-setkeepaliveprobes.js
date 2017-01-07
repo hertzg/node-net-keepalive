@@ -79,7 +79,7 @@
       }).should["throw"](errorMessage);
     });
     
-    (OS.platform() === 'darwin' ? it.skip: it)('should throw when setsockopt returns -1', function(done) {
+    (['darwin','freebsd'].indexOf(OS.platform()) !== -1 ? it.skip: it)('should throw when setsockopt returns -1', function(done) {
       var errorMessage, socket;
       errorMessage = /^setsockopt /i;
       socket = null;
