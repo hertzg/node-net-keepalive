@@ -1,6 +1,6 @@
 {
   "name": "net-keepalive",
-  "version": "0.3.8",
+  "version": "0.4.0",
   "dependencies": {
     "bindings": {
       "version": "1.2.1",
