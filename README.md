@@ -9,7 +9,7 @@
 [npm_url]: https://www.npmjs.com/package/net-keepalive
 [npm_shield]: https://img.shields.io/npm/v/net-keepalive.svg?style=flat
 [node_url]: https://dist.nodejs.org
-[node_shield]: https://img.shields.io/badge/node-%3E%3D0.10%20%3C%3D0.12%7C%7C%3E%3D4%20%3C%3D7-green.svg
+[node_shield]: https://img.shields.io/badge/node-%3E%3D0.10%20%3C%3D0.12%7C%7C%3E%3D4%20%3C%3D8-green.svg
 [gitter_url]: https://gitter.im/hertzg/node-net-keepalive
 [gitter_shield]: http://img.shields.io/badge/discuss-gitter-brightgreen.svg?style=flat
 [os_shield]: https://img.shields.io/badge/os-linux%2Cosx%2Cbsd-green.svg
@@ -22,9 +22,9 @@
 
 
 # net-keepalive
-[![NPM](https://nodei.co/npm/net-keepalive.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/net-keepalive/)[![NPM](https://nodei.co/npm-dl/net-keepalive.png?months=3&height=2)](https://nodei.co/npm/net-keepalive/)
+[![NPM](https://nodei.co/npm/net-keepalive.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/net-keepalive/)
 
-Missing (`TCP_KEEPINTVL` and `TCP_KEEPCNT`) `SO_KEEPALIVE` socket option setters for Node using [`ffi`](https://www.npmjs.com/package/ffi) module. Tested on `linux`, should work on `osx` and `freebsd`.
+The Missing (`TCP_KEEPINTVL` and `TCP_KEEPCNT`) `SO_KEEPALIVE` socket option setters for Node using [`ffi`](https://www.npmjs.com/package/ffi) module. Tested on `linux`, should work on `osx` and `freebsd`.
 
 ## Install
 

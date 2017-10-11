@@ -17,7 +17,7 @@
     "!win32"
   ],
   "engines": {
-    "node": ">=0.10 <=0.12||>=4 <=7"
+    "node": ">=0.10 <=0.12||>=4 <=8"
   },
   "keywords": [
     "ffi",
@@ -26,6 +26,10 @@
     "ref",
     "net",
     "keep-alive",
+    "keepalive",
+    "keep alive",
+    "keep",
+    "alive",
     "tcp"
   ],
   "author": "George Kotchlamazashvili <georgedot@gmail.com>",
@@ -40,6 +44,7 @@
   },
   "devDependencies": {
     "mocha": ">=2.0.0",
-    "should": ">=7.0.0"
+    "should": ">=7.0.0",
+    "@types/node": "^8.0.0"
   }
 }
