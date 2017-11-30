@@ -24,7 +24,7 @@
 # net-keepalive
 [![NPM](https://nodei.co/npm/net-keepalive.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/net-keepalive/)
 
-The Missing (`TCP_KEEPINTVL` and `TCP_KEEPCNT`) `SO_KEEPALIVE` socket option setters for Node using [`ffi`](https://www.npmjs.com/package/ffi) module. Tested on `linux`, should work on `osx` and `freebsd`.
+The Missing (`TCP_KEEPINTVL` and `TCP_KEEPCNT`) `SO_KEEPALIVE` socket option setters and getters for Node using [`ffi`](https://www.npmjs.com/package/ffi) module. Tested on `linux`, should work on `osx` and `freebsd`.
 
 ## Install
 
@@ -60,9 +60,15 @@ var s = Net.createConnection({port:1337}, function(){
 
   // Set TCP_KEEPINTVL for this specific socket
   NetKeepAlive.setKeepAliveInterval(s, 1000)
+  
+  // Get TCP_KEEPINTVL for this specific socket
+  NetKeepAlive.getKeepAliveInterval(s) // 1000
 
-  // and TCP_KEEPCNT
+  // Set TCP_KEEPCNT for this specific socket 
   NetKeepAlive.setKeepAliveProbes(s, 1)
+  
+  // Get TCP_KEEPCNT for this specific socket 
+  NetKeepAlive.getKeepAliveProbes(s) // 1
 });
 ```
 
@@ -115,11 +121,29 @@ Sets `TCP_KEEPINTVL` to `msecs` miliseconds (converted to seconds `int` internal
 
     TCP_KEEPINTVL (since Linux 2.4) The time (in seconds) between individual keepalive probes. This option should not be used in code intended to be portable.
 
+### getKeepAliveInterval(socket)
+* `socket` - `instanceof Net.Socket`- Socket to modify
+* Returns `msecs` - `Number` - Time in milliseconds between KeepAlive probes on success
+
+Gets `TCP_KEEPINTVL`. The `msecs` miliseconds (converted from seconds `int` internally) set for the `socket` based on its file descriptor (`fd`)
+
+    TCP_KEEPINTVL (since Linux 2.4) The time (in seconds) between individual keepalive probes. This option should not be used in code intended to be portable.
+
+
 ### setKeepAliveProbes(socket, count) 
 * `socket` - `instanceof Net.Socket`- Socket to modify
 * `count` - `Number` - Number of probes to send before dropping the connection
 * Returns `true` on success
 
 Sets `TCP_KEEPCNT` to `count` number of probes for the `socket` based on its file descriptor (`fd`)
+
+    TCP_KEEPCNT (since Linux 2.4) - The maximum number of keepalive probes TCP should send before dropping the connection. This option should not be used in code intended to be portable.
+
+
+### getKeepAliveProbes(socket) 
+* `socket` - `instanceof Net.Socket`- Socket to modify
+* Returns `count` - `Number` - Number of probes to send before dropping the connection on success.
+
+Gets `TCP_KEEPCNT`. The `count` number of probes set for the `socket` based on its file descriptor (`fd`)
 
     TCP_KEEPCNT (since Linux 2.4) - The maximum number of keepalive probes TCP should send before dropping the connection. This option should not be used in code intended to be portable.
