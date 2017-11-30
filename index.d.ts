@@ -7,5 +7,7 @@
 
 
 export type NodeJSSocketWithFileDescriptor = NodeJS.Socket | { _handle: { _fd: number } }
+
 export function setKeepAliveProbes(socket: NodeJSSocketWithFileDescriptor, cnt: number): number
+
 export function setKeepAliveInterval(socket: NodeJSSocketWithFileDescriptor, intvl: number): number
