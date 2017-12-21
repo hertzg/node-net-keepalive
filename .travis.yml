@@ -2,7 +2,7 @@ os:
   - linux
   - osx
   
-sudo: false
+sudo: required
 
 language: cpp
 
@@ -20,7 +20,6 @@ env:
     - TRAVIS_NODE_VERSION="6"
     - TRAVIS_NODE_VERSION="7"
     - TRAVIS_NODE_VERSION="8"
-    - TRAVIS_NODE_VERSION="9"
 
 install:
   - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
@@ -35,7 +34,7 @@ script:
   - node --version
   - npm --version
   # Run tests
-  - npm test
+  - sudo npm test
       
 cache:
   directories:
