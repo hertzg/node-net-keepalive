@@ -34,7 +34,7 @@ script:
   - node --version
   - npm --version
   # Run tests
-  - sudo -E $(which npm) test
+  - npm test
       
 cache:
   directories:
