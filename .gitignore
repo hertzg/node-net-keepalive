@@ -28,3 +28,7 @@ node_modules
 
 
 .idea
+
+*.tgz
+*.tar.gz
+*.tar

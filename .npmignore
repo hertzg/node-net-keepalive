@@ -1,0 +1,5 @@
+test/
+.travis.yml
+*.tgz
+*.tar.gz
+*.tar
