@@ -35,7 +35,7 @@ script:
   - npm --version
   # Run tests
   - npm test
-  - npm test-coverage
+  - npm run test-coverage
       
 cache:
   directories:
