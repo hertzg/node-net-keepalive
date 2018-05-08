@@ -35,6 +35,7 @@ script:
   - npm --version
   # Run tests
   - npm test
+  - npm test-coverage
       
 cache:
   directories:
@@ -42,3 +43,4 @@ cache:
 
 after_success:
   - sudo -E bash <(curl -s https://codecov.io/bash)
+  - npm run report-coverage
