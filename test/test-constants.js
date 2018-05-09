@@ -23,7 +23,7 @@ describe('constants', function(){
     })
     
     function mockPlatform(platform) {
-        let mock = sandbox.mock()
+        var mock = sandbox.mock()
         Mockery.registerMock('os', {
             platform: mock.returns(platform)
         })
@@ -31,7 +31,7 @@ describe('constants', function(){
 
     it('should define darwin specific constants', function(){
         mockPlatform('darwin')
-        
+
         require('../lib/constants')
             .should.have.properties({
               SOL_TCP: 6,
@@ -42,7 +42,7 @@ describe('constants', function(){
     
     it('should define freebsd specific constants', function(){
         mockPlatform('freebsd')
-        
+
         require('../lib/constants')
             .should.have.properties({
               SOL_TCP: 6,
@@ -53,7 +53,7 @@ describe('constants', function(){
     
     it('should define linux specific constants', function(){
         mockPlatform('linux')
-        
+
         require('../lib/constants')
             .should.have.properties({
               SOL_TCP: 6,
@@ -64,7 +64,7 @@ describe('constants', function(){
     
     it('should use linux specific constants for other platforms', function(){
         mockPlatform('unknown')
-        
+
         require('../lib/constants')
             .should.have.properties({
               SOL_TCP: 6,

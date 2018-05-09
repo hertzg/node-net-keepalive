@@ -141,6 +141,31 @@
         });
       });
     });
+
+    it('should throw when trying to get using invalid fd', function (done) {
+      var socket;
+      socket = null;
+      return Net.createServer().listen(0, function () {
+        var addr, self;
+        addr = this.address();
+        self = this;
+        return socket = Net.createConnection(addr, function () {
+
+          var oldHandle = socket._handle
+          socket._handle = {fd: -99999}
+
+          ;(function () {
+            Lib.getKeepAliveProbes(socket);
+          }).should["throw"]('getsockopt EBADF');
+
+          socket._handle = oldHandle
+
+          socket.destroy();
+          self.close();
+          return done();
+        });
+      });
+    });
   });
 
 }).call(this);
