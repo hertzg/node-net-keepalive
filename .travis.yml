@@ -2,7 +2,7 @@ os:
   - linux
   - osx
   
-sudo: required
+sudo: false
 
 language: cpp
 
@@ -13,7 +13,6 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
-      - tcpdump
 env:
   matrix:
     - TRAVIS_NODE_VERSION="4"
@@ -35,7 +34,7 @@ script:
   - node --version
   - npm --version
   # Run tests
-  - sudo -E npm test
+  - npm test
   - npm run test-coverage
       
 cache:
@@ -43,5 +42,4 @@ cache:
     - "node_modules"
 
 after_success:
-  - sudo -E bash <(curl -s https://codecov.io/bash)
   - npm run report-coverage
