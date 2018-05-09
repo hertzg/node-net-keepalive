@@ -1,17 +1,16 @@
 [![NPM][npm_shield]][npm_url]
 [![Node][node_shield]][node_url]
 [![OS][os_shield]][npm_url]
-[![Gitter][gitter_shield]][gitter_url]
+[![Codecov][codecov_shield]][codecov_url]
 [![CI][travis_shield]][travis_url]
 [![Dependencies][daviddm_shield]][daviddm_url]
 [![License][license_shield]][license_url]
+
 
 [npm_url]: https://www.npmjs.com/package/net-keepalive
 [npm_shield]: https://img.shields.io/npm/v/net-keepalive.svg?style=flat
 [node_url]: https://dist.nodejs.org
 [node_shield]: https://img.shields.io/badge/node-%3E%3D0.10%20%3C%3D0.12%7C%7C%3E%3D4%20%3C%3D8-green.svg
-[gitter_url]: https://gitter.im/hertzg/node-net-keepalive
-[gitter_shield]: http://img.shields.io/badge/discuss-gitter-brightgreen.svg?style=flat
 [os_shield]: https://img.shields.io/badge/os-linux%2Cosx%2Cbsd-green.svg
 [travis_url]: https://travis-ci.org/hertzg/node-net-keepalive
 [travis_shield]: https://travis-ci.org/hertzg/node-net-keepalive.svg?branch=master
@@ -19,6 +18,8 @@
 [daviddm_shield]: https://david-dm.org/hertzg/node-net-keepalive.svg
 [license_url]: https://raw.githubusercontent.com/hertzg/node-net-keepalive/master/LICENSE
 [license_shield]: https://img.shields.io/badge/license-MIT-blue.svg
+[codecov_url]: https://codecov.io/gh/hertzg/node-net-keepalive
+[codecov_shield]: https://codecov.io/gh/hertzg/node-net-keepalive/branch/master/graph/badge.svg
 
 
 # net-keepalive
