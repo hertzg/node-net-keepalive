@@ -35,7 +35,7 @@ script:
   - node --version
   - npm --version
   # Run tests
-  - npm test
+  - sudo -E npm test
   - npm run test-coverage
       
 cache:
