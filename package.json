@@ -16,7 +16,7 @@
     "freebsd",
     "darwin",
     "linux",
-    "!win32"
+    "win32"
   ],
   "engines": {
     "node": ">=0.10 <=0.12||>=4 <=8"
