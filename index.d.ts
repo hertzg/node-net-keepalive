@@ -5,8 +5,9 @@
 
 /// <reference types="node" />
 
+import * as net from "net";
 
-export type NodeJSSocketWithFileDescriptor = NodeJS.Socket | { _handle: { _fd: number } }
+export type NodeJSSocketWithFileDescriptor = net.Socket | { _handle: { _fd: number } }
 
 export function setKeepAliveInterval(socket: NodeJSSocketWithFileDescriptor, intvl: number): number
 
