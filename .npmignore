@@ -1,5 +1,7 @@
 test/
+scripts/
 .travis.yml
+.appveyor.yml
 *.tgz
 *.tar.gz
 *.tar
