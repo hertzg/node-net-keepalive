@@ -12,7 +12,7 @@
 
   Lib = require('../lib');
 
-  describe('setKeepAliveInterval', function () {
+  describe('keep-alive interval', function () {
     it('should be a function', function () {
       return Lib.setKeepAliveInterval.should.be.type('function');
     });

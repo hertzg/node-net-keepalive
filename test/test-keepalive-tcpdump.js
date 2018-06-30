@@ -1,11 +1,13 @@
-var Assert = require('assert')
+"use strict"
+
+const Assert = require('assert')
   , OS = require('os')
   , Net = require('net')
   , Lib = require('../lib')
   , ChildProcess = require('child_process')
 ;
 
-describe('net-keepalive', function () {
+describe('tcp-dump', function () {
   (process.getuid && process.getuid() === 0 ? it : it.skip)('should send keepalive packets on the wire', function (done) {
     this.timeout(10000)
 

@@ -12,7 +12,7 @@
 
   Lib = require('../lib');
 
-  describe('setKeepAliveProbes', function () {
+  describe('keep-alive probes', function () {
     it('should be a function', function () {
       return Lib.setKeepAliveProbes.should.be.type('function');
     });
