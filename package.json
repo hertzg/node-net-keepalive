@@ -15,11 +15,10 @@
   "os": [
     "freebsd",
     "darwin",
-    "linux",
-    "win32"
+    "linux"
   ],
   "engines": {
-    "node": ">=0.10 <=0.12||>=4 <=8"
+    "node": ">=4"
   },
   "keywords": [
     "ffi",
@@ -41,8 +40,8 @@
   },
   "homepage": "https://github.com/hertzg/node-net-keepalive",
   "dependencies": {
-    "ffi": "^2.2.0",
-    "ref": "^1.3.5"
+    "ffi-napi": "^2.4.3",
+    "ref-napi": "^1.4.0"
   },
   "devDependencies": {
     "@types/node": "^10.0.6",
