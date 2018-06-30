@@ -15,11 +15,10 @@
   "os": [
     "freebsd",
     "darwin",
-    "linux",
-    "win32"
+    "linux"
   ],
   "engines": {
-    "node": ">=0.10 <=0.12||>=4 <=8"
+    "node": ">=4"
   },
   "keywords": [
     "ffi",
