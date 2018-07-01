@@ -1,11 +1,13 @@
-var Mockery = require('mockery')
+"use strict"
+
+const Mockery = require('mockery')
   , Should = require('should')
   , Sinon = require('sinon')
 
-describe('constants', function(){
+describe('constants', () => {
 
-    var sandbox
-    beforeEach(function(){
+  let sandbox
+  beforeEach(() => {
         Mockery.enable({
             warnOnReplace: true,
             warnOnUnregistered: true,
@@ -14,8 +16,8 @@ describe('constants', function(){
         Mockery.registerAllowable('../lib/constants')
         sandbox = Sinon.createSandbox()
     })
-    
-    afterEach(function(){
+
+  afterEach(() => {
         sandbox.restore()
         Mockery.deregisterAllowable('../lib/constants')
         Mockery.deregisterAll()
@@ -23,13 +25,13 @@ describe('constants', function(){
     })
     
     function mockPlatform(platform) {
-        var mock = sandbox.mock()
+      const mock = sandbox.mock()
         Mockery.registerMock('os', {
             platform: mock.returns(platform)
         })
     }
 
-    it('should define darwin specific constants', function(){
+  it('should define darwin specific constants', () => {
         mockPlatform('darwin')
 
         require('../lib/constants')
@@ -39,8 +41,8 @@ describe('constants', function(){
               TCP_KEEPCNT: 0x102
             })
     })
-    
-    it('should define freebsd specific constants', function(){
+
+  it('should define freebsd specific constants', () => {
         mockPlatform('freebsd')
 
         require('../lib/constants')
@@ -50,8 +52,8 @@ describe('constants', function(){
               TCP_KEEPCNT: 1024
             })
     })
-    
-    it('should define linux specific constants', function(){
+
+  it('should define linux specific constants', () => {
         mockPlatform('linux')
 
         require('../lib/constants')
@@ -61,8 +63,8 @@ describe('constants', function(){
               TCP_KEEPCNT: 6
             })
     })
-    
-    it('should use linux specific constants for other platforms', function(){
+
+  it('should use linux specific constants for other platforms', () => {
         mockPlatform('unknown')
 
         require('../lib/constants')
