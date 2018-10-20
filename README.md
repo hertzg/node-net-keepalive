@@ -4,9 +4,11 @@
 [![Codecov][codecov_shield]][codecov_url]
 [![CI][travis_shield]][travis_url]
 [![Dependencies][daviddm_shield]][daviddm_url]
+[![Code Quality][codacy_shield]][codacy_url]
 [![License][license_shield]][license_url]
 
-
+[codacy_url]: https://www.codacy.com/app/hertzg/node-net-keepalive
+[codacy_shield]: https://api.codacy.com/project/badge/Grade/d191b6408086432586e6c60577485c6f
 [npm_url]: https://www.npmjs.com/package/net-keepalive
 [npm_shield]: https://img.shields.io/npm/v/net-keepalive.svg?style=flat
 [node_url]: https://dist.nodejs.org
