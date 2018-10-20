@@ -23,6 +23,7 @@
 
 
 # net-keepalive
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5f4801e9be5047dea302f2e5b9de4b35)](https://app.codacy.com/app/hertzg/node-net-keepalive?utm_source=github.com&utm_medium=referral&utm_content=hertzg/node-net-keepalive&utm_campaign=Badge_Grade_Settings)
 [![NPM](https://nodei.co/npm/net-keepalive.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/net-keepalive/)
 
 The Missing (`TCP_KEEPINTVL` and `TCP_KEEPCNT`) `SO_KEEPALIVE` socket option setters and getters for Node using [`ffi-napi`](https://www.npmjs.com/package/ffi-napi) module. Tested on `linux`, should work on `osx` and `freebsd`.
