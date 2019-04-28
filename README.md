@@ -26,6 +26,7 @@
 
 # net-keepalive
 [![NPM](https://nodei.co/npm/net-keepalive.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/net-keepalive/)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhertzg%2Fnode-net-keepalive.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhertzg%2Fnode-net-keepalive?ref=badge_shield)
 
 The Missing (`TCP_KEEPINTVL` and `TCP_KEEPCNT`) `SO_KEEPALIVE` socket option setters and getters for Node using [`ffi-napi`](https://www.npmjs.com/package/ffi-napi) module. Tested on `linux`, should work on `osx` and `freebsd`.
 
@@ -150,3 +151,7 @@ Sets `TCP_KEEPCNT` to `count` number of probes for the `socket` based on its fil
 Gets `TCP_KEEPCNT`. The `count` number of probes set for the `socket` based on its file descriptor (`fd`)
 
     TCP_KEEPCNT (since Linux 2.4) - The maximum number of keepalive probes TCP should send before dropping the connection. This option should not be used in code intended to be portable.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhertzg%2Fnode-net-keepalive.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhertzg%2Fnode-net-keepalive?ref=badge_large)
