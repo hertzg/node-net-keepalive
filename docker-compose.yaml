@@ -1,0 +1,12 @@
+version: '3'
+services:
+  alpine:
+    build: .
+    image: node-net-keepalive:alpine-dev
+    volumes:
+      - dot_npm:/root/.npm:rw
+      - ./:/app:rw
+      - node_modules:/app/node_modules
+volumes:
+  dot_npm:
+  node_modules:
