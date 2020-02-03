@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -ex
+
 echo "Setting up NVM"
 rm -rf ~/.nvm
 git clone https://github.com/creationix/nvm.git ~/.nvm

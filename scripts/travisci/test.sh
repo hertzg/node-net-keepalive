@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
+
+set -ex
+
 node --version
 npm --version
 
-echo "npm test"
 npm test
 
-echo "npm run test-coverage"
 npm run test-coverage
