@@ -19,7 +19,7 @@ addons:
       - g++-4.8
 env:
   matrix:
-    - TRAVIS_NODE_VERSION="latest"
+    - TRAVIS_NODE_VERSION="node"
     - TRAVIS_NODE_VERSION="lts/*"
     - TRAVIS_NODE_VERSION="lts/argon"
     - TRAVIS_NODE_VERSION="lts/boron"
