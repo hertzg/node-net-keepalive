@@ -1,0 +1,10 @@
+{
+  "source": {
+    "exclude": ["node_modules"]
+  },
+  "recurseDepth": 10,
+  "plugins": ["plugins/markdown", "plugins/summarize"],
+  "opts": {
+    "template": "node_modules/minami"
+  }
+}

@@ -24,10 +24,12 @@
 [codecov_shield]: https://codecov.io/gh/hertzg/node-net-keepalive/branch/master/graph/badge.svg
 
 
-# net-keepalive
+# 🔗 net-keepalive
 [![NPM](https://nodei.co/npm/net-keepalive.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/net-keepalive/)
 
-The Missing (`TCP_KEEPINTVL` and `TCP_KEEPCNT`) `SO_KEEPALIVE` socket option setters and getters for Node using [`ffi-napi`](https://www.npmjs.com/package/ffi-napi) module. Tested on `linux`, should work on `osx` and `freebsd`.
+The Missing (`TCP_KEEPINTVL` and `TCP_KEEPCNT`) `SO_KEEPALIVE` socket option setters and getters for Node using [`ffi-napi`](https://www.npmjs.com/package/ffi-napi) module.
+
+Tested on 🐧 `linux` & 🍏 `osx`, should work on 😈 `freebsd`. Does not work on 🐄 `win32` (pull requests welcome).
 
 ## Install
 

@@ -15,6 +15,14 @@ addons:
       - g++-4.8
 env:
   matrix:
+    - TRAVIS_NODE_VERSION="latest"
+    - TRAVIS_NODE_VERSION="lts/*"
+    - TRAVIS_NODE_VERSION="lts/argon"
+    - TRAVIS_NODE_VERSION="lts/boron"
+    - TRAVIS_NODE_VERSION="lts/carbon"
+    - TRAVIS_NODE_VERSION="lts/dubnium"
+    - TRAVIS_NODE_VERSION="lts/erbium"
+    - TRAVIS_NODE_VERSION="13"
     - TRAVIS_NODE_VERSION="12"
     - TRAVIS_NODE_VERSION="11"
     - TRAVIS_NODE_VERSION="10"
@@ -36,7 +44,7 @@ script:
 
 cache:
   directories:
-    - "node_modules"
+    - 'node_modules'
 
 after_success:
   - npm run report-coverage

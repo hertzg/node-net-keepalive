@@ -4,6 +4,7 @@
   "description": "Provides high-level access to socket options like TCP_KEEPIDLE, TCP_KEEPINTVL, TCP_KEEPCNT",
   "main": "index.js",
   "scripts": {
+    "docs": "jsdoc --debug --verbose -r  . -d docs -c .jsdoc.json README.md",
     "test": "mocha",
     "test-coverage": "nyc mocha",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
@@ -50,6 +51,9 @@
     "mockery": "^2.1.0",
     "nyc": "^11.7.1",
     "should": ">=7.0.0",
-    "sinon": "^5.0.7"
+    "sinon": "^5.0.7",
+    "jsdoc": "^3.6.3",
+    "minami": "^1.2.3",
+    "prettier": "^1.19.1"
   }
 }

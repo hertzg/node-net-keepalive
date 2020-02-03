@@ -1,4 +1,5 @@
 .idea
+docs/
 build/Release
 .lock-wscript
 .grunt
@@ -18,3 +19,6 @@ appveyor.yml
 *.tar.gz
 *.tar
 .editorconfig
+.prettierrc
+.jsdoc.json
+.github/
