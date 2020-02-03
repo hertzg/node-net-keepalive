@@ -46,14 +46,14 @@
   },
   "devDependencies": {
     "@types/node": "^13.7.0",
-    "codecov": "^3.6.4",
+    "codecov": "^3.0.2",
+    "mocha": ">=2.0.0",
+    "mockery": "^2.1.0",
+    "nyc": "^11.7.1",
+    "should": ">=7.0.0",
+    "sinon": "^5.0.7",
     "jsdoc": "^3.6.3",
     "minami": "^1.2.3",
-    "mocha": "^7.0.1",
-    "mockery": "^2.1.0",
-    "nyc": "^15.0.0",
-    "prettier": "^1.19.1",
-    "should": "^13.2.3",
-    "sinon": "^8.1.1"
+    "prettier": "^1.19.1"
   }
 }
