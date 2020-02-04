@@ -25,7 +25,7 @@ install:
   - . ./scripts/travisci/install.sh
 
 script:
-  - sudo ./scripts/travisci/test.sh
+  - . ./scripts/travisci/test.sh
 
 cache:
   directories:
