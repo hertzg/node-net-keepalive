@@ -6,7 +6,10 @@ arch:
   - amd64
   - arm64
 
-sudo: false
+addons:
+  apt:
+    packages:
+      - tcpdump
 
 language: node_js
 
@@ -22,7 +25,7 @@ install:
   - . ./scripts/travisci/install.sh
 
 script:
-  - . ./scripts/travisci/test.sh
+  - sudo ./scripts/travisci/test.sh
 
 cache:
   directories:
