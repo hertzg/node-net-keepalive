@@ -11,12 +11,12 @@ sudo: false
 language: node_js
 
 node_js:
-  - node
-  - lts/*
-  - lts/dubnium
-  - lts/carbon
-  - lts/boron
   - lts/argon
+  - lts/boron
+  - lts/carbon
+  - lts/dubnium
+  - lts/*
+  - node
 
 install:
   - . ./scripts/travisci/install.sh
