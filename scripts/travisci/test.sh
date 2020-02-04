@@ -5,6 +5,6 @@ set -ex
 node --version
 npm --version
 
-sudo npm test
+sudo $(which npm) test
 
 npm run test-coverage
