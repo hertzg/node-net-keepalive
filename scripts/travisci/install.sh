@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -ex
 
-node --version
+NODE_VERSION=$(node --version)
+echo $NODE_VERSION
 npm --version
 
-
-if [[ $TRAVIS_NODE_VERSION == 4.* || $TRAVIS_NODE_VERSION == 6.* ]];
+if [[ $NODE_VERSION == 4.* || $NODE_VERSION == 6.* ]];
 then
   rm -rf node_modules/*
   npm i --package-lock-only --no-audit

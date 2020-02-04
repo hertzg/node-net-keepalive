@@ -8,26 +8,15 @@ arch:
 
 sudo: false
 
-language: cpp
+language: node_js
 
-addons:
-  apt:
-    update: true
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
-env:
-  matrix:
-    - TRAVIS_NODE_VERSION="node"
-    - TRAVIS_NODE_VERSION="lts/*"
-    - TRAVIS_NODE_VERSION="lts/dubnium"
-    - TRAVIS_NODE_VERSION="lts/carbon"
-    - TRAVIS_NODE_VERSION="lts/boron"
-    - TRAVIS_NODE_VERSION="lts/argon"
-
-#before_install:
-#  - . ./scripts/travisci/prepare.sh
+node_js:
+  - node
+  - lts/*
+  - lts/dubnium
+  - lts/carbon
+  - lts/boron
+  - lts/argon
 
 install:
   - . ./scripts/travisci/install.sh
