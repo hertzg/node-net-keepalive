@@ -2,6 +2,7 @@
 set -ex
 
 NODE_VERSION=$(node --version)
+NODE_VERSION=${NODE_VERSION:1}
 echo $NODE_VERSION
 npm --version
 
