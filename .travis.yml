@@ -21,14 +21,13 @@ env:
   matrix:
     - TRAVIS_NODE_VERSION="node"
     - TRAVIS_NODE_VERSION="lts/*"
-    - TRAVIS_NODE_VERSION="lts/argon"
-    - TRAVIS_NODE_VERSION="lts/boron"
-    - TRAVIS_NODE_VERSION="lts/carbon"
     - TRAVIS_NODE_VERSION="lts/dubnium"
-    - TRAVIS_NODE_VERSION="lts/erbium"
+    - TRAVIS_NODE_VERSION="lts/carbon"
+    - TRAVIS_NODE_VERSION="lts/boron"
+    - TRAVIS_NODE_VERSION="lts/argon"
 
-before_install:
-  - . ./scripts/travisci/prepare.sh
+#before_install:
+#  - . ./scripts/travisci/prepare.sh
 
 install:
   - . ./scripts/travisci/install.sh

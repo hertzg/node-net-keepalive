@@ -1,12 +1,75 @@
-version: '3'
+x-service_defaults_volumes_npmCache: &service_defaults_volumes_npmCache dot_npm:/root/.npm:rw
+x-service_defaults_volumes_app: &service_defaults_volumes_app ./:/app:rw
+x-service_defaults: &service_defaults
+  image: node:alpine
+  working_dir: /app
+  links:
+    - verdaccio
+  depends_on:
+    - verdaccio
+  entrypoint:
+    - /app/scripts/docker/entrypoint.sh
+  volumes:
+    - *service_defaults_volumes_app
+
+version: '3.5'
 services:
-  alpine:
-    build: .
-    image: node-net-keepalive:alpine-dev
+  verdaccio:
+    image: verdaccio/verdaccio:4
+    ports:
+      - 4873:4873
     volumes:
-      - dot_npm:/root/.npm:rw
-      - ./:/app:rw
-      - node_modules:/app/node_modules
+      - verdaccio_storage:/verdaccio/storage:rw
+      - verdaccio_conf:/verdaccio/conf:rw
+
+  node-latest:
+    <<: *service_defaults
+    image: node:alpine
+    volumes:
+      - *service_defaults_volumes_app
+      - latest_node_modules:/app/node_modules/:rw
+
+  node-lts-current:
+    <<: *service_defaults
+    image: node:current-alpine
+    volumes:
+      - *service_defaults_volumes_app
+      - current_node_modules:/app/node_modules/:rw
+
+  node-lts-dubnium:
+    <<: *service_defaults
+    image: node:dubnium-alpine
+    volumes:
+      - *service_defaults_volumes_app
+      - dubnium_node_modules:/app/node_modules/:rw
+
+  node-lts-carbon:
+    <<: *service_defaults
+    image: node:carbon-alpine
+    volumes:
+      - *service_defaults_volumes_app
+      - carbon_node_modules:/app/node_modules/:rw
+
+  node-lts-boron:
+    <<: *service_defaults
+    image: node:boron-alpine
+    volumes:
+      - *service_defaults_volumes_app
+      - boron_node_modules:/app/node_modules/:rw
+
+  node-lts-argon:
+    <<: *service_defaults
+    image: node:argon-alpine
+    volumes:
+      - *service_defaults_volumes_app
+      - argon_node_modules:/app/node_modules:rw
+
 volumes:
-  dot_npm:
-  node_modules:
+  verdaccio_storage:
+  verdaccio_conf:
+  latest_node_modules:
+  current_node_modules:
+  dubnium_node_modules:
+  carbon_node_modules:
+  boron_node_modules:
+  argon_node_modules:
