@@ -17,4 +17,4 @@ else
   npm ci --package-lock-only --no-audit
 fi;
 
-npm test
+npm test -- --reporter tap
