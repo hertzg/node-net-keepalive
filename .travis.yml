@@ -15,15 +15,11 @@ addons:
       - g++-4.8
 env:
   matrix:
-    - TRAVIS_NODE_VERSION="12"
+    - TRAVIS_NODE_VERSION="14" # EOL 2023-04-30
+    - TRAVIS_NODE_VERSION="13" # EOL 2020-06-01
+    - TRAVIS_NODE_VERSION="12" # EOL 2022-04-30
     - TRAVIS_NODE_VERSION="11"
-    - TRAVIS_NODE_VERSION="10"
-    - TRAVIS_NODE_VERSION="9"
-    - TRAVIS_NODE_VERSION="8"
-    - TRAVIS_NODE_VERSION="7"
-    - TRAVIS_NODE_VERSION="6"
-    - TRAVIS_NODE_VERSION="5"
-    - TRAVIS_NODE_VERSION="4"
+    - TRAVIS_NODE_VERSION="10" # EOL 2021-04-30
 
 before_install:
   - . ./scripts/travisci/prepare.sh
