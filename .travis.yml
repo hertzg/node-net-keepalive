@@ -1,5 +1,7 @@
 language: node_js
 
+sudo: required
+
 addons:
   homebrew:
     packages:
@@ -19,9 +21,5 @@ cache:
   directories:
     - "node_modules"
 
-script:
-  - sudo -E env
-  - sudo -E npm test
-
 after_success:
-  - sudo -E npm run report-coverage
+  - npm run report-coverage
