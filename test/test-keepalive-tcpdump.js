@@ -8,7 +8,7 @@ const Assert = require('assert')
 ;
 
 describe('tcp-dump', function () {
-  (process.getuid && process.getuid() === 0 ? it : it.skip)('should send keepalive packets on the wire', function (done) {
+  it('should send keepalive packets on the wire', function (done) {
     this.timeout(10000)
 
     var ifaces = OS.networkInterfaces()
@@ -48,7 +48,7 @@ describe('tcp-dump', function () {
         Lib.setKeepAliveProbes(s, 10);
 
         var tcpdump = ChildProcess.spawn(
-          '/usr/sbin/tcpdump', ['-c', '10', '-i', tcpDumpIface, tcpdumpFilter],
+          'sudo', ['tcpdump', '-c', '10', '-i', tcpDumpIface, tcpdumpFilter],
           {stdio: 'inherit'}
           )
         ;

@@ -1,38 +1,21 @@
+language: node_js
+
+dist: xenial
+
+addons:
+  homebrew:
+    packages:
+      - tcpdump
+  apt:
+    packages:
+      - tcpdump
 os:
   - linux
   - osx
 
-sudo: false
-
-language: cpp
-
-addons:
-  apt:
-    update: true
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
-env:
-  matrix:
-    - TRAVIS_NODE_VERSION="14" # EOL 2023-04-30
-    - TRAVIS_NODE_VERSION="13" # EOL 2020-06-01
-    - TRAVIS_NODE_VERSION="12" # EOL 2022-04-30
-    - TRAVIS_NODE_VERSION="11"
-    - TRAVIS_NODE_VERSION="10" # EOL 2021-04-30
-
-before_install:
-  - . ./scripts/travisci/prepare.sh
-
-install:
-  - . ./scripts/travisci/install.sh
-
-script:
-  - . ./scripts/travisci/test.sh
-
-cache:
-  directories:
-    - "node_modules"
+node_js:
+  - node
+  - lts/*
 
 after_success:
-  - npm run report-coverage
+  - npm run coverage

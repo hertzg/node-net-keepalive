@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "test-coverage": "nyc mocha",
-    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "coverage": "npm run coverage:test && npm run coverage:report && npm run coverage:upload",
+    "coverage:test": "nyc npm run test",
+    "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov",
+    "coverage:upload": "curl -s https://codecov.io/bash | bash"
   },
   "repository": {
     "type": "git",
@@ -45,7 +47,6 @@
   },
   "devDependencies": {
     "@types/node": "^14.0.4",
-    "codecov": "^3.0.2",
     "mocha": "^7.1.2",
     "mockery": "^2.1.0",
     "nyc": "^15.0.1",
