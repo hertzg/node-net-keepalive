@@ -2,7 +2,7 @@ title: Node-net-keepalive
 description: Provides high-level access to socket options like TCP_KEEPIDLE, TCP_KEEPINTVL, TCP_KEEPCNT
 google_analytics: 
 show_downloads: true
-theme: jekyll-theme-modernist
+theme: jekyll-theme-tactile
 
 gems:
   - jekyll-mentions
