@@ -20,7 +20,7 @@ cache:
     - "node_modules"
 
 script:
-  - sudo npm test
+  - sudo `which npm` test
 
 after_success:
-  - npm run report-coverage
+  - sudo `which npm` run report-coverage
