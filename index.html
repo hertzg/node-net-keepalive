@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Home - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-net-keepalive.html">net-keepalive</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-net-keepalive.html#.getKeepAliveInterval">getKeepAliveInterval</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-net-keepalive.html#.getKeepAliveProbes">getKeepAliveProbes</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-net-keepalive.html#.setKeepAliveInterval">setKeepAliveInterval</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-net-keepalive.html#.setKeepAliveProbes">setKeepAliveProbes</a></span></li>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+    <section class="readme">
+        <article><p><a href="https://www.npmjs.com/package/net-keepalive"><img src="https://img.shields.io/npm/v/net-keepalive.svg?style=flat" alt="NPM"></a>
+<a href="https://dist.nodejs.org"><img src="https://img.shields.io/badge/node-%3E%3D4-green.svg" alt="Node"></a>
+<a href="https://www.npmjs.com/package/net-keepalive"><img src="https://img.shields.io/badge/os-linux%2Cosx%2Cbsd-green.svg" alt="OS"></a>
+<a href="https://codecov.io/gh/hertzg/node-net-keepalive"><img src="https://codecov.io/gh/hertzg/node-net-keepalive/branch/master/graph/badge.svg" alt="Codecov"></a>
+<a href="https://travis-ci.org/hertzg/node-net-keepalive"><img src="https://travis-ci.org/hertzg/node-net-keepalive.svg?branch=master" alt="CI"></a>
+<a href="https://david-dm.org/hertzg/node-net-keepalive"><img src="https://david-dm.org/hertzg/node-net-keepalive.svg" alt="Dependencies"></a>
+<a href="https://www.codacy.com/app/hertzg/node-net-keepalive"><img src="https://api.codacy.com/project/badge/Grade/d191b6408086432586e6c60577485c6f" alt="Code Quality"></a>
+<a href="https://raw.githubusercontent.com/hertzg/node-net-keepalive/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a></p>
+<h1>🔗 net-keepalive</h1>
+<p><a href="https://nodei.co/npm/net-keepalive/"><img src="https://nodei.co/npm/net-keepalive.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt="NPM"></a></p>
+<p>The Missing (<code>TCP_KEEPINTVL</code> and <code>TCP_KEEPCNT</code>) <code>SO_KEEPALIVE</code> socket option setters and getters for Node using <a href="https://www.npmjs.com/package/ffi-napi"><code>ffi-napi</code></a> module.</p>
+<p>Tested on 🐧 <code>linux</code> &amp; 🍏 <code>osx</code> (both <code>amd64</code> and <code>arm64</code>), should work on 😈 <code>freebsd</code> and others. Does not work on 🐄 <code>win32</code> (pull requests welcome).</p>
+<h2>Install</h2>
+<pre class="prettyprint source lang-bash"><code>$ npm install --save net-keepalive
+</code></pre>
+<h2>Demo</h2>
+<pre class="prettyprint source lang-Javascript"><code>var Net = require('net')
+  , NetKeepAlive = require('net-keepalive')
+;
+
+// Create a TCP Server
+var srv = Net.createServer(function(s){
+  console.log('Connected %j', s.address())
+  // Doesn't matter what it does
+  s.pipe(s)
+});
+
+// Start on some port
+srv.listen(1337, function(){
+  console.log('Listening on %j', srv.address())
+});
+
+// Connect to that server
+var s = Net.createConnection({port:1337}, function(){
+  console.log('Connected to %j', s.address())
+  
+  //IMPORTANT: KeepAlive must be enabled for this to work
+  s.setKeepAlive(true, 1000)
+
+  // Set TCP_KEEPINTVL for this specific socket
+  NetKeepAlive.setKeepAliveInterval(s, 1000)
+  
+  // Get TCP_KEEPINTVL for this specific socket
+  NetKeepAlive.getKeepAliveInterval(s) // 1000
+
+  // Set TCP_KEEPCNT for this specific socket 
+  NetKeepAlive.setKeepAliveProbes(s, 1)
+  
+  // Get TCP_KEEPCNT for this specific socket 
+  NetKeepAlive.getKeepAliveProbes(s) // 1
+});
+</code></pre>
+<p>Now using <code>iptables</code> add rule to drop all <code>tcp</code> packets on <code>INPUT</code> chain to port <code>1337</code>.</p>
+<pre class="prettyprint source lang-bash"><code>$ iptables -I INPUT -m tcp -p tcp --dport 1337 -j DROP
+</code></pre>
+<p>If you were monitoring packets on <code>loopback</code> with <code>tcp.srcport == 1337 || tcp.dstport == 1337</code> filter in <code>wireshark</code>.  You will see the following output:</p>
+<p><a href="http://hertzg.github.io/node-net-keepalive/images/wireshark.jpg"><img src="http://hertzg.github.io/node-net-keepalive/images/wireshark.jpg" alt="Wireshark screenshot KEEPALIVE"></a></p>
+<p>Have fun!</p>
+<p>More info about <code>SO_KEEPALIVE</code> here: <a href="http://tldp.org/HOWTO/TCP-Keepalive-HOWTO/">TCP Keepalive HOWTO</a>
+<code>C</code> Code examples here: <a href="http://tldp.org/HOWTO/TCP-Keepalive-HOWTO/programming.html#examples">Examples</a></p>
+<h2>API</h2>
+<p><em><strong>Note: For these methods to work you must enable <code>SO_KEEPALIVE</code> and set the <code>TCP_KEEPIDLE</code> options for socket using <code>Net.Socket</code>-s built in method <a href="https://nodejs.org/api/net.html#net_socket_setkeepalive_enable_initialdelay"><code>socket.setKeepAlive([enable][, initialDelay])</code></a> !</strong></em></p>
+<pre><code>TCP_KEEPIDLE (since Linux 2.4) The time (in seconds) the connection needs to remain idle before TCP starts sending keepalive probes, if the socket option SO_KEEPALIVE has been set on this socket. This option should not be used in code intended to be portable.
+</code></pre>
+<pre class="prettyprint source lang-JavaScript"><code>var NetSocket = require('net-keepalive')
+
+// .....
+// get socket somehow
+// .....
+
+var enable = true                                           // enable SO_KEEPALIVE
+var initialDuration = 1000                                  // start probing after 1 second of inactivity
+socket.setKeepAlive(enable, initialDuration)                // sets SO_KEEPALIVE and TCP_KEEPIDLE
+
+var probeInterval = 1000                                    // after initialDuration send probes every 1 second
+NetSocket.setKeepAliveInterval(socket, probeInterval)       //sets TCP_KEEPINTVL
+
+var maxProbesBeforeFail = 10                                // after 10 failed probes connection will be dropped 
+NetSocket.setKeepAliveProbes(socket, maxProbesBeforeFail)   // sets TCP_KEEPCNT
+
+// ....
+// ....
+</code></pre>
+<h3>setKeepAliveInterval(socket, msecs)</h3>
+<ul>
+<li><code>socket</code> - <code>instanceof Net.Socket</code>- Socket to modify</li>
+<li><code>msecs</code> - <code>Number</code> - Time in milliseconds between KeepAlive probes.</li>
+<li>Returns <code>true</code> on success</li>
+</ul>
+<p>Sets <code>TCP_KEEPINTVL</code> to <code>msecs</code> miliseconds (converted to seconds <code>int</code> internally) for the <code>socket</code> based on its file descriptor (<code>fd</code>)</p>
+<pre><code>TCP_KEEPINTVL (since Linux 2.4) The time (in seconds) between individual keepalive probes. This option should not be used in code intended to be portable.
+</code></pre>
+<h3>getKeepAliveInterval(socket)</h3>
+<ul>
+<li><code>socket</code> - <code>instanceof Net.Socket</code>- Socket to modify</li>
+<li>Returns <code>msecs</code> - <code>Number</code> - Time in milliseconds between KeepAlive probes on success</li>
+</ul>
+<p>Gets <code>TCP_KEEPINTVL</code>. The <code>msecs</code> miliseconds (converted from seconds <code>int</code> internally) set for the <code>socket</code> based on its file descriptor (<code>fd</code>)</p>
+<pre><code>TCP_KEEPINTVL (since Linux 2.4) The time (in seconds) between individual keepalive probes. This option should not be used in code intended to be portable.
+</code></pre>
+<h3>setKeepAliveProbes(socket, count)</h3>
+<ul>
+<li><code>socket</code> - <code>instanceof Net.Socket</code>- Socket to modify</li>
+<li><code>count</code> - <code>Number</code> - Number of probes to send before dropping the connection</li>
+<li>Returns <code>true</code> on success</li>
+</ul>
+<p>Sets <code>TCP_KEEPCNT</code> to <code>count</code> number of probes for the <code>socket</code> based on its file descriptor (<code>fd</code>)</p>
+<pre><code>TCP_KEEPCNT (since Linux 2.4) - The maximum number of keepalive probes TCP should send before dropping the connection. This option should not be used in code intended to be portable.
+</code></pre>
+<h3>getKeepAliveProbes(socket)</h3>
+<ul>
+<li><code>socket</code> - <code>instanceof Net.Socket</code>- Socket to modify</li>
+<li>Returns <code>count</code> - <code>Number</code> - Number of probes to send before dropping the connection on success.</li>
+</ul>
+<p>Gets <code>TCP_KEEPCNT</code>. The <code>count</code> number of probes set for the <code>socket</code> based on its file descriptor (<code>fd</code>)</p>
+<pre><code>TCP_KEEPCNT (since Linux 2.4) - The maximum number of keepalive probes TCP should send before dropping the connection. This option should not be used in code intended to be portable.
+</code></pre></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Fri May 22 2020 23:24:29 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
