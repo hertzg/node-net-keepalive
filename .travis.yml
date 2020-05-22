@@ -20,6 +20,7 @@ cache:
     - "node_modules"
 
 script:
+  - sudo -E env
   - sudo -E npm test
 
 after_success:
