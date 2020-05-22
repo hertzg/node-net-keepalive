@@ -37,6 +37,13 @@ Tested on 🐧 `linux` & 🍏 `osx` (both `amd64` and `arm64`), should work on �
 $ npm install --save net-keepalive
 ```
 
+## Documentation
+
+The project includes TypeScript definitions file (`index.d.ts`) which gives an overview of the API exposed.
+
+You can find the [full API Reference](https://hertzg.github.io/node-net-keepalive) published on our github pages.
+
+Documentation gets generated from JSDoc comments, feel free to improve them by sending pull requests.
 
 ## Demo
 ```Javascript
