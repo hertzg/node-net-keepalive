@@ -1,0 +1,15 @@
+logs
+*.log
+pids
+*.pid
+*.seed
+lib-cov
+coverage
+.nyc_output/
+*.lcov
+.grunt
+.lock-wscript
+build/Release
+node_modules
+.idea
+docs/

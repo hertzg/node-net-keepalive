@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
+    "docs": "jsdoc -c .jsdoc.json",
     "coverage": "npm run coverage:test && npm run coverage:report && npm run coverage:upload",
     "coverage:test": "nyc npm run test",
     "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov",
@@ -51,6 +52,9 @@
     "mockery": "^2.1.0",
     "nyc": "^15.0.1",
     "should": "^13.2.3",
-    "sinon": "^9.0.2"
+    "sinon": "^9.0.2",
+    "jsdoc": "^3.6.4",
+    "minami": "^1.2.3",
+    "prettier": "^2.0.5"
   }
 }

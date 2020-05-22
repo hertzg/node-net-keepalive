@@ -34,3 +34,5 @@ node_modules
 *.tgz
 *.tar.gz
 *.tar
+
+docs/

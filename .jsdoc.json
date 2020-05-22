@@ -1,0 +1,35 @@
+{
+  "source": {
+    "include": [
+      "./lib",
+      "./index.js"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+  },
+  "recurseDepth": 10,
+  "plugins": [
+    "plugins/markdown",
+    "plugins/summarize"
+  ],
+  "opts": {
+    "readme": "./README.md",
+    "destination": "./docs/",
+    "encoding": "utf8",
+    "recurse": true,
+    "template": "./node_modules/minami"
+  },
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": [
+      "jsdoc"
+    ]
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": true,
+    "useLongnameInNav": false,
+    "showInheritedInNav": true
+  }
+}
