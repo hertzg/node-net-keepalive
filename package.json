@@ -1,13 +1,14 @@
 {
   "name": "net-keepalive",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Provides high-level access to socket options like TCP_KEEPIDLE, TCP_KEEPINTVL, TCP_KEEPCNT",
   "main": "index.js",
   "scripts": {
-    "docs": "jsdoc --debug --verbose -r  . -d docs -c .jsdoc.json README.md",
     "test": "mocha",
-    "test-coverage": "nyc mocha",
-    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "coverage": "npm run coverage:test && npm run coverage:report && npm run coverage:upload",
+    "coverage:test": "nyc npm run test",
+    "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov",
+    "coverage:upload": "curl -s https://codecov.io/bash | bash"
   },
   "repository": {
     "type": "git",
@@ -41,19 +42,15 @@
   },
   "homepage": "https://github.com/hertzg/node-net-keepalive",
   "dependencies": {
-    "ffi-napi": "^2.4.3",
-    "ref-napi": "^1.4.0"
+    "ffi-napi": "^3.0.0",
+    "ref-napi": "^2.0.1"
   },
   "devDependencies": {
-    "@types/node": "^13.7.0",
-    "codecov": "^3.0.2",
-    "mocha": "^2.0.0",
+    "@types/node": "^14.0.4",
+    "mocha": "^7.1.2",
     "mockery": "^2.1.0",
-    "nyc": "^11.7.1",
-    "should": "^7.0.0",
-    "sinon": "^5.0.7",
-    "jsdoc": "^3.6.3",
-    "minami": "^1.2.3",
-    "prettier": "^1.19.1"
+    "nyc": "^15.0.1",
+    "should": "^13.2.3",
+    "sinon": "^9.0.2"
   }
 }

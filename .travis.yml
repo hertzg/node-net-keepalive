@@ -1,39 +1,21 @@
+language: node_js
+
+dist: xenial
+
+addons:
+  homebrew:
+    packages:
+      - tcpdump
+  apt:
+    packages:
+      - tcpdump
 os:
   - linux
   - osx
 
-arch:
-  - amd64
-  - arm64
-
-addons:
-  apt:
-    packages:
-      - tcpdump
-
-language: node_js
-
 node_js:
-  # TODO: Figure out how to make tests run on travis with older versions of note
-  # They do work in the docker env for all lts version of node (even earlier).
-  # Disabling due to some of the dependencies not supporting old version
-  #
-  # - lts/argon
-  # - lts/boron
-  - lts/carbon
-  - lts/dubnium
-  - lts/*
   - node
-
-install:
-  - . ./scripts/travisci/install.sh
-
-script:
-  - . ./scripts/travisci/test.sh
-
-cache:
-  directories:
-    - 'node_modules'
+  - lts/*
 
 after_success:
-  - npm run report-coverage
+  - npm run coverage
