@@ -14,9 +14,6 @@ os:
 node_js:
   - node
   - lts/*
-  - 13
-  - 11
-  - 10
 
 cache:
   directories:
