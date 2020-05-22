@@ -1,5 +1,12 @@
 language: node_js
 
+addons:
+  homebrew:
+    packages:
+      - tcpdump
+  apt:
+    packages:
+      - tcpdump
 os:
   - linux
   - osx
@@ -14,6 +21,9 @@ node_js:
 cache:
   directories:
     - "node_modules"
+
+script:
+  - sudo npm test
 
 after_success:
   - npm run report-coverage
