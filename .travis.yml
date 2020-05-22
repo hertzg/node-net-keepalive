@@ -17,9 +17,5 @@ node_js:
   - node
   - lts/*
 
-cache:
-  directories:
-    - "node_modules"
-
 after_success:
-  - npm run report-coverage
+  - npm run coverage
