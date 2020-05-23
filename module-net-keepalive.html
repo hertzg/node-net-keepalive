@@ -1,38 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>net-keepalive - Documentation</title>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>hertzg/node-net-keeplive net-keepalive</title>
 
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1091155-6"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-1091155-6');</script>
+  
 </head>
-<body>
 
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x">
-  <div class="navicon"></div>
-</label>
 
-<label for="nav-trigger" class="overlay"></label>
 
-<nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-net-keepalive.html">net-keepalive</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-net-keepalive.html#.getKeepAliveInterval">getKeepAliveInterval</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-net-keepalive.html#.getKeepAliveProbes">getKeepAliveProbes</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-net-keepalive.html#.setKeepAliveInterval">setKeepAliveInterval</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-net-keepalive.html#.setKeepAliveProbes">setKeepAliveProbes</a></span></li>
-</nav>
-
-<div id="main">
-    
-    <h1 class="page-title">net-keepalive</h1>
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
     
 
-    
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">net-keepalive Documentation</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                <div class="dropdown is-hoverable is-right">
+                    <a class="dropdown-trigger link">
+                        Tutorials
+                        <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                        
+                        </div>
+                    </div>
+                </div>
+                 
+                    
+                        <a
+                            class="link user-link "
+                            href="https://github.com/hertzg/node-net-keepalive"
+                        >
+                            Github
+                        </a>
+                    
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-net-keepalive.html">net-keepalive</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Module</p>
+                    <h1>net-keepalive</h1>
+                </header>
+                
 
 
 
@@ -59,7 +128,13 @@ socket using Net.Socket-s built in method socket.setKeepAlive([enable][, initial
 
         
             
-<div class="section-method">
+
+
+
+
+
+
+
 
 
 
@@ -102,18 +177,19 @@ socket using Net.Socket-s built in method socket.setKeepAlive([enable][, initial
     
 
     
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line1">line 1</a>
-    </li></ul></dd>
     
 
     
 
     
 
+    
+        <p class="tag-source">
+            <a href="index.js.html" class="button">View Source</a>
+            <span>
+                <a href="index.js.html">index.js</a>, <a href="index.js.html#line1">line 1</a>
+            </span>
+        </p>
     
 </dl>
 
@@ -137,25 +213,31 @@ socket using Net.Socket-s built in method socket.setKeepAlive([enable][, initial
 
 
 
-
-
-<div class="section-examples">
-<h5>Examples</h5>
-
+    <h5>Examples</h5>
+    
         <p class="code-caption">CommonJS</p>
     
-    <pre class="prettyprint"><code>require('net-keepalive')</code></pre>
+    
+        <pre class="prettyprint"><code>require('net-keepalive')</code></pre>
+    
 
         <p class="code-caption">ES Modules</p>
     
-    <pre class="prettyprint"><code>import * as NetKeepalive from 'net-keepalive'</code></pre>
+    
+        <pre class="prettyprint"><code>import * as NetKeepalive from 'net-keepalive'</code></pre>
+    
 
-</div>
 
-</div>
+
         
     
     </div>
+    
+    
+
+    
+
+    
 
     
 
@@ -163,31 +245,98 @@ socket using Net.Socket-s built in method socket.setKeepAlive([enable][, initial
 
     
 
-     
-
     
 
     
+        <div class='vertical-section'>
+            <h1>Methods</h1>
+            <div class="members">
+            
+                <div class="member">
+
 
     
-        <h3 class="subsection-title">Methods</h3>
-
+    <h4 class="name" id=".getKeepAliveInterval">
+        <a class="href-link" href="#.getKeepAliveInterval">#</a>
         
             
-<div class="section-method">
-
+                <span class='tag'>static</span>
+            
+        
+        <span class="code-name">
+            
+                getKeepAliveInterval<span class="signature">(socket)</span><span class="type-signature"> &rarr; {number}</span>
+            
+        </span>
+    </h4>
     
-
-    <h4 class="name" id=".getKeepAliveInterval"><span class="type-signature">(static) </span>getKeepAliveInterval<span class="signature">(socket)</span><span class="type-signature"> &rarr; {number}</span></h4>
 
     
     <p class="summary">Returns the TCP_KEEPINTVL value for specified socket.</p>
     
+    
+    <div class="description">
+        <p>Returns the TCP_KEEPINTVL value for specified socket.</p>
+    </div>
+    
 
 
 
-<div class="description">
-    <p>Returns the TCP_KEEPINTVL value for specified socket.</p>
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>socket</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">Net.Socket</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>to check the value for</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
 </div>
 
 
@@ -222,18 +371,19 @@ socket using Net.Socket-s built in method socket.setKeepAlive([enable][, initial
     
 
     
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line102">line 102</a>
-    </li></ul></dd>
     
 
     
 
     
 
+    
+        <p class="tag-source">
+            <a href="index.js.html" class="button">View Source</a>
+            <span>
+                <a href="index.js.html">index.js</a>, <a href="index.js.html#line102">line 102</a>
+            </span>
+        </p>
     
 </dl>
 
@@ -245,212 +395,191 @@ socket using Net.Socket-s built in method socket.setKeepAlive([enable][, initial
 
 
 
-    <h5>Parameters:</h5>
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Throws:</label></div>
+        <div class="column is-10">
+            
+                    
+<div class="columns">
     
+    <div class='param-desc column is-7'><p>getKeepAliveInterval requires one arguments</p></div>
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+<span class="param-type">AssertionError</span>
 
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
 
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
+    </div>
     
+</div>
 
-        <tr>
-            
-                <td class="name"><code>socket</code></td>
-            
-
-            <td class="type">
-            
                 
-<span class="param-type"><code>Net.Socket</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <p>to check the value for</p>
-                
-            </td>
-        </tr>
-
+                    
+<div class="columns">
     
-    </tbody>
-</table>
+    <div class='param-desc column is-7'><p>getKeepAliveInterval expects an instance of socket as its first argument</p></div>
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+<span class="param-type">AssertionError</span>
 
 
-
-
-
-
-
-
-
-
-
-
-<div class="section-throws">
-<h5>Throws:</h5>
-<ul>
-        <li>
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        <p>getKeepAliveInterval requires one arguments</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type"><code>AssertionError</code></span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
+    </div>
     
-        <li>
+</div>
 
-<dl>
-    <dt>
-        <div class="param-desc">
-        <p>getKeepAliveInterval expects an instance of socket as its first argument</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
                 
-<span class="param-type"><code>AssertionError</code></span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
+                    
+<div class="columns">
     
-        <li>
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        <p>Unexpected error</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type"><code>ErrnoException</code></span>
+    <div class='param-desc column is-7'><p>Unexpected error</p></div>
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+<span class="param-type">ErrnoException</span>
 |
 
-<span class="param-type"><code>Error</code></span>
+<span class="param-type">Error</span>
 
 
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
-    </ul>
-</div>
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>number</code></span>
-
-
-    </dd>
-</dl>
-
-
-<div class="param-desc">
-    <p>interval (ms) in-between probes</p>
-</div>
-
+    </div>
     
 </div>
 
+                
+        </div>
+    </div>
 
 
-<div class="section-examples">
-<h5>Example</h5>
 
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p>interval (ms) in-between probes</p></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<span class="param-type">number</span>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+    <h5>Example</h5>
+    
         <p class="code-caption">Get the current interval in-between probes for socket <code>s</code></p>
     
-    <pre class="prettyprint"><code>NetKeepAlive.getKeepAliveInterval(s) // returns 1000 based on setter example</code></pre>
-
-</div>
-
-</div>
-        
-            
-<div class="section-method">
-
+    
+        <pre class="prettyprint"><code>NetKeepAlive.getKeepAliveInterval(s) // returns 1000 based on setter example</code></pre>
     
 
-    <h4 class="name" id=".getKeepAliveProbes"><span class="type-signature">(static) </span>getKeepAliveProbes<span class="signature">(socket)</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id=".getKeepAliveProbes">
+        <a class="href-link" href="#.getKeepAliveProbes">#</a>
+        
+            
+                <span class='tag'>static</span>
+            
+        
+        <span class="code-name">
+            
+                getKeepAliveProbes<span class="signature">(socket)</span><span class="type-signature"> &rarr; {number}</span>
+            
+        </span>
+    </h4>
+    
 
     
     <p class="summary">Returns the TCP_KEEPCNT value for specified socket.</p>
     
+    
+    <div class="description">
+        <p>Returns the TCP_KEEPCNT value for specified socket.</p>
+    </div>
+    
 
 
 
-<div class="description">
-    <p>Returns the TCP_KEEPCNT value for specified socket.</p>
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>socket</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">Net.Socket</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>to check the value for</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
 </div>
 
 
@@ -485,18 +614,19 @@ socket using Net.Socket-s built in method socket.setKeepAlive([enable][, initial
     
 
     
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line191">line 191</a>
-    </li></ul></dd>
     
 
     
 
     
 
+    
+        <p class="tag-source">
+            <a href="index.js.html" class="button">View Source</a>
+            <span>
+                <a href="index.js.html">index.js</a>, <a href="index.js.html#line191">line 191</a>
+            </span>
+        </p>
     
 </dl>
 
@@ -508,213 +638,217 @@ socket using Net.Socket-s built in method socket.setKeepAlive([enable][, initial
 
 
 
-    <h5>Parameters:</h5>
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Throws:</label></div>
+        <div class="column is-10">
+            
+                    
+<div class="columns">
     
+    <div class='param-desc column is-7'><p>getKeepAliveProbes requires one arguments</p></div>
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+<span class="param-type">AssertionError</span>
 
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
 
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
+    </div>
     
+</div>
 
-        <tr>
-            
-                <td class="name"><code>socket</code></td>
-            
-
-            <td class="type">
-            
                 
-<span class="param-type"><code>Net.Socket</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <p>to check the value for</p>
-                
-            </td>
-        </tr>
-
+                    
+<div class="columns">
     
-    </tbody>
-</table>
+    <div class='param-desc column is-7'><p>getKeepAliveProbes expects an instance of socket as its first argument</p></div>
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+<span class="param-type">AssertionError</span>
 
 
-
-
-
-
-
-
-
-
-
-
-<div class="section-throws">
-<h5>Throws:</h5>
-<ul>
-        <li>
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        <p>getKeepAliveProbes requires one arguments</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type"><code>AssertionError</code></span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
+    </div>
     
-        <li>
+</div>
 
-<dl>
-    <dt>
-        <div class="param-desc">
-        <p>getKeepAliveProbes expects an instance of socket as its first argument</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
                 
-<span class="param-type"><code>AssertionError</code></span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
+                    
+<div class="columns">
     
-        <li>
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        <p>Unexpected error</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type"><code>ErrnoException</code></span>
+    <div class='param-desc column is-7'><p>Unexpected error</p></div>
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+<span class="param-type">ErrnoException</span>
 |
 
-<span class="param-type"><code>Error</code></span>
+<span class="param-type">Error</span>
 
 
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
-    </ul>
-</div>
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>number</code></span>
-
-
-    </dd>
-</dl>
-
-
-<div class="param-desc">
-    <p>number of probes to send</p>
-</div>
-
+    </div>
     
 </div>
 
+                
+        </div>
+    </div>
 
 
-<div class="section-examples">
-<h5>Example</h5>
 
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p>number of probes to send</p></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<span class="param-type">number</span>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+    <h5>Example</h5>
+    
         <p class="code-caption">Get the current number of probes to send for socket <code>s</code></p>
     
-    <pre class="prettyprint"><code>NetKeepAlive.getKeepAliveProbes(s) // returns 1 based on setter example</code></pre>
-
-</div>
-
-</div>
-        
-            
-<div class="section-method">
-
+    
+        <pre class="prettyprint"><code>NetKeepAlive.getKeepAliveProbes(s) // returns 1 based on setter example</code></pre>
     
 
-    <h4 class="name" id=".setKeepAliveInterval"><span class="type-signature">(static) </span>setKeepAliveInterval<span class="signature">(socket, msecs)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id=".setKeepAliveInterval">
+        <a class="href-link" href="#.setKeepAliveInterval">#</a>
+        
+            
+                <span class='tag'>static</span>
+            
+        
+        <span class="code-name">
+            
+                setKeepAliveInterval<span class="signature">(socket, msecs)</span><span class="type-signature"> &rarr; {boolean}</span>
+            
+        </span>
+    </h4>
+    
 
     
     <p class="summary">Sets the TCP_KEEPINTVL value for specified socket.</p>
     
-
-
-
-<div class="description">
-    <p>Sets the TCP_KEEPINTVL value for specified socket.</p>
+    
+    <div class="description">
+        <p>Sets the TCP_KEEPINTVL value for specified socket.</p>
 <p>Note: The msec will be rounded towards the closest integer</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>socket</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">Net.Socket</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>to set the value for</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>msecs</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">number</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>to wait in-between probes</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
 </div>
 
 
@@ -749,18 +883,19 @@ socket using Net.Socket-s built in method socket.setKeepAlive([enable][, initial
     
 
     
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line54">line 54</a>
-    </li></ul></dd>
     
 
     
 
     
 
+    
+        <p class="tag-source">
+            <a href="index.js.html" class="button">View Source</a>
+            <span>
+                <a href="index.js.html">index.js</a>, <a href="index.js.html#line54">line 54</a>
+            </span>
+        </p>
     
 </dl>
 
@@ -772,265 +907,230 @@ socket using Net.Socket-s built in method socket.setKeepAlive([enable][, initial
 
 
 
-    <h5>Parameters:</h5>
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Throws:</label></div>
+        <div class="column is-10">
+            
+                    
+<div class="columns">
     
+    <div class='param-desc column is-7'><p>setKeepAliveInterval requires two arguments</p></div>
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+<span class="param-type">AssertionError</span>
 
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
 
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
+    </div>
     
+</div>
 
-        <tr>
-            
-                <td class="name"><code>socket</code></td>
-            
-
-            <td class="type">
-            
                 
-<span class="param-type"><code>Net.Socket</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <p>to set the value for</p>
-                
-            </td>
-        </tr>
-
+                    
+<div class="columns">
     
-
-        <tr>
-            
-                <td class="name"><code>msecs</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>number</code></span>
+    <div class='param-desc column is-7'><p>setKeepAliveInterval expects an instance of socket as its first argument</p></div>
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+<span class="param-type">AssertionError</span>
 
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <p>to wait in-between probes</p>
-                
-            </td>
-        </tr>
-
+    </div>
     
-    </tbody>
-</table>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-<div class="section-throws">
-<h5>Throws:</h5>
-<ul>
-        <li>
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        <p>setKeepAliveInterval requires two arguments</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
                 
-<span class="param-type"><code>AssertionError</code></span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
+                    
+<div class="columns">
     
-        <li>
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        <p>setKeepAliveInterval expects an instance of socket as its first argument</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type"><code>AssertionError</code></span>
+    <div class='param-desc column is-7'><p>setKeepAliveInterval requires msec to be a Number</p></div>
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+<span class="param-type">AssertionError</span>
 
 
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
+    </div>
     
-        <li>
+</div>
 
-<dl>
-    <dt>
-        <div class="param-desc">
-        <p>setKeepAliveInterval requires msec to be a Number</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
                 
-<span class="param-type"><code>AssertionError</code></span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
+                    
+<div class="columns">
     
-        <li>
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        <p>Unexpected error</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type"><code>ErrnoException</code></span>
+    <div class='param-desc column is-7'><p>Unexpected error</p></div>
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+<span class="param-type">ErrnoException</span>
 |
 
-<span class="param-type"><code>Error</code></span>
+<span class="param-type">Error</span>
 
 
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
-    </ul>
-</div>
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>boolean</code></span>
-
-
-    </dd>
-</dl>
-
-
-<div class="param-desc">
-    <p><code>true</code> on success</p>
-</div>
-
+    </div>
     
 </div>
 
+                
+        </div>
+    </div>
 
 
-<div class="section-examples">
-<h5>Example</h5>
 
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p><code>true</code> on success</p></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<span class="param-type">boolean</span>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+    <h5>Example</h5>
+    
         <p class="code-caption">Set interval in-between probes to 1 second (<code>1000</code> milliseconds) for socket <code>s</code></p>
     
-    <pre class="prettyprint"><code>NetKeepAlive.setKeepAliveInterval(s, 1000)</code></pre>
-
-</div>
-
-</div>
-        
-            
-<div class="section-method">
-
+    
+        <pre class="prettyprint"><code>NetKeepAlive.setKeepAliveInterval(s, 1000)</code></pre>
     
 
-    <h4 class="name" id=".setKeepAliveProbes"><span class="type-signature">(static) </span>setKeepAliveProbes<span class="signature">(socket, cnt)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id=".setKeepAliveProbes">
+        <a class="href-link" href="#.setKeepAliveProbes">#</a>
+        
+            
+                <span class='tag'>static</span>
+            
+        
+        <span class="code-name">
+            
+                setKeepAliveProbes<span class="signature">(socket, cnt)</span><span class="type-signature"> &rarr; {boolean}</span>
+            
+        </span>
+    </h4>
+    
 
     
     <p class="summary">Sets the TCP_KEEPCNT value for specified socket.</p>
     
+    
+    <div class="description">
+        <p>Sets the TCP_KEEPCNT value for specified socket.</p>
+    </div>
+    
 
 
 
-<div class="description">
-    <p>Sets the TCP_KEEPCNT value for specified socket.</p>
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>socket</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">Net.Socket</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>to set the value for</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>cnt</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">number</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>number of probes to send</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
 </div>
 
 
@@ -1065,18 +1165,19 @@ socket using Net.Socket-s built in method socket.setKeepAlive([enable][, initial
     
 
     
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line146">line 146</a>
-    </li></ul></dd>
     
 
     
 
     
 
+    
+        <p class="tag-source">
+            <a href="index.js.html" class="button">View Source</a>
+            <span>
+                <a href="index.js.html">index.js</a>, <a href="index.js.html#line146">line 146</a>
+            </span>
+        </p>
     
 </dl>
 
@@ -1088,250 +1189,122 @@ socket using Net.Socket-s built in method socket.setKeepAlive([enable][, initial
 
 
 
-    <h5>Parameters:</h5>
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Throws:</label></div>
+        <div class="column is-10">
+            
+                    
+<div class="columns">
     
+    <div class='param-desc column is-7'><p>setKeepAliveProbes requires two arguments</p></div>
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+<span class="param-type">AssertionError</span>
 
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
 
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
+    </div>
     
+</div>
 
-        <tr>
-            
-                <td class="name"><code>socket</code></td>
-            
-
-            <td class="type">
-            
                 
-<span class="param-type"><code>Net.Socket</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <p>to set the value for</p>
-                
-            </td>
-        </tr>
-
+                    
+<div class="columns">
     
-
-        <tr>
-            
-                <td class="name"><code>cnt</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>number</code></span>
+    <div class='param-desc column is-7'><p>setKeepAliveProbes expects an instance of socket as its first argument</p></div>
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+<span class="param-type">AssertionError</span>
 
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <p>number of probes to send</p>
-                
-            </td>
-        </tr>
-
+    </div>
     
-    </tbody>
-</table>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-<div class="section-throws">
-<h5>Throws:</h5>
-<ul>
-        <li>
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        <p>setKeepAliveProbes requires two arguments</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
                 
-<span class="param-type"><code>AssertionError</code></span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
+                    
+<div class="columns">
     
-        <li>
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        <p>setKeepAliveProbes expects an instance of socket as its first argument</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type"><code>AssertionError</code></span>
+    <div class='param-desc column is-7'><p>setKeepAliveProbes requires cnt to be a Number</p></div>
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+<span class="param-type">AssertionError</span>
 
 
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
+    </div>
     
-        <li>
+</div>
 
-<dl>
-    <dt>
-        <div class="param-desc">
-        <p>setKeepAliveProbes requires cnt to be a Number</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
                 
-<span class="param-type"><code>AssertionError</code></span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
+                    
+<div class="columns">
     
-        <li>
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        <p>Unexpected error</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type"><code>ErrnoException</code></span>
+    <div class='param-desc column is-7'><p>Unexpected error</p></div>
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+<span class="param-type">ErrnoException</span>
 |
 
-<span class="param-type"><code>Error</code></span>
+<span class="param-type">Error</span>
 
 
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
-    </ul>
-</div>
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>boolean</code></span>
-
-
-    </dd>
-</dl>
-
-
-<div class="param-desc">
-    <p><code>true</code> on success</p>
-</div>
-
+    </div>
     
 </div>
 
+                
+        </div>
+    </div>
 
 
-<div class="section-examples">
-<h5>Example</h5>
 
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p><code>true</code> on success</p></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<span class="param-type">boolean</span>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+    <h5>Example</h5>
+    
         <p class="code-caption">Set number of probes to send to 1 for socket <code>s</code></p>
     
-    <pre class="prettyprint"><code>NetKeepAlive.setKeepAliveProbes(s, 1)</code></pre>
+    
+        <pre class="prettyprint"><code>NetKeepAlive.setKeepAliveProbes(s, 1)</code></pre>
+    
+
 
 </div>
-
-</div>
-        
+            
+            </div>
+        </div>
     
 
     
@@ -1344,15 +1317,15 @@ socket using Net.Socket-s built in method socket.setKeepAlive([enable][, initial
 
 
 
-</div>
+            </div>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
 
-<br class="clear">
-
-<footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Fri May 22 2020 23:34:11 GMT+0000 (Coordinated Universal Time) using the Minami theme.
-</footer>
-
-<script>prettyPrint();</script>
-<script src="scripts/linenumber.js"></script>
 </body>
 </html>
