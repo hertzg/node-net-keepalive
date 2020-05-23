@@ -11,14 +11,16 @@
   "recurseDepth": 10,
   "plugins": [
     "plugins/markdown",
-    "plugins/summarize"
+    "plugins/summarize",
+    "better-docs/component",
+    "better-docs/category"
   ],
   "opts": {
     "readme": "./README.md",
     "destination": "./docs/",
     "encoding": "utf8",
     "recurse": true,
-    "template": "./node_modules/minami"
+    "template": "./node_modules/better-docs"
   },
   "tags": {
     "allowUnknownTags": true,
@@ -28,8 +30,20 @@
   },
   "templates": {
     "cleverLinks": false,
-    "monospaceLinks": true,
-    "useLongnameInNav": false,
-    "showInheritedInNav": true
+    "monospaceLinks": false,
+    "search": false,
+    "better-docs": {
+      "name": "net-keepalive Documentation",
+      "title": "hertzg/node-net-keeplive",
+      "head": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-1091155-6\"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-1091155-6');</script>",
+      "smallHeader": true,
+      "hideGenerator": true,
+      "navLinks": [
+        {
+          "label": "Github",
+          "href": "https://github.com/hertzg/node-net-keepalive"
+        }
+      ]
+    }
   }
 }
