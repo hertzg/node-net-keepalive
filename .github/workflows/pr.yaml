@@ -58,7 +58,10 @@ jobs:
         run: npm i
 
       - name: Test
-        run: sudo npm run coverage
+        run: sudo npm run coverage:test
+
+      - name: Convert Coverage
+        run: npm run coverage:report
 
       - name: Report Coverage
         if: ${{ success() }}
