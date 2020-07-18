@@ -1,7 +1,13 @@
-name: Any PR
+name: Main Pull Requests
 
 on:
-  - pull_request
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+      - release
 
 jobs:
   lint-commit-message:
@@ -33,10 +39,10 @@ jobs:
         os:
           - ubuntu-latest
           - macos-latest
-        node:           # https://nodejs.org/en/about/releases/
-          - '*'         # Current
-          - '12'        # Active LTS
-          - '10'        # Maintenance LTS
+        node: # https://nodejs.org/en/about/releases/
+          - '*' # Current
+          - '12' # Active LTS
+          - '10' # Maintenance LTS
       fail-fast: false
 
     steps:
