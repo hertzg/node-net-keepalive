@@ -23,7 +23,7 @@ jobs:
           fetch-depth: 0
 
       - name: Install dependencies
-        run: npm i
+        run: npm i --only=dev
 
       - name: Add dependencies for commitlint action
         run: echo "::set-env name=NODE_PATH::$GITHUB_WORKSPACE/node_modules"
