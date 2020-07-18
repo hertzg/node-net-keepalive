@@ -1,4 +1,4 @@
-name: Main Pull Requests
+name: Release
 
 on:
   push:
@@ -73,7 +73,7 @@ jobs:
     needs:
       - lint-commit-message
       - test
-    if: ${{ github.event_name == 'push' && success() && github.ref == 'refs/heads/master' && github.repository == 'hertzg/node-net-keepalive' }}
+    if: ${{ success() && github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'hertzg/node-net-keepalive' }}
     steps:
       - name: Setup Node
         uses: actions/setup-node@v2-beta

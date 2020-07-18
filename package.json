@@ -57,6 +57,7 @@
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
+    "@semantic-release/changelog": "^5.0.1",
     "@types/node": "^14.0.20",
     "better-docs": "^2.3.0",
     "husky": "^4.2.5",
