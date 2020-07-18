@@ -27,6 +27,11 @@
   "engines": {
     "node": ">=4"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "keywords": [
     "ffi",
     "setsockopt",
@@ -51,8 +56,11 @@
     "ref-napi": "^2.0.3"
   },
   "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
     "@types/node": "^14.0.20",
     "better-docs": "^2.3.0",
+    "husky": "^4.2.5",
     "jsdoc": "^3.6.4",
     "mocha": "^8.0.1",
     "mockery": "^2.1.0",

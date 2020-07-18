@@ -1,0 +1,55 @@
+name: Any PR
+
+on:
+  - pull_request
+
+jobs:
+  lint-commit-message:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v2-beta
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Add dependencies for commitlint action
+        run: echo "::set-env name=NODE_PATH::$GITHUB_WORKSPACE/node_modules"
+
+      - name: Lint Commit Messages
+        uses: wagoid/commitlint-github-action@v1
+
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        fail-fast: false
+        os:
+          - ubuntu-latest
+          - macos-latest
+        node:
+          - '*'         # latest
+          - '12'        # latest lts
+          - '10'        # prev lts
+
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Test
+        run: sudo npm run coverage
