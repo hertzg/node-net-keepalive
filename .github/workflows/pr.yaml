@@ -60,10 +60,10 @@ jobs:
       - name: Test
         run: sudo npm run coverage:test
 
-      - name: Convert Coverage
+      - name: Coverage report
         run: npm run coverage:report
 
-      - name: Report Coverage
+      - name: Coverage Upload
         if: ${{ success() }}
         uses: codecov/codecov-action@v1
         with:
