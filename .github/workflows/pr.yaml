@@ -30,7 +30,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        fail-fast: false
         os:
           - ubuntu-latest
           - macos-latest
@@ -38,6 +37,7 @@ jobs:
           - '*'         # latest
           - '12'        # latest lts
           - '10'        # prev lts
+      fail-fast: false
 
     steps:
       - name: Setup Node
