@@ -17,9 +17,9 @@ jobs:
         uses: actions/setup-node@v2-beta
 
       - name: Checkout
-          uses: actions/checkout@v2
-          with:
-            node-version: 12
+        uses: actions/checkout@v2
+        with:
+          node-version: 12
 
       - name: Install dependencies
         run: npm i
