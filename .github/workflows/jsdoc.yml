@@ -1,9 +1,9 @@
-name: Build & Publish JSDoc
+name: JSDocs
 
 on:
   push:
     branches:
-      - release
+      - master
 
 jobs:
   build:
@@ -20,13 +20,13 @@ jobs:
         run: npm i
 
       - name: Build docs
-        run: npm run docs
+        run: npm run build:docs
 
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
         with:
-          build_dir: docs
+          build_dir: out/docs
           keep_history: true
           allow_empty_commit: false
         env:

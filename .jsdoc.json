@@ -17,7 +17,7 @@
   ],
   "opts": {
     "readme": "./README.md",
-    "destination": "./docs/",
+    "destination": "./out/docs/",
     "encoding": "utf8",
     "recurse": true,
     "template": "./node_modules/better-docs"
