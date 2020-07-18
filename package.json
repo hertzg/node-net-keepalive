@@ -20,6 +20,10 @@
     "darwin",
     "linux"
   ],
+  "files": [
+    "lib/",
+    "*.d.ts"
+  ],
   "engines": {
     "node": ">=4"
   },
