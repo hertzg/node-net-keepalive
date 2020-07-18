@@ -60,9 +60,11 @@ jobs:
         run: sudo npm run coverage:test
 
       - name: Coverage report
+        continue-on-error: true
         run: npm run coverage:report
 
       - name: Coverage Upload
+        continue-on-error: true
         if: ${{ success() }}
         uses: codecov/codecov-action@v1
         with:
