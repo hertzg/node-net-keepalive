@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "docs": "jsdoc -c .jsdoc.json",
+    "build:docs": "jsdoc -c .jsdoc.json",
     "coverage": "npm run coverage:test && npm run coverage:report",
     "coverage:test": "nyc npm run test",
     "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov"
