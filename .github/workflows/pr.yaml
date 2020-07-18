@@ -59,3 +59,9 @@ jobs:
 
       - name: Test
         run: sudo npm run coverage
+
+      - name: Report Coverage
+        if: ${{ success() }}
+        uses: codecov/codecov-action@v1
+        with:
+          file: ./coverage.lcov
