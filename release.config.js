@@ -24,7 +24,6 @@ module.exports = {
     [
       '@semantic-release/exec',
       {
-        verifyConditionsCmd: './verify.sh',
         prepareCmd: 'prettier --write CHANGELOG.md',
       },
     ],
