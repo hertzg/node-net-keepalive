@@ -1,0 +1,22 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v2-beta
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: "DUMMY TOKEN"
+          NPM_TOKEN: "DUMMY TOKEN"
+        run: npx semantic-release --dry-run
