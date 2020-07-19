@@ -101,9 +101,7 @@ describe('keep-alive probes', () => {
         const oldHandle = socket._handle
 
         socket._handle = { fd: -99999 }
-        ;(() => Lib.getKeepAliveProbes(socket)).should.throw(
-          'getsockopt EBADF'
-        )
+        ;(() => Lib.getKeepAliveProbes(socket)).should.throw('getsockopt EBADF')
 
         socket._handle = oldHandle
         socket.destroy()
