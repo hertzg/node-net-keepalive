@@ -2,7 +2,7 @@ const Stream = require('stream')
 const Should = require('should')
 const OS = require('os')
 const Net = require('net')
-const Lib = require('../lib')
+const Lib = require('../../lib')
 
 describe('keep-alive interval', () => {
   const itSkipOS = (skipOs, ...args) =>

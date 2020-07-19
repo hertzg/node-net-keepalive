@@ -1,7 +1,7 @@
 const Assert = require('assert'),
   OS = require('os'),
   Net = require('net'),
-  Lib = require('../lib'),
+  Lib = require('../../lib'),
   ChildProcess = require('child_process')
 
 const findFirstInterfaceWithInternalAddress = () => {
@@ -33,7 +33,7 @@ const calculateTimeouts = (initialDelay, interval, probes) => {
 
 const tcpDumpOnlyKeepalive = (iface, packets, ports, timeout, done) => {
   const args = [
-    '-pnSl',
+    '-pl',
     '-c',
     packets,
     '-i',
@@ -79,6 +79,15 @@ const collectChunks = (stream) => {
 }
 
 describe('tcp-dump', () => {
+  let internalIface
+  before(function () {
+    internalIface = findFirstInterfaceWithInternalAddress()
+    if (!internalIface) {
+      console.log('Skip: could not detect internal (loopback) interface name')
+      this.skip()
+    }
+  })
+
   it('should send keepalive packets on the wire', function (done) {
     const srv = Net.createServer()
     srv.listen(0, () => {
@@ -102,15 +111,6 @@ describe('tcp-dump', () => {
         Assert.strictEqual(actualProbes, probes)
         Assert.notStrictEqual(actualProbes, sysDefaultProbes)
 
-        const internalIface = findFirstInterfaceWithInternalAddress()
-        if (!internalIface) {
-          console.log(
-            'Skip: could not detect internal (loopback) interface name'
-          )
-          this.skip()
-          return
-        }
-
         const [ifaceName] = internalIface
         Assert.ok(ifaceName)
 
@@ -129,14 +129,18 @@ describe('tcp-dump', () => {
           (error, { stderr, status }) => {
             Assert.ifError(error)
             if (status !== 0) {
-              console.error(stderr.toString('utf8'))
+              const stderrtxt = stderr.toString('utf8')
+              console.error('tcpdump stderr:', stderrtxt)
               if (
-                stderr
-                  .toString('utf8')
-                  .includes(
-                    "You don't have permission to capture on that device"
-                  )
+                stderrtxt.includes(
+                  "You don't have permission to capture on that device"
+                ) ||
+                stderrtxt.includes('cannot open BPF device')
               ) {
+                console.log('Skip: No permission')
+
+                socket.destroy()
+                srv.close(done)
                 this.skip()
                 return
               }

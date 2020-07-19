@@ -12,13 +12,13 @@ describe('constants', () => {
       warnOnUnregistered: true,
       useCleanCache: true,
     })
-    Mockery.registerAllowable('../lib/constants')
+    Mockery.registerAllowable('../../lib/constants')
     sandbox = Sinon.createSandbox()
   })
 
   afterEach(() => {
     sandbox.restore()
-    Mockery.deregisterAllowable('../lib/constants')
+    Mockery.deregisterAllowable('../../lib/constants')
     Mockery.deregisterAll()
     Mockery.disable()
   })
@@ -33,7 +33,7 @@ describe('constants', () => {
   it('should define darwin specific constants', () => {
     mockPlatform('darwin')
 
-    require('../lib/constants').should.have.properties({
+    require('../../lib/constants').should.have.properties({
       SOL_TCP: 6,
       TCP_KEEPINTVL: 0x101,
       TCP_KEEPCNT: 0x102,
@@ -43,7 +43,7 @@ describe('constants', () => {
   it('should define freebsd specific constants', () => {
     mockPlatform('freebsd')
 
-    require('../lib/constants').should.have.properties({
+    require('../../lib/constants').should.have.properties({
       SOL_TCP: 6,
       TCP_KEEPINTVL: 512,
       TCP_KEEPCNT: 1024,
@@ -53,7 +53,7 @@ describe('constants', () => {
   it('should define linux specific constants', () => {
     mockPlatform('linux')
 
-    require('../lib/constants').should.have.properties({
+    require('../../lib/constants').should.have.properties({
       SOL_TCP: 6,
       TCP_KEEPINTVL: 5,
       TCP_KEEPCNT: 6,
@@ -63,7 +63,7 @@ describe('constants', () => {
   it('should use linux specific constants for other platforms', () => {
     mockPlatform('unknown')
 
-    require('../lib/constants').should.have.properties({
+    require('../../lib/constants').should.have.properties({
       SOL_TCP: 6,
       TCP_KEEPINTVL: 5,
       TCP_KEEPCNT: 6,
