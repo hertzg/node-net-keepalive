@@ -53,6 +53,7 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
+          - macos-latest
         node: # https://nodejs.org/en/about/releases/
           - '*' # Current
           - '12' # Active LTS
@@ -90,7 +91,8 @@ jobs:
       - name: Test (tsd)
         run: npm run test:tsd
 
-      - name: Allow sudoless tcpdump
+      - name: Allow sudoless tcpdump (linux only)
+        if: ${{ success() && startsWith(matrix.os, 'ubuntu-') }} }}
         run: |
           sudo groupadd pcap
           sudo usermod -a -G pcap $USER
