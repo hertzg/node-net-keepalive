@@ -164,3 +164,6 @@ Sets `TCP_KEEPCNT` to `count` number of probes for the `socket` based on its fil
 Gets `TCP_KEEPCNT`. The `count` number of probes set for the `socket` based on its file descriptor (`fd`)
 
     TCP_KEEPCNT (since Linux 2.4) - The maximum number of keepalive probes TCP should send before dropping the connection. This option should not be used in code intended to be portable.
+
+## Code of Conduct
+See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
