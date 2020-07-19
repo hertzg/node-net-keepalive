@@ -32,6 +32,21 @@ jobs:
       - name: Lint Commit Messages
         uses: wagoid/commitlint-github-action@v1
 
+  test-tsd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v2-beta
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm i --only=dev
+
+      - name: Test TypeScript definitions
+        run: npm run test:tsd
+
   test:
     runs-on: ${{ matrix.os }}
     strategy:
