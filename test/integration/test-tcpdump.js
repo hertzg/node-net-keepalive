@@ -33,7 +33,7 @@ const calculateTimeouts = (initialDelay, interval, probes) => {
 
 const tcpDumpOnlyKeepalive = (iface, packets, ports, timeout, done) => {
   const args = [
-    '-pnSl',
+    '-pl',
     '-c',
     packets,
     '-i',
@@ -79,18 +79,16 @@ const collectChunks = (stream) => {
 }
 
 describe('tcp-dump', () => {
-  it('should send keepalive packets on the wire', function (done) {
-    const internalIface = findFirstInterfaceWithInternalAddress()
+  let internalIface
+  before(function () {
+    internalIface = findFirstInterfaceWithInternalAddress()
     if (!internalIface) {
-      console.log(
-        'Skip: could not detect internal (loopback) interface name'
-      )
+      console.log('Skip: could not detect internal (loopback) interface name')
       this.skip()
-      done();
-      return
     }
+  })
 
-
+  it('should send keepalive packets on the wire', function (done) {
     const srv = Net.createServer()
     srv.listen(0, () => {
       const socket = Net.createConnection(srv.address(), () => {
@@ -140,9 +138,10 @@ describe('tcp-dump', () => {
                 stderrtxt.includes('cannot open BPF device')
               ) {
                 console.log('Skip: No permission')
-                this.skip()
+
                 socket.destroy()
                 srv.close(done)
+                this.skip()
                 return
               }
             }
