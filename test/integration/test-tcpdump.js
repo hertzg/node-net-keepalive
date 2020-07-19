@@ -80,6 +80,17 @@ const collectChunks = (stream) => {
 
 describe('tcp-dump', () => {
   it('should send keepalive packets on the wire', function (done) {
+    const internalIface = findFirstInterfaceWithInternalAddress()
+    if (!internalIface) {
+      console.log(
+        'Skip: could not detect internal (loopback) interface name'
+      )
+      this.skip()
+      done();
+      return
+    }
+
+
     const srv = Net.createServer()
     srv.listen(0, () => {
       const socket = Net.createConnection(srv.address(), () => {
@@ -102,15 +113,6 @@ describe('tcp-dump', () => {
         Assert.strictEqual(actualProbes, probes)
         Assert.notStrictEqual(actualProbes, sysDefaultProbes)
 
-        const internalIface = findFirstInterfaceWithInternalAddress()
-        if (!internalIface) {
-          console.log(
-            'Skip: could not detect internal (loopback) interface name'
-          )
-          this.skip()
-          return
-        }
-
         const [ifaceName] = internalIface
         Assert.ok(ifaceName)
 
@@ -129,15 +131,18 @@ describe('tcp-dump', () => {
           (error, { stderr, status }) => {
             Assert.ifError(error)
             if (status !== 0) {
-              console.error(stderr.toString('utf8'))
+              const stderrtxt = stderr.toString('utf8')
+              console.error('tcpdump stderr:', stderrtxt)
               if (
-                stderr
-                  .toString('utf8')
-                  .includes(
-                    "You don't have permission to capture on that device"
-                  )
+                stderrtxt.includes(
+                  "You don't have permission to capture on that device"
+                ) ||
+                stderrtxt.includes('cannot open BPF device')
               ) {
+                console.log('Skip: No permission')
                 this.skip()
+                socket.destroy()
+                srv.close(done)
                 return
               }
             }
