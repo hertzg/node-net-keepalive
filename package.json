@@ -4,13 +4,12 @@
   "description": "Provides high-level access to socket options like TCP_KEEPIDLE, TCP_KEEPINTVL, TCP_KEEPCNT",
   "main": "index.js",
   "scripts": {
-    "build": "concurrently -m 1 npm:build:*",
     "build:docs": "jsdoc -c .jsdoc.json",
-    "test": "concurrently -m 1 npm:test:*",
+    "test": "concurrently npm:test:*",
     "test:unit": "mocha --recursive test/unit",
     "test:integration": "mocha --recursive test/integration",
     "test:tsd": "tsd",
-    "coverage": "concurrently -m 1, -n run,report \"npm run coverage:run\" \"npm run coverage:report\"",
+    "coverage": "npm run coverage:run && npm run coverage:report",
     "coverage:run": "nyc npm run test:unit",
     "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov",
     "release": "semantic-release"
