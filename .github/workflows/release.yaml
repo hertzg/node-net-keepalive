@@ -23,6 +23,22 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: lint-commit-messages-npm-cache
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-${{ matrix.os }}-${{ matrix.node }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-${{ runner.os }}-${{ matrix.os }}-${{ matrix.node }}-build-${{ env.cache-name }}-
+            npm-${{ runner.os }}-${{ matrix.os }}-build-${{ env.cache-name }}-
+            npm-{{ runner.os }}-build-${{ env.cache-name }}-
+            npm-${{ runner.os }}-build-
+            npm-${{ runner.os }}-
+            npm-
+
       - name: Install dependencies
         run: npm i --only=dev
 
@@ -43,6 +59,22 @@ jobs:
 
       - name: Install dependencies
         run: npm i --only=dev
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: test-tsd-npm-cache
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-${{ matrix.os }}-${{ matrix.node }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-${{ runner.os }}-${{ matrix.os }}-${{ matrix.node }}-build-${{ env.cache-name }}-
+            npm-${{ runner.os }}-${{ matrix.os }}-build-${{ env.cache-name }}-
+            npm-{{ runner.os }}-build-${{ env.cache-name }}-
+            npm-${{ runner.os }}-build-
+            npm-${{ runner.os }}-
+            npm-
 
       - name: Test TypeScript definitions
         run: npm run test:tsd
@@ -92,7 +124,7 @@ jobs:
         run: npm run test:tsd
 
       - name: Allow sudoless tcpdump (linux only)
-        if: ${{ success() && startsWith(matrix.os, 'ubuntu-') }} }}
+        if: ${{ success() && startsWith(matrix.os, 'ubuntu-') }}
         run: |
           sudo groupadd pcap
           sudo usermod -a -G pcap $USER
