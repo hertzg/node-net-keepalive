@@ -1,7 +1,7 @@
 const Assert = require('assert'),
   OS = require('os'),
   Net = require('net'),
-  Lib = require('../lib'),
+  Lib = require('../../lib'),
   ChildProcess = require('child_process')
 
 const findFirstInterfaceWithInternalAddress = () => {

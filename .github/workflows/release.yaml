@@ -48,9 +48,6 @@ jobs:
           npm i --prefer-offline --no-audit
           npm list --depth=0 || true
 
-      - name: Test (tsd)
-        run: npm run test:tsd
-
       - name: Allow sudoless tcpdump (linux only)
         if: ${{ success() && startsWith(matrix.os, 'ubuntu-') }}
         run: |
@@ -65,8 +62,8 @@ jobs:
         run: |
           sudo chmod o+r /dev/bpf*
 
-      - name: Test (run)
-        run: npm run test:run
+      - name: Test (full)
+        run: npm run test
 
   release:
     runs-on: ubuntu-latest

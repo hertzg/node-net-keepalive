@@ -12,19 +12,19 @@ describe('commons', () => {
       warnOnUnregistered: true,
       useCleanCache: true,
     })
-    Mockery.registerAllowable('../lib/commons')
+    Mockery.registerAllowable('../../lib/commons')
     sandbox = Sinon.createSandbox()
   })
 
   afterEach(() => {
     sandbox.restore()
-    Mockery.deregisterAllowable('../lib/commons')
+    Mockery.deregisterAllowable('../../lib/commons')
     Mockery.disable()
   })
 
   it('should export errnoException function and return exception', () => {
     Mockery.registerAllowable('util')
-    require('../lib/commons')
+    require('../../lib/commons')
       .should.have.property('errnoException')
       .which.is.a.Function()
     Mockery.deregisterAllowable('util')
@@ -32,7 +32,7 @@ describe('commons', () => {
 
   it('should return errnoException style Error', () => {
     Mockery.registerAllowable('util')
-    require('../lib/commons')
+    require('../../lib/commons')
       .errnoException(999, 'test_syscall_name', 'original')
       .should.be.instanceOf(Error)
       .and.have.properties(['message', 'code', 'errno', 'syscall'])
@@ -49,7 +49,7 @@ describe('commons', () => {
       _errnoException: _errnoExceptionStub,
     })
 
-    require('../lib/commons').errnoException(
+    require('../../lib/commons').errnoException(
       999,
       'TEST_SYSCALL_NAME',
       'original'
@@ -74,7 +74,7 @@ describe('commons', () => {
 
     process.binding.withArgs('uv').returns({ errname: uvErrnameStub })
 
-    require('../lib/commons').errnoException(
+    require('../../lib/commons').errnoException(
       999,
       'TEST_SYSCALL_NAME',
       'original'
