@@ -38,7 +38,9 @@ jobs:
             npm-
 
       - name: Install dependencies
-        run: npm i --only=dev --prefer-offline --no-audit
+        run: |
+          npm i --only=dev --prefer-offline --no-audit
+          npm list --depth=0
 
       - name: Add dependencies for commitlint action
         run: echo "::set-env name=NODE_PATH::$GITHUB_WORKSPACE/node_modules"
@@ -70,7 +72,9 @@ jobs:
             npm-
 
       - name: Install dependencies
-        run: npm i --only=dev --prefer-offline --no-audit
+        run: |
+          npm i --only=dev --prefer-offline --no-audit
+          npm list --depth=0
 
       - name: Test TypeScript definitions
         run: npm run test:tsd
@@ -112,8 +116,10 @@ jobs:
             npm-${{ runner.os }}-
             npm-
 
-      - name: Install dependencies
-        run: npm i --prefer-offline --no-audit
+      - name: Install dependencies (full)
+        run: |
+          npm i --prefer-offline --no-audit
+          npm list --depth=0
 
       - name: Test (tsd)
         run: npm run test:tsd
@@ -173,7 +179,9 @@ jobs:
             npm-
 
       - name: Install dependencies
-        run: npm i --only=dev --prefer-offline --no-audit
+        run: |
+          npm i --prefer-offline --no-audit
+          npm list --depth=0
 
       - name: Release
         env:
