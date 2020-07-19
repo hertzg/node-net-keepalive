@@ -55,9 +55,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: npm i --only=dev --prefer-offline --no-audit
-
       - name: Cache node modules
         uses: actions/cache@v2
         env:
@@ -71,6 +68,9 @@ jobs:
             npm-${{ runner.os }}-build-
             npm-${{ runner.os }}-
             npm-
+
+      - name: Install dependencies
+        run: npm i --only=dev --prefer-offline --no-audit
 
       - name: Test TypeScript definitions
         run: npm run test:tsd
