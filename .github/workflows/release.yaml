@@ -53,7 +53,6 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - macos-latest
         node: # https://nodejs.org/en/about/releases/
           - '*' # Current
           - '12' # Active LTS
