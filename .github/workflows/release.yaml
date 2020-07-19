@@ -134,7 +134,10 @@ jobs:
 
       - name: Allow sudoless tcpdump (macos only)
         if: ${{ success() && startsWith(matrix.os, 'macos-') }}
-        run: sudo chmod o+r /dev/bpf*
+        run: |
+          sudo ls -lah /dev/bpf*
+          sudo chmod o+r /dev/bpf*
+          sudo ls -lah /dev/bpf*
 
       - name: Test (run) + Coverage
         run: npm run coverage:test
