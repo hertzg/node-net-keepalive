@@ -5,14 +5,26 @@
 
 /// <reference types="node" />
 
-import * as net from "net";
+import { Socket } from 'net'
 
-export type NodeJSSocketWithFileDescriptor = net.Socket | { _handle: { _fd: number } }
+export type NodeJSSocketWithFileDescriptor =
+  | Socket
+  | { _handle: { _fd: number } }
 
-export function setKeepAliveInterval(socket: NodeJSSocketWithFileDescriptor, intvl: number): number
+export function setKeepAliveInterval(
+  socket: NodeJSSocketWithFileDescriptor,
+  intvl: number
+): boolean
 
-export function getKeepAliveInterval(socket: NodeJSSocketWithFileDescriptor): number
+export function getKeepAliveInterval(
+  socket: NodeJSSocketWithFileDescriptor
+): number
 
-export function setKeepAliveProbes(socket: NodeJSSocketWithFileDescriptor, cnt: number): number
+export function setKeepAliveProbes(
+  socket: NodeJSSocketWithFileDescriptor,
+  cnt: number
+): boolean
 
-export function getKeepAliveProbes(socket: NodeJSSocketWithFileDescriptor): number
+export function getKeepAliveProbes(
+  socket: NodeJSSocketWithFileDescriptor
+): number

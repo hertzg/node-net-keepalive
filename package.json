@@ -4,11 +4,13 @@
   "description": "Provides high-level access to socket options like TCP_KEEPIDLE, TCP_KEEPINTVL, TCP_KEEPCNT",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "npm run test:tsd && npm run test:run",
+    "test:run": "mocha",
+    "test:tsd": "tsd",
     "build:docs": "jsdoc -c .jsdoc.json",
     "release": "semantic-release",
     "coverage": "npm run coverage:test && npm run coverage:report",
-    "coverage:test": "nyc npm run test",
+    "coverage:test": "nyc npm run test:run",
     "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov"
   },
   "repository": {
@@ -71,6 +73,7 @@
     "prettier": "^2.0.5",
     "semantic-release": "^17.1.1",
     "should": "^13.2.3",
-    "sinon": "^9.0.2"
+    "sinon": "^9.0.2",
+    "tsd": "^0.13.1"
   }
 }

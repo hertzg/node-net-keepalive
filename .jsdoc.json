@@ -1,12 +1,7 @@
 {
   "source": {
-    "include": [
-      "./lib",
-      "./index.js"
-    ],
-    "exclude": [
-      "node_modules"
-    ]
+    "include": ["./lib", "./index.js"],
+    "exclude": ["node_modules"]
   },
   "recurseDepth": 10,
   "plugins": [
@@ -24,9 +19,7 @@
   },
   "tags": {
     "allowUnknownTags": true,
-    "dictionaries": [
-      "jsdoc"
-    ]
+    "dictionaries": ["jsdoc"]
   },
   "templates": {
     "cleverLinks": false,

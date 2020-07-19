@@ -23,14 +23,57 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: lint-commit-messages-npm-cache
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-${{ matrix.os }}-${{ matrix.node }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-${{ runner.os }}-build-${{ env.cache-name }}-
+            npm-${{ runner.os }}-build-
+            npm-${{ runner.os }}-
+            npm-
+
       - name: Install dependencies
-        run: npm i --only=dev
+        run: npm i --only=dev --prefer-offline --no-audit
 
       - name: Add dependencies for commitlint action
         run: echo "::set-env name=NODE_PATH::$GITHUB_WORKSPACE/node_modules"
 
       - name: Lint Commit Messages
         uses: wagoid/commitlint-github-action@v1
+
+  test-tsd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v2-beta
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: test-tsd-npm-cache
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-${{ runner.os }}-build-${{ env.cache-name }}-
+            npm-${{ runner.os }}-build-
+            npm-${{ runner.os }}-
+            npm-
+
+      - name: Install dependencies
+        run: npm i --only=dev --prefer-offline --no-audit
+
+      - name: Test TypeScript definitions
+        run: npm run test:tsd
 
   test:
     runs-on: ${{ matrix.os }}
@@ -53,11 +96,44 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: npm i
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: test-matrix-npm-cache
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-${{ matrix.os }}-${{ matrix.node }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-${{ runner.os }}-${{ matrix.os }}-${{ matrix.node }}-build-${{ env.cache-name }}-
+            npm-${{ runner.os }}-${{ matrix.os }}-build-${{ env.cache-name }}-
+            npm-${{ runner.os }}-build-${{ env.cache-name }}-
+            npm-${{ runner.os }}-build-
+            npm-${{ runner.os }}-
+            npm-
 
-      - name: Test
-        run: sudo npm run coverage:test
+      - name: Install dependencies
+        run: npm i --prefer-offline --no-audit
+
+      - name: Test (tsd)
+        run: npm run test:tsd
+
+      - name: Allow sudoless tcpdump (linux only)
+        if: ${{ success() && startsWith(matrix.os, 'ubuntu-') }}
+        run: |
+          sudo groupadd pcap
+          sudo usermod -a -G pcap $USER
+          sudo chgrp pcap /usr/sbin/tcpdump
+          sudo setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
+          sudo ln -s /usr/sbin/tcpdump /usr/bin/tcpdump
+
+      - name: Allow sudoless tcpdump (macos only)
+        if: ${{ success() && startsWith(matrix.os, 'macos-') }}
+        run: |
+          sudo chmod o+r /dev/bpf*
+
+      - name: Test (run) + Coverage
+        run: npm run coverage:test
 
       - name: Coverage report
         continue-on-error: true
@@ -82,8 +158,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: release
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-${{ runner.os }}-build-${{ env.cache-name }}-
+            npm-${{ runner.os }}-build-
+            npm-${{ runner.os }}-
+            npm-
+
       - name: Install dependencies
-        run: npm i
+        run: npm i --only=dev --prefer-offline --no-audit
 
       - name: Release
         env:
