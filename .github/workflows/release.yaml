@@ -132,6 +132,10 @@ jobs:
           sudo setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
           sudo ln -s /usr/sbin/tcpdump /usr/bin/tcpdump
 
+      - name: Allow sudoless tcpdump (macos only)
+        if: ${{ success() && startsWith(matrix.os, 'macos-') }}
+        run: sudo chmod o+r /dev/bpf*
+
       - name: Test (run) + Coverage
         run: npm run coverage:test
 
