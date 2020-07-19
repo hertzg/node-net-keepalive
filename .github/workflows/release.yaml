@@ -71,11 +71,19 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-      - name: Test TypeScript definitions
+      - name: Test (tsd)
         run: npm run test:tsd
 
-      - name: Test
-        run: sudo npm run coverage:test
+      - name: Allow sudoless tcpdump
+        run: |
+          sudo groupadd pcap
+          sudo usermod -a -G pcap $USER
+          sudo chgrp pcap /usr/sbin/tcpdump
+          sudo setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
+          sudo ln -s /usr/sbin/tcpdump /usr/bin/tcpdump
+
+      - name: Test (run) + Coverage
+        run: npm run coverage:test
 
       - name: Coverage report
         continue-on-error: true
