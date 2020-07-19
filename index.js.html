@@ -126,9 +126,9 @@ const Assert = require('assert'),
   Ref = require('ref-napi'),
   FFIBindings = require('./ffi-bindings')
 
-const _isSocket = socket => socket instanceof Net.Socket
+const _isSocket = (socket) => socket instanceof Net.Socket
 
-const _getSocketFD = socket => {
+const _getSocketFD = (socket) => {
   const fd = socket._handle != null ? socket._handle.fd : undefined
   Assert(fd &amp;&amp; fd !== -1, 'Unable to get socket fd')
   return fd

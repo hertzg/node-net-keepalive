@@ -154,33 +154,33 @@ srv.listen(1337, function(){
 // Connect to that server
 var s = Net.createConnection({port:1337}, function(){
   console.log('Connected to %j', s.address())
-  
+
   //IMPORTANT: KeepAlive must be enabled for this to work
   s.setKeepAlive(true, 1000)
 
   // Set TCP_KEEPINTVL for this specific socket
   NetKeepAlive.setKeepAliveInterval(s, 1000)
-  
+
   // Get TCP_KEEPINTVL for this specific socket
   NetKeepAlive.getKeepAliveInterval(s) // 1000
 
-  // Set TCP_KEEPCNT for this specific socket 
+  // Set TCP_KEEPCNT for this specific socket
   NetKeepAlive.setKeepAliveProbes(s, 1)
-  
-  // Get TCP_KEEPCNT for this specific socket 
+
+  // Get TCP_KEEPCNT for this specific socket
   NetKeepAlive.getKeepAliveProbes(s) // 1
 });
 </code></pre>
 <p>Now using <code>iptables</code> add rule to drop all <code>tcp</code> packets on <code>INPUT</code> chain to port <code>1337</code>.</p>
 <pre class="prettyprint source lang-bash"><code>$ iptables -I INPUT -m tcp -p tcp --dport 1337 -j DROP
 </code></pre>
-<p>If you were monitoring packets on <code>loopback</code> with <code>tcp.srcport == 1337 || tcp.dstport == 1337</code> filter in <code>wireshark</code>.  You will see the following output:</p>
+<p>If you were monitoring packets on <code>loopback</code> with <code>tcp.srcport == 1337 || tcp.dstport == 1337</code> filter in <code>wireshark</code>. You will see the following output:</p>
 <p><a href="http://hertzg.github.io/node-net-keepalive/images/wireshark.jpg"><img src="http://hertzg.github.io/node-net-keepalive/images/wireshark.jpg" alt="Wireshark screenshot KEEPALIVE"></a></p>
 <p>Have fun!</p>
 <p>More info about <code>SO_KEEPALIVE</code> here: <a href="http://tldp.org/HOWTO/TCP-Keepalive-HOWTO/">TCP Keepalive HOWTO</a>
 <code>C</code> Code examples here: <a href="http://tldp.org/HOWTO/TCP-Keepalive-HOWTO/programming.html#examples">Examples</a></p>
 <h2>API</h2>
-<p><em><strong>Note: For these methods to work you must enable <code>SO_KEEPALIVE</code> and set the <code>TCP_KEEPIDLE</code> options for socket using <code>Net.Socket</code>-s built in method <a href="https://nodejs.org/api/net.html#net_socket_setkeepalive_enable_initialdelay"><code>socket.setKeepAlive([enable][, initialDelay])</code></a> !</strong></em></p>
+<p><strong><em>Note: For these methods to work you must enable <code>SO_KEEPALIVE</code> and set the <code>TCP_KEEPIDLE</code> options for socket using <code>Net.Socket</code>-s built in method <a href="https://nodejs.org/api/net.html#net_socket_setkeepalive_enable_initialdelay"><code>socket.setKeepAlive([enable][, initialDelay])</code></a> !</em></strong></p>
 <pre><code>TCP_KEEPIDLE (since Linux 2.4) The time (in seconds) the connection needs to remain idle before TCP starts sending keepalive probes, if the socket option SO_KEEPALIVE has been set on this socket. This option should not be used in code intended to be portable.
 </code></pre>
 <pre class="prettyprint source lang-JavaScript"><code>var NetSocket = require('net-keepalive')
@@ -196,7 +196,7 @@ socket.setKeepAlive(enable, initialDuration)                // sets SO_KEEPALIVE
 var probeInterval = 1000                                    // after initialDuration send probes every 1 second
 NetSocket.setKeepAliveInterval(socket, probeInterval)       //sets TCP_KEEPINTVL
 
-var maxProbesBeforeFail = 10                                // after 10 failed probes connection will be dropped 
+var maxProbesBeforeFail = 10                                // after 10 failed probes connection will be dropped
 NetSocket.setKeepAliveProbes(socket, maxProbesBeforeFail)   // sets TCP_KEEPCNT
 
 // ....
