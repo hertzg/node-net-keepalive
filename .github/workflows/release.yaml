@@ -38,7 +38,7 @@ jobs:
             npm-
 
       - name: Install dependencies
-        run: npm i --only=dev
+        run: npm i --only=dev --prefer-offline --no-audit
 
       - name: Add dependencies for commitlint action
         run: echo "::set-env name=NODE_PATH::$GITHUB_WORKSPACE/node_modules"
@@ -56,7 +56,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install dependencies
-        run: npm i --only=dev
+        run: npm i --only=dev --prefer-offline --no-audit
 
       - name: Cache node modules
         uses: actions/cache@v2
@@ -113,7 +113,7 @@ jobs:
             npm-
 
       - name: Install dependencies
-        run: npm i
+        run: npm i --prefer-offline --no-audit
 
       - name: Test (tsd)
         run: npm run test:tsd
@@ -130,9 +130,7 @@ jobs:
       - name: Allow sudoless tcpdump (macos only)
         if: ${{ success() && startsWith(matrix.os, 'macos-') }}
         run: |
-          sudo ls -lah /dev/bpf*
           sudo chmod o+r /dev/bpf*
-          sudo ls -lah /dev/bpf*
 
       - name: Test (run) + Coverage
         run: npm run coverage:test
@@ -161,7 +159,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install dependencies
-        run: npm i --only=dev
+        run: npm i --only=dev --prefer-offline --no-audit
 
       - name: Release
         env:
