@@ -14,7 +14,7 @@ export type NodeJSSocketWithFileDescriptor =
 export function setKeepAliveInterval(
   socket: NodeJSSocketWithFileDescriptor,
   intvl: number
-): number
+): boolean
 
 export function getKeepAliveInterval(
   socket: NodeJSSocketWithFileDescriptor
@@ -23,7 +23,7 @@ export function getKeepAliveInterval(
 export function setKeepAliveProbes(
   socket: NodeJSSocketWithFileDescriptor,
   cnt: number
-): number
+): boolean
 
 export function getKeepAliveProbes(
   socket: NodeJSSocketWithFileDescriptor
