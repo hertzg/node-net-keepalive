@@ -4,8 +4,6 @@ updates:
     directory: /
     schedule:
       interval: daily
-    allow:
-      - dependency-type: production
     assignees:
       - hertzg
     commit-message:
