@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+    allow:
+      - dependency-type: production
+    assignees:
+      - hertzg
+    commit-message:
+      prefix: "fix"
+      prefix_development: "chore"
+      include_scope: true
+    labels:
+      - "dependencies"
+    open-pull-requests-limit: 10
+    reviewers:
+      - hertzg
+    versioning-strategy: increase-if-necessary
