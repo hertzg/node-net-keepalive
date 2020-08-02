@@ -9,9 +9,9 @@ updates:
     assignees:
       - hertzg
     commit-message:
-      prefix: "fix"
-      prefix_development: "chore"
-      include_scope: true
+      prefix: fix
+      prefix-development: chore
+      include: scope
     labels:
       - "dependencies"
     open-pull-requests-limit: 10
