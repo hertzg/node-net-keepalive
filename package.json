@@ -56,7 +56,7 @@
   "homepage": "https://github.com/hertzg/node-net-keepalive",
   "dependencies": {
     "ffi-napi": "^3.0.1",
-    "ref-napi": "^2.0.3"
+    "ref-napi": "^3.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
