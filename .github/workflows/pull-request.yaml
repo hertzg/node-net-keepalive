@@ -6,14 +6,6 @@ on:
       - master
 
 jobs:
-  report-new-dependencies:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check for new dependencies
-        uses: hiwelo/new-dependencies-action@1.0.1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
   lint-commit-message:
     runs-on: ubuntu-latest
     env:
@@ -49,8 +41,16 @@ jobs:
       - name: Add dependencies for commitlint action
         run: echo "::set-env name=NODE_PATH::$GITHUB_WORKSPACE/node_modules"
 
-      - name: Lint Commit Messages
+      - id: commitlint
+        name: Lint Commit Messages
         uses: wagoid/commitlint-github-action@v1
+
+      - if: ${{ failure() }}
+        uses: phulsechinmay/rewritable-pr-comment@v0.2.1
+        with:
+          message: ${{ steps.commitlint.output.message }}
+          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+          COMMENT_IDENTIFIER: 'lint-commit-message.commitlint.out'
 
   test-tsd:
     runs-on: ubuntu-latest
@@ -80,8 +80,16 @@ jobs:
           npm i --only=dev --prefer-offline --no-audit
           npm list --depth=0 || true
 
-      - name: Test TypeScript definitions
+      - id: tsd
+        name: Test TypeScript definitions
         run: npm run test:tsd
+
+      - if: ${{ failure() }}
+        uses: phulsechinmay/rewritable-pr-comment@v0.2.1
+        with:
+          message: ${{ steps.tsd.output.message }}
+          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+          COMMENT_IDENTIFIER: 'test-tsd.tsd.out'
 
   test-coverage:
     runs-on: ubuntu-latest
@@ -112,7 +120,8 @@ jobs:
           npm i --prefer-offline --no-audit
           npm list --depth=0 || true
 
-      - name: Coverage
+      - id: test
+        name: Coverage
         run: npm run coverage
 
       - name: Coverage Upload
@@ -121,6 +130,13 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           file: ./coverage.lcov
+
+      - if: ${{ failure() }}
+        uses: phulsechinmay/rewritable-pr-comment@v0.2.1
+        with:
+          message: ${{ steps.test.output.message }}
+          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+          COMMENT_IDENTIFIER: 'test-coverage.test.out'
 
   test-integration:
     runs-on: ${{ matrix.os }}
@@ -178,8 +194,16 @@ jobs:
           npm i --prefer-offline --no-audit
           npm list --depth=0 || true
 
-      - name: Test (integration)
+      - id: test
+        name: Test (integration)
         run: npm run test:integration
+
+      - if: ${{ failure() }}
+        uses: phulsechinmay/rewritable-pr-comment@v0.2.1
+        with:
+          message: ${{ steps.test.output.message }}
+          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+          COMMENT_IDENTIFIER: 'test-integration.${{ matrix.os }}.${{ matrix.node }}.test.out'
 
   report-:
     runs-on: ubuntu-latest
@@ -190,5 +214,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          msg: "Check out this message!"
-          check_for_duplicate_msg: false  # OPTIONAL
+          msg: 'Check out this message!'
+          check_for_duplicate_msg: false # OPTIONAL
