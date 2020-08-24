@@ -45,7 +45,8 @@ jobs:
         name: Lint Commit Messages
         uses: wagoid/commitlint-github-action@v1
 
-      - if: ${{ failure() }}
+      - name: Report failure
+        if: ${{ failure() }}
         uses: phulsechinmay/rewritable-pr-comment@v0.2.1
         with:
           message: ${{ steps.commitlint.output.message }}
@@ -80,11 +81,12 @@ jobs:
           npm i --only=dev --prefer-offline --no-audit
           npm list --depth=0 || true
 
-      - id: tsd
-        name: Test TypeScript definitions
+      - name: Test TypeScript definitions
+        id: tsd
         run: npm run test:tsd
 
-      - if: ${{ failure() }}
+      - name: Report failure
+        if: ${{ failure() }}
         uses: phulsechinmay/rewritable-pr-comment@v0.2.1
         with:
           message: ${{ steps.tsd.output.message }}
@@ -131,7 +133,8 @@ jobs:
         with:
           file: ./coverage.lcov
 
-      - if: ${{ failure() }}
+      - name: Report failure
+        if: ${{ failure() }}
         uses: phulsechinmay/rewritable-pr-comment@v0.2.1
         with:
           message: ${{ steps.test.output.message }}
@@ -204,15 +207,3 @@ jobs:
           message: ${{ steps.test.output.message }}
           GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
           COMMENT_IDENTIFIER: 'test-integration.${{ matrix.os }}.${{ matrix.node }}.test.out'
-
-  report-:
-    runs-on: ubuntu-latest
-    steps:
-      - name:
-      - name: comment PR
-        uses: unsplash/comment-on-pr@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          msg: 'Check out this message!'
-          check_for_duplicate_msg: false # OPTIONAL
