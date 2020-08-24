@@ -6,6 +6,14 @@ on:
       - master
 
 jobs:
+  report-dependency-changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for new dependencies
+        uses: hiwelo/new-dependencies-action@1.0.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
   lint-commit-message:
     runs-on: ubuntu-latest
     env:
@@ -172,3 +180,15 @@ jobs:
 
       - name: Test (integration)
         run: npm run test:integration
+
+  report-:
+    runs-on: ubuntu-latest
+    steps:
+      - name:
+      - name: comment PR
+        uses: unsplash/comment-on-pr@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          msg: "Check out this message!"
+          check_for_duplicate_msg: false  # OPTIONAL
