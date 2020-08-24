@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  report-dependency-changes:
+  report-new-dependencies:
     runs-on: ubuntu-latest
     steps:
       - name: Check for new dependencies
