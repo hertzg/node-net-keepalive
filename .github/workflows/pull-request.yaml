@@ -184,7 +184,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Check Package
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: report-package-info-npm-cache
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-${{ runner.os }}-build-${{ env.cache-name }}-
+            npm-${{ runner.os }}-build-
+            npm-${{ runner.os }}-
+            npm-
+
+      - name: Run checks
         id: check
         run: |
           cur_version=$(node -e "console.log(require('./package.json').version)")
@@ -241,7 +255,7 @@ jobs:
       - uses: unsplash/comment-on-pr@master
         with:
           msg: |
-            # Package Report [v${{ steps.check.outputs.pkg-version-short }}](../actions/runs/${{ github.run_id }})
+            # Report for [v${{ steps.check.outputs.pkg-version-short }}](../actions/runs/${{ github.run_id }})
 
             <details>
               <summary>:package: Packing output</summary>
