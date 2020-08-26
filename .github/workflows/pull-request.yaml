@@ -188,7 +188,8 @@ jobs:
         id: check
         run: |
           cur_version=$(node -e "console.log(require('./package.json').version)")
-          pr_pkg_version=$(npx semver -i prerelease $cur_version)"-unreleased.pr${{ github.event.number }}.${{ github.run_number }}+sha.${{ github.sha }}"
+          pr_pkg_version_short=$(npx semver -i prerelease $cur_version)"-unreleased.pr${{ github.event.number }}.${{ github.run_number }}"
+          pr_pkg_version=$pr_pkg_version_short"+sha.${{ github.sha }}"
           npm version --no-git-tag-version $pr_pkg_version
 
           npm_pack_log_tmp=$(mktemp --suffix=.log)
@@ -205,7 +206,7 @@ jobs:
           npm init -y
 
           npm_inst_log_tmp=$(mktemp --suffix=.log)
-          npm i $pr_pkg_path 2>&1 >$npm_inst_log_tmp
+          npm i $pr_pkg_path >$npm_inst_log_tmp 2>&1
           pr_usr_pkg_inst=$(cat $npm_inst_log_tmp)
           pr_usr_pkg_inst="${pr_usr_pkg_inst//'%'/'%25'}"
           pr_usr_pkg_inst="${pr_usr_pkg_inst//$'\n'/'%0A'}"
@@ -224,6 +225,7 @@ jobs:
           popd
           rm -rf $test_pkg_path
 
+          echo "::set-output name=pkg-version-short::$pr_pkg_version_short"
           echo "::set-output name=pkg-version::$pr_pkg_version"
           echo "::set-output name=pkg-path::$pr_pkg_path"
           echo "::set-output name=pkg-log::$pr_pkg_log"
@@ -239,21 +241,21 @@ jobs:
       - uses: unsplash/comment-on-pr@master
         with:
           msg: |
-            :floppy_disk: Package report for virtual version `${{ steps.check.outputs.pkg-version }}`
+            # Package Report [v${{ steps.check.outputs.pkg-version-short }}](../actions/runs/${{ github.run_id }})
 
-            <details open>
+            <details>
               <summary>:package: Packing output</summary>
 
               ```
-                ${{ steps.check.outputs.pkg-log }}
+            ${{ steps.check.outputs.pkg-log }}
               ```
             </details>
 
-            <details open>
+            <details>
               <summary>:zap: Install log in dependent packages</summary>
 
               ```
-                ${{ steps.check.outputs.usr-inst }}
+            ${{ steps.check.outputs.usr-inst }}
               ```
             </details>
 
@@ -261,15 +263,15 @@ jobs:
               <summary>:information_source: Dependencies installed in dependent packages</summary>
 
               ```
-                ${{ steps.check.outputs.usr-deps }}
+            ${{ steps.check.outputs.usr-deps }}
               ```
             </details>
 
-            <details open>
+            <details>
               <summary>:bar_chart: Installed size of node_modules in dependent packages</summary>
 
               ```
-                ${{ steps.check.outputs.usr-du }}
+            ${{ steps.check.outputs.usr-du }}
               ```
             </details>
           check_for_duplicate_msg: false
