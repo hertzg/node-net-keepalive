@@ -1,0 +1,46 @@
+name: node-version
+
+on:
+  workflow_dispatch:
+    inputs:
+      node:
+        description: 'Node version'
+        default: '*'
+      os:
+        description: 'Runner OS'
+        default: 'ubuntu-latest'
+
+jobs:
+  test-integration:
+    runs-on: ${{ github.event.inputs.os }}
+
+    steps:
+      - name: Setup sudoless tcpdump (linux only)
+        if: ${{ success() && startsWith(github.event.inputs.os, 'ubuntu-') }}
+        run: |
+          sudo groupadd pcap
+          sudo usermod -a -G pcap $USER
+          sudo chgrp pcap /usr/sbin/tcpdump
+          sudo setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
+          sudo ln -s /usr/sbin/tcpdump /usr/bin/tcpdump
+
+      - name: Setup sudoless tcpdump (macos only)
+        if: ${{ success() && startsWith(github.event.inputs.os, 'macos-') }}
+        run: |
+          sudo chown $(whoami):admin /dev/bpf*
+
+      - name: Setup Node
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ github.event.inputs.node }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies (full)
+        run: |
+          npm i --prefer-offline --no-audit
+          npm list --depth=0 || true
+
+      - name: Test (integration)
+        run: npm run test:integration
