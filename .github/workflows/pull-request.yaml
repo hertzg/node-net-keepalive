@@ -252,40 +252,7 @@ jobs:
           name: ${{ steps.check.outputs.pkg-version }}.tgz
           path: ${{ steps.check.outputs.pkg-path }}
 
-      - uses: unsplash/comment-on-pr@master
+      - name: npm-goggles
+        uses: hertzg/action-npm-goggles@v1.0.0
         with:
-          msg: |
-            # Report for [v${{ steps.check.outputs.pkg-version-short }}](../actions/runs/${{ github.run_id }})
-
-            <details>
-              <summary>:package: Packing output</summary>
-
-              ```
-            ${{ steps.check.outputs.pkg-log }}
-              ```
-            </details>
-
-            <details>
-              <summary>:zap: Install log in dependent packages</summary>
-
-              ```
-            ${{ steps.check.outputs.usr-inst }}
-              ```
-            </details>
-
-            <details>
-              <summary>:information_source: Dependencies installed in dependent packages</summary>
-
-              ```
-            ${{ steps.check.outputs.usr-deps }}
-              ```
-            </details>
-
-            <details>
-              <summary>:bar_chart: Installed size of node_modules in dependent packages</summary>
-
-              ```
-            ${{ steps.check.outputs.usr-du }}
-              ```
-            </details>
-          check_for_duplicate_msg: false
+          token: ${{ secrets.GITHUB_TOKEN }}
