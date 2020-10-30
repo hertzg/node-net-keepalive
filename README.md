@@ -31,6 +31,8 @@ The Missing (`TCP_KEEPINTVL` and `TCP_KEEPCNT`) `SO_KEEPALIVE` socket option set
 
 Tested on 🐧 `linux` & 🍏 `osx` (both `amd64` and `arm64`), should work on 😈 `freebsd` and others. Does not work on 🐄 `win32` (pull requests welcome).
 
+There's also linux support for setting the `TCP_USER_TIMEOUT` option, which is closely related to keep-alive.
+
 ## Install
 
 ```bash
