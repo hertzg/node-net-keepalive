@@ -28,7 +28,7 @@
     "*.d.ts"
   ],
   "engines": {
-    "node": ">=4"
+    "node": ">=10.20.0"
   },
   "husky": {
     "hooks": {
@@ -53,7 +53,7 @@
   "bugs": {
     "url": "https://github.com/hertzg/node-net-keepalive/issues"
   },
-  "homepage": "https://github.com/hertzg/node-net-keepalive",
+  "homepage": "https://hertzg.github.io/node-net-keepalive/",
   "dependencies": {
     "ffi-napi": "^3.0.1",
     "ref-napi": "^3.0.0"

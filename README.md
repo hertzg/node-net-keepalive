@@ -12,7 +12,7 @@
 [npm_url]: https://www.npmjs.com/package/net-keepalive
 [npm_shield]: https://img.shields.io/npm/v/net-keepalive.svg?style=flat
 [node_url]: https://dist.nodejs.org
-[node_shield]: https://img.shields.io/badge/node-%3E%3D4-green.svg
+[node_shield]: https://img.shields.io/badge/node-%3E%3D10.20.0-green.svg
 [os_shield]: https://img.shields.io/badge/os-linux%2Cosx%2Cbsd-green.svg
 [travis_url]: https://travis-ci.org/hertzg/node-net-keepalive
 [travis_shield]: https://travis-ci.org/hertzg/node-net-keepalive.svg?branch=master
@@ -30,6 +30,8 @@
 The Missing (`TCP_KEEPINTVL` and `TCP_KEEPCNT`) `SO_KEEPALIVE` socket option setters and getters for Node using [`ffi-napi`](https://www.npmjs.com/package/ffi-napi) module.
 
 Tested on 🐧 `linux` & 🍏 `osx` (both `amd64` and `arm64`), should work on 😈 `freebsd` and others. Does not work on 🐄 `win32` (pull requests welcome).
+
+There's also support for getting & setting the `TCP_USER_TIMEOUT` (linux 🐧 only) option, which is closely related to keep-alive.
 
 ## Install
 

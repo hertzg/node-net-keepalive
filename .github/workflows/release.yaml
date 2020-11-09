@@ -15,7 +15,9 @@ jobs:
           - macos-latest
         node: # https://nodejs.org/en/about/releases/
           - '*' # Current
-          - '12' # Active LTS
+          - '14' # Active LTS
+          # TODO(hertzg): Uncomment once v12.20.0 is released (ref: #93)
+          # - '12' # Active LTS
           - '10' # Maintenance LTS
       fail-fast: false
 
