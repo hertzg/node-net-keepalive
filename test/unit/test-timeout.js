@@ -12,7 +12,8 @@ describe('TCP User Timeout', () => {
     Lib.setUserTimeout.should.be.type('function')
   })
 
-  it('should validate passed arguments', function () {
+  itSkipOS(
+    ['darwin', 'freebsd'],'should validate passed arguments', function () {
     ;(() => Lib.setUserTimeout()).should.throw(
       'setUserTimeout requires two arguments'
     )
