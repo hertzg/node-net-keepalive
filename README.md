@@ -12,7 +12,7 @@
 [npm_url]: https://www.npmjs.com/package/net-keepalive
 [npm_shield]: https://img.shields.io/npm/v/net-keepalive.svg?style=flat
 [node_url]: https://dist.nodejs.org
-[node_shield]: https://img.shields.io/badge/node-%3E%3D4-green.svg
+[node_shield]: https://img.shields.io/badge/node-%3E%3D10.20.0-green.svg
 [os_shield]: https://img.shields.io/badge/os-linux%2Cosx%2Cbsd-green.svg
 [travis_url]: https://travis-ci.org/hertzg/node-net-keepalive
 [travis_shield]: https://travis-ci.org/hertzg/node-net-keepalive.svg?branch=master
