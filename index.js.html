@@ -315,6 +315,113 @@ module.exports.getKeepAliveProbes = function getKeepAliveProbes(socket) {
 
   return cntVal.deref()
 }
+
+/**
+ * Sets the TCP_USER_TIMEOUT value for specified socket.
+ *
+ * Notes:
+ * * This method is only supported on `linux`, will throw on `darwin` and `freebsd`.
+ * * The msec will be rounded towards the closest integer.
+ * * When used with the TCP keepalive options, will override them.
+ *
+ * @see {@link https://man7.org/linux/man-pages/man7/tcp.7.html|tcp(7):TCP_USER_TIMEOUT }
+ *
+ * @since v1.4.0
+ * @param {Net.Socket} socket to set the value for
+ * @param {number} msecs to wait for unacknowledged data before closing the connection
+ *
+ * @returns {boolean} &lt;code>true&lt;/code> on success
+ *
+ * @example &lt;caption>Set user timeout to 30 seconds (&lt;code>30000&lt;/code> milliseconds) for socket &lt;code>s&lt;/code>&lt;/caption>
+ * NetKeepAlive.setUserTimeout(s, 30000)
+ *
+ * @throws {AssertionError} setUserTimeout requires two arguments
+ * @throws {AssertionError} setUserTimeout called on unsupported platform
+ * @throws {AssertionError} setUserTimeout expects an instance of socket as its first argument
+ * @throws {AssertionError} setUserTimeout requires msec to be a Number
+ * @throws {ErrnoException|Error} Unexpected error
+ */
+module.exports.setUserTimeout = function setUserTimeout(socket, msecs) {
+  Assert.strictEqual(
+    arguments.length,
+    2,
+    'setUserTimeout requires two arguments'
+  )
+  Assert(
+    Constants.TCP_USER_TIMEOUT != null,
+    'setUserTimeout called on unsupported platform'
+  )
+  Assert(
+    _isSocket(socket),
+    'setUserTimeout expects an instance of socket as its first argument'
+  )
+  Assert.strictEqual(
+    msecs != null ? msecs.constructor : void 0,
+    Number,
+    'setUserTimeout requires msec to be a Number'
+  )
+
+  const fd = _getSocketFD(socket),
+    msecInt = ~~msecs,
+    msecVal = Ref.alloc('int', msecInt),
+    msecValLn = msecVal.type.size
+
+  return FFIBindings.setsockopt(
+    fd,
+    Constants.SOL_TCP,
+    Constants.TCP_USER_TIMEOUT,
+    msecVal,
+    msecValLn
+  )
+}
+
+/**
+ * Returns the TCP_USER_TIMEOUT value for specified socket.
+ *
+ * Note: This method is only supported on `linux`, will throw on `darwin` and `freebsd`.
+ *
+ * @since v1.4.0
+ * @param {Net.Socket} socket to check the value for
+ *
+ * @returns {number} msecs to wait for unacknowledged data before closing the connection
+ *
+ * @example &lt;caption>Get the current user timeout for socket &lt;code>s&lt;/code>&lt;/caption>
+ * NetKeepAlive.getUserTimeout(s) // returns 30000 based on setter example
+ *
+ * @throws {AssertionError} getUserTimeout requires one arguments
+ * @throws {AssertionError} getUserTimeout called on unsupported platform
+ * @throws {AssertionError} getUserTimeout expects an instance of socket as its first argument
+ * @throws {ErrnoException|Error} Unexpected error
+ */
+module.exports.getUserTimeout = function getUserTimeout(socket) {
+  Assert.strictEqual(
+    arguments.length,
+    1,
+    'getUserTimeout requires one arguments'
+  )
+  Assert(
+    Constants.TCP_USER_TIMEOUT != null,
+    'getUserTimeout called on unsupported platform'
+  )
+  Assert(
+    _isSocket(socket),
+    'getUserTimeout expects an instance of socket as its first argument'
+  )
+
+  const fd = _getSocketFD(socket),
+    msecVal = Ref.alloc(Ref.types.uint32),
+    msecValLn = Ref.alloc(Ref.types.uint32, msecVal.type.size)
+
+  FFIBindings.getsockopt(
+    fd,
+    Constants.SOL_TCP,
+    Constants.TCP_USER_TIMEOUT,
+    msecVal,
+    msecValLn
+  )
+
+  return msecVal.deref()
+}
 </code></pre>
         </article>
     </section>
