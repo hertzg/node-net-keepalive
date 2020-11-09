@@ -28,3 +28,12 @@ export function setKeepAliveProbes(
 export function getKeepAliveProbes(
   socket: NodeJSSocketWithFileDescriptor
 ): number
+
+export function setUserTimeout(
+  socket: NodeJSSocketWithFileDescriptor,
+  timeout: number
+): boolean
+
+export function getUserTimeout(
+  socket: NodeJSSocketWithFileDescriptor
+): number

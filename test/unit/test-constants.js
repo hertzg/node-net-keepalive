@@ -57,6 +57,7 @@ describe('constants', () => {
       SOL_TCP: 6,
       TCP_KEEPINTVL: 5,
       TCP_KEEPCNT: 6,
+      TCP_USER_TIMEOUT: 18,
     })
   })
 
@@ -67,6 +68,7 @@ describe('constants', () => {
       SOL_TCP: 6,
       TCP_KEEPINTVL: 5,
       TCP_KEEPCNT: 6,
+      TCP_USER_TIMEOUT: 18,
     })
   })
 })
