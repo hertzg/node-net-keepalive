@@ -124,8 +124,7 @@ jobs:
         node: # https://nodejs.org/en/about/releases/
           - '*' # Current
           - '14' # Active LTS
-          # TODO(hertzg): Uncomment once v12.20.0 is released (ref: #93)
-          # - '12' # Active LTS
+          - '12' # Active LTS
           - '10' # Maintenance LTS
         exclude:
           - node: 12.19.0 # See github issue #93
