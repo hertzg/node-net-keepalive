@@ -80,7 +80,7 @@ jobs:
 
     steps:
       - name: Setup Node
-        uses: actions/setup-node@v2-beta
+        uses: actions/setup-node@v1
 
       - name: Checkout
         uses: actions/checkout@v2
