@@ -80,7 +80,7 @@ jobs:
 
     steps:
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2-beta
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -126,8 +126,6 @@ jobs:
           - '14' # Active LTS
           - '12' # Active LTS
           - '10' # Maintenance LTS
-        exclude:
-          - node: 12.19.0 # See github issue #93
 
       fail-fast: false
 
@@ -149,6 +147,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2-beta
         with:
+          check-latest: true
           node-version: ${{ matrix.node }}
 
       - name: Checkout
