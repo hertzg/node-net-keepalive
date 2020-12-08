@@ -1,0 +1,104 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "hertzg",
+      "name": "George Hertz",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1886698?v=4",
+      "profile": "http://hertz.gg",
+      "contributions": [
+        "maintenance",
+        "code",
+        "doc",
+        "test",
+        "platform",
+        "question"
+      ]
+    },
+    {
+      "login": "mildsunrise",
+      "name": "Alba Mendez",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1177304?v=4",
+      "profile": "https://github.com/mildsunrise",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
+    },
+    {
+      "login": "pdcastro",
+      "name": "Paulo Castro",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/15091591?v=4",
+      "profile": "https://www.linkedin.com/in/pfcastro/",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "jakesjews",
+      "name": "Jacob Jewell",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/481412?v=4",
+      "profile": "http://www.immersiveapplications.com/",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "RMutharaju",
+      "name": "RMutharaju",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/37263240?v=4",
+      "profile": "https://github.com/RMutharaju",
+      "contributions": [
+        "security"
+      ]
+    },
+    {
+      "login": "borger",
+      "name": "Rafael Borges",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5930158?v=4",
+      "profile": "https://github.com/borger",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "selient",
+      "name": "Calvin",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/3947590?v=4",
+      "profile": "https://github.com/selient",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "ggsubs",
+      "name": "ggsubs",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2170237?v=4",
+      "profile": "https://github.com/ggsubs",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "mkozjak",
+      "name": "Mario Kozjak",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3506172?v=4",
+      "profile": "https://mario.kozjak.io/",
+      "contributions": [
+        "bug"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "node-net-keepalive",
+  "projectOwner": "hertzg",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true,
+  "commitConvention": "angular"
+}
