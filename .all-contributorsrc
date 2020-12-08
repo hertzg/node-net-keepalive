@@ -1,0 +1,26 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "mildsunrise",
+      "name": "Alba Mendez",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1177304?v=4",
+      "profile": "https://github.com/mildsunrise",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "node-net-keepalive",
+  "projectOwner": "hertzg",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
