@@ -18,6 +18,17 @@
         "platform",
         "question"
       ]
+    },
+    {
+      "login": "mildsunrise",
+      "name": "Alba Mendez",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1177304?v=4",
+      "profile": "https://github.com/mildsunrise",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
