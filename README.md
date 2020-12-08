@@ -1,4 +1,7 @@
 [![NPM][npm_shield]][npm_url]
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Node][node_shield]][node_url]
 [![OS][os_shield]][npm_url]
 [![Codecov][codecov_shield]][codecov_url]
@@ -137,3 +140,22 @@ See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/mildsunrise"><img src="https://avatars0.githubusercontent.com/u/1177304?v=4" width="100px;" alt=""/><br /><sub><b>Alba Mendez</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/commits?author=mildsunrise" title="Code">💻</a> <a href="https://github.com/hertzg/node-net-keepalive/commits?author=mildsunrise" title="Documentation">📖</a> <a href="https://github.com/hertzg/node-net-keepalive/commits?author=mildsunrise" title="Tests">⚠️</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
