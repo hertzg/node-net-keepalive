@@ -29,6 +29,15 @@
         "doc",
         "test"
       ]
+    },
+    {
+      "login": "pdcastro",
+      "name": "Paulo Castro",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/15091591?v=4",
+      "profile": "https://www.linkedin.com/in/pfcastro/",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
