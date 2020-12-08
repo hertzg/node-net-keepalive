@@ -38,11 +38,10 @@ jobs:
           npm i --only=dev --prefer-offline --no-audit
           npm list --depth=0 || true
 
-      - name: Add dependencies for commitlint action
-        run: echo "::set-env name=NODE_PATH::$GITHUB_WORKSPACE/node_modules"
-
       - name: Lint Commit Messages
         uses: wagoid/commitlint-github-action@v1
+        env:
+          NODE_PATH: ${{ github.workspace }}/node_modules
 
   test-tsd:
     runs-on: ubuntu-latest
