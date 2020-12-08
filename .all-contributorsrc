@@ -38,6 +38,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "jakesjews",
+      "name": "Jacob Jewell",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/481412?v=4",
+      "profile": "http://www.immersiveapplications.com/",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
