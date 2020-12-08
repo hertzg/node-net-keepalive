@@ -83,6 +83,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "mkozjak",
+      "name": "Mario Kozjak",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3506172?v=4",
+      "profile": "https://mario.kozjak.io/",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
