@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "selient",
+      "name": "Calvin",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/3947590?v=4",
+      "profile": "https://github.com/selient",
+      "contributions": [
+        "bug"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "node-net-keepalive",
+  "projectOwner": "hertzg",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
