@@ -92,15 +92,6 @@
       "contributions": [
         "bug"
       ]
-    },
-    {
-      "login": "LukasKnuthImagineOn",
-      "name": "Lukas Knuth",
-      "avatar_url": "https://avatars2.githubusercontent.com/u/22296305?v=4",
-      "profile": "https://github.com/LukasKnuthImagineOn",
-      "contributions": [
-        "code"
-      ]
     }
   ],
   "contributorsPerLine": 7,
