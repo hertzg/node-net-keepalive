@@ -92,6 +92,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "LukasKnuth",
+      "name": "Lukas Knuth",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/692211?v=4",
+      "profile": "https://codeisland.org/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
