@@ -16,7 +16,8 @@
         "doc",
         "test",
         "platform",
-        "question"
+        "question",
+        "review"
       ]
     }
   ],
