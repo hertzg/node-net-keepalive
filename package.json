@@ -55,7 +55,7 @@
   },
   "homepage": "https://hertzg.github.io/node-net-keepalive/",
   "dependencies": {
-    "ffi-napi": "^3.0.1",
+    "ffi-napi": "^4.0.1",
     "ref-napi": "^3.0.0"
   },
   "devDependencies": {
