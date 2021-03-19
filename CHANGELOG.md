@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), enforced with [semantic-release](https://github.com/semantic-release/semantic-release).
 
+### [2.0.3](https://github.com/hertzg/node-net-keepalive/compare/v2.0.2...v2.0.3) (2021-03-19)
+
+### Bug Fixes
+
+- **deps:** bump ffi-napi from 4.0.2 to 4.0.3 ([#201](https://github.com/hertzg/node-net-keepalive/issues/201)) ([72b05a8](https://github.com/hertzg/node-net-keepalive/commit/72b05a847ccfa7b66a38f10f3962972d2a0270d5))
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), enforced with [semantic-release](https://github.com/semantic-release/semantic-release).
+
 ### [2.0.2](https://github.com/hertzg/node-net-keepalive/compare/v2.0.1...v2.0.2) (2021-03-18)
 
 ### Bug Fixes
