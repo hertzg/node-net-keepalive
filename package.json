@@ -76,7 +76,7 @@
     "prettier": "^2.0.5",
     "semantic-release": "^17.1.1",
     "should": "^13.2.3",
-    "sinon": "^10.0.0",
+    "sinon": "^11.1.0",
     "tsd": "^0.15.1"
   }
 }
