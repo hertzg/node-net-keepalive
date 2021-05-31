@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), enforced with [semantic-release](https://github.com/semantic-release/semantic-release).
 
+### [2.0.5](https://github.com/hertzg/node-net-keepalive/compare/v2.0.4...v2.0.5) (2021-05-31)
+
+### Bug Fixes
+
+- **deps:** bump ref-napi from 3.0.2 to 3.0.3 ([#240](https://github.com/hertzg/node-net-keepalive/issues/240)) ([65df449](https://github.com/hertzg/node-net-keepalive/commit/65df4498e22b452427d01e21df08d1be33c0584f))
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), enforced with [semantic-release](https://github.com/semantic-release/semantic-release).
+
 ### [2.0.4](https://github.com/hertzg/node-net-keepalive/compare/v2.0.3...v2.0.4) (2021-04-06)
 
 ### Bug Fixes
