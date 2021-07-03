@@ -6,8 +6,7 @@
   "scripts": {
     "build:docs": "jsdoc -c .jsdoc.json",
     "test": "concurrently npm:test:*",
-    "test:unit": "mocha --recursive test/unit",
-    "test:integration": "mocha --recursive test/integration",
+    "test:jest": "jest",
     "test:tsd": "tsd",
     "coverage": "npm run coverage:run && npm run coverage:report",
     "coverage:run": "nyc npm run test:unit",
@@ -68,15 +67,10 @@
     "all-contributors-cli": "^6.19.0",
     "better-docs": "^2.3.0",
     "concurrently": "^6.0.0",
-    "husky": "^7.0.0",
     "jsdoc": "^3.6.4",
-    "mocha": "^9.0.1",
-    "mockery": "^2.1.0",
-    "nyc": "^15.1.0",
-    "prettier": "^2.0.5",
+    "prettier": "^2.3.2",
     "semantic-release": "^17.1.1",
-    "should": "^13.2.3",
-    "sinon": "^11.1.1",
-    "tsd": "^0.17.0"
+    "tsd": "^0.17.0",
+    "jest": "^27.0.6"
   }
 }
