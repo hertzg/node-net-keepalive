@@ -12,8 +12,6 @@ const normalizeInterval = (interval) => ~~(interval / 1000)
 describe('TCP_KEEPINTVL', () => {
   skipSuiteOnWindows()
 
-
-
   it(
     'should set interval different from system default',
     withKeepAliveSocket(({ socket }, done) => {

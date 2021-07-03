@@ -1,3 +1,5 @@
+const { createConnection, createServer } = require('net')
+
 const withKeepAliveSocket =
   (testFn, { initialDelay = 1000, serverPort = 0 } = {}) =>
   (done) => {
