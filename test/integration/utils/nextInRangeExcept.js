@@ -1,5 +1,5 @@
 const nextInRangeExcept = (min, max, step, except) => {
-  if (min >= max || step === 0) {
+  if (min >= max || step <= 0) {
     throw new TypeError('Invalid arguments')
   }
 

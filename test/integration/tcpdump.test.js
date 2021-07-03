@@ -24,7 +24,7 @@ describe('tcp-dump', () => {
       ({server, socket}, done) => {
         const Lib = require('../../lib')
         const [LOOPBACK_IFACE_NAME] = loopbackInterface()
-        if (LOOPBACK_IFACE_NAME) {
+        if (!LOOPBACK_IFACE_NAME) {
           throw new Error('Could not auto detect internal (loopback) interface')
         }
 
