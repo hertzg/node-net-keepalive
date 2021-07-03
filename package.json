@@ -6,7 +6,8 @@
   "scripts": {
     "build:docs": "jsdoc -c .jsdoc.json",
     "test": "concurrently npm:test:*",
-    "test:jest": "jest",
+    "test:coverage": "jest --testPathPattern test/unit/",
+    "test:integration": "jest --testPathPattern test/integration/",
     "test:tsd": "tsd",
     "release": "semantic-release"
   },

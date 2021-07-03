@@ -11,29 +11,24 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: Setup Node
-        uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v2-beta
 
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
 
       - uses: bahmutov/npm-install@v1
 
-      - name: Lint Commit Messages
-        uses: wagoid/commitlint-github-action@v1
+      - uses: wagoid/commitlint-github-action@v1
         env:
           NODE_PATH: ${{ github.workspace }}/node_modules
 
   test-tsd:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Node
-        uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v2-beta
 
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - uses: bahmutov/npm-install@v1
 
@@ -50,7 +45,7 @@ jobs:
 
       - uses: bahmutov/npm-install@v1
 
-      - run: npm test
+      - run: npm run test:coverage
 
       - uses: codecov/codecov-action@v1
         continue-on-error: true
@@ -58,7 +53,7 @@ jobs:
         with:
           file: ./coverage.lcov
 
-  test-jest:
+  test-integration:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -97,4 +92,4 @@ jobs:
 
       - uses: bahmutov/npm-install@v1
 
-      - run: npm test
+      - run: npm run test:integration
