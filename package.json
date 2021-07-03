@@ -20,7 +20,8 @@
   "os": [
     "freebsd",
     "darwin",
-    "linux"
+    "linux",
+    "win32"
   ],
   "files": [
     "lib/",
@@ -49,7 +50,7 @@
   },
   "homepage": "https://hertzg.github.io/node-net-keepalive/",
   "dependencies": {
-    "ffi-napi": "^4.0.1",
+    "ffi-napi": "^4.0.3",
     "ref-napi": "^3.0.0"
   },
   "devDependencies": {
