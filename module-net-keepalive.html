@@ -1571,14 +1571,14 @@ socket using Net.Socket-s built in method socket.setKeepAlive([enable][, initial
     
 
     
-    <p class="summary">Sets the TCP_USER_TIMEOUT value for specified socket.</p>
+    <p class="summary">Sets the TCP_USER_TIMEOUT (TCP_RXT_CONNDROPTIME on <code>darwin</code>) value for specified socket.</p>
     
     
     <div class="description">
-        <p>Sets the TCP_USER_TIMEOUT value for specified socket.</p>
+        <p>Sets the TCP_USER_TIMEOUT (TCP_RXT_CONNDROPTIME on <code>darwin</code>) value for specified socket.</p>
 <p>Notes:</p>
 <ul>
-<li>This method is only supported on <code>linux</code>, will throw on <code>darwin</code> and <code>freebsd</code>.</li>
+<li>This method is only supported on <code>linux</code> and <code>darwin</code>, will throw on <code>freebsd</code>.</li>
 <li>The msec will be rounded towards the closest integer.</li>
 <li>When used with the TCP keepalive options, will override them.</li>
 </ul>
