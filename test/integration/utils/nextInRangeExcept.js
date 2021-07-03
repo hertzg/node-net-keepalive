@@ -1,4 +1,8 @@
-const nextInRageExcept = (min, max, step, except) => {
+const nextInRangeExcept = (min, max, step, except) => {
+  if (min >= max || step === 0) {
+    throw new TypeError('Invalid arguments')
+  }
+
   let value = min
   while (value === except) {
     value += step
@@ -12,5 +16,5 @@ const nextInRageExcept = (min, max, step, except) => {
 }
 
 module.exports = {
-  nextInRageExcept,
+  nextInRangeExcept,
 }

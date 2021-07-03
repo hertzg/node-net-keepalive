@@ -1,10 +1,10 @@
 const { withKeepAliveSocket } = require('./utils/withKeepAliveSocket')
 const { skipSuiteOnWindows } = require('../helpers')
-const { nextInRageExcept } = require('./utils/nextInRageExcept')
+const { nextInRangeExcept } = require('./utils/nextInRangeExcept')
 
 jest.unmock('../helpers')
 jest.unmock('./utils/withKeepAliveSocket')
-jest.unmock('./utils/nextInRageExcept')
+jest.unmock('./utils/nextInRangeExcept')
 jest.deepUnmock('../../lib')
 
 const normalizeInterval = (interval) => ~~(interval / 1000)
@@ -19,7 +19,7 @@ describe('TCP_KEEPINTVL', () => {
       const sysDefaultInterval = Lib.getKeepAliveInterval(socket)
 
       const interval =
-        nextInRageExcept(1, 3, 1, normalizeInterval(sysDefaultInterval)) * 1000
+        nextInRangeExcept(1, 3, 1, normalizeInterval(sysDefaultInterval)) * 1000
       expect(interval).not.toBe(sysDefaultInterval)
 
       Lib.setKeepAliveInterval(socket, interval)

@@ -1,12 +1,12 @@
 const {skipSuiteOnWindows, skipSuiteOnMacOs} = require('../helpers')
 const {withKeepAliveSocket} = require('./utils/withKeepAliveSocket')
 const {waitForKeepAlivePackets, calculateTimeout} = require('./utils/tcpDump')
-const {loopbackInterfaces} = require('./utils/loopbackInterfaces')
+const {loopbackInterface} = require('./utils/loopbackInterface')
 
 jest.unmock('../helpers')
 jest.unmock('./utils/withKeepAliveSocket')
 jest.unmock('./utils/tcpDump')
-jest.unmock('./utils/loopbackInterfaces')
+jest.unmock('./utils/loopbackInterface')
 jest.deepUnmock('../../lib')
 
 const INITIAL_DELAY = 1000
@@ -23,7 +23,7 @@ describe('tcp-dump', () => {
     withKeepAliveSocket(
       ({server, socket}, done) => {
         const Lib = require('../../lib')
-        const [LOOPBACK_IFACE_NAME] = loopbackInterfaces()
+        const [LOOPBACK_IFACE_NAME] = loopbackInterface()
         if (LOOPBACK_IFACE_NAME) {
           throw new Error('Could not auto detect internal (loopback) interface')
         }
