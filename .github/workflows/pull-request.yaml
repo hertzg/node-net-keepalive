@@ -11,14 +11,11 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/setup-node@v2-beta
-
+      - uses: actions/setup-node@v2
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-
       - uses: bahmutov/npm-install@v1
-
       - uses: wagoid/commitlint-github-action@v1
         env:
           NODE_PATH: ${{ github.workspace }}/node_modules
@@ -26,27 +23,26 @@ jobs:
   test-tsd:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v2-beta
-
+      - uses: actions/setup-node@v2
       - uses: actions/checkout@v2
-
       - uses: bahmutov/npm-install@v1
-
       - run: npm run test:tsd
 
   test-coverage:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+      fail-fast: false
 
     steps:
-      - name: Setup Node
-        uses: actions/setup-node@v2-beta
-
+      - uses: actions/setup-node@v2
       - uses: actions/checkout@v2
-
       - uses: bahmutov/npm-install@v1
-
       - run: npm run test:coverage
-
       - uses: codecov/codecov-action@v1
         continue-on-error: true
         if: ${{ success() }}
@@ -65,7 +61,6 @@ jobs:
           - '*' # Current
           - '14' # Active LTS
           - '12' # Maintenance LTS
-
       fail-fast: false
 
     steps:
@@ -83,13 +78,11 @@ jobs:
         run: |
           sudo chown $(whoami):admin /dev/bpf*
 
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v2
         with:
           check-latest: true
           node-version: ${{ matrix.node }}
 
       - uses: actions/checkout@v2
-
       - uses: bahmutov/npm-install@v1
-
       - run: npm run test:integration

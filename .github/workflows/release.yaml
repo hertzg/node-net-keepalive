@@ -21,7 +21,7 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v2
         with:
           check-latest: true
           node-version: ${{ matrix.node }}
@@ -52,7 +52,7 @@ jobs:
       - test
     if: ${{ success() && github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'hertzg/node-net-keepalive' }}
     steps:
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v2
 
       - uses: actions/checkout@v2
 
