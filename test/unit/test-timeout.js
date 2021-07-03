@@ -13,7 +13,7 @@ describe('TCP User Timeout', () => {
   })
 
   itSkipOS(
-    ['darwin', 'freebsd'],'should validate passed arguments', function () {
+    ['freebsd'],'should validate passed arguments', function () {
     ;(() => Lib.setUserTimeout()).should.throw(
       'setUserTimeout requires two arguments'
     )
@@ -52,7 +52,7 @@ describe('TCP User Timeout', () => {
   })
 
   itSkipOS(
-    ['darwin', 'freebsd'],
+    ['freebsd'],
     'should throw when setsockopt returns -1',
     (done) => {
       const srv = Net.createServer()
@@ -68,7 +68,7 @@ describe('TCP User Timeout', () => {
     }
   )
 
-  itSkipOS(['darwin', 'freebsd'], 'should be able to set and get 4 second value', (done) => {
+  itSkipOS(['freebsd'], 'should be able to set and get 4 second value', (done) => {
     const srv = Net.createServer()
     srv.listen(0, () => {
       const expected = 4000
@@ -91,7 +91,7 @@ describe('TCP User Timeout', () => {
     })
   })
 
-  itSkipOS(['darwin', 'freebsd'], 'should throw when trying to get using invalid fd', (done) => {
+  itSkipOS(['freebsd'], 'should throw when trying to get using invalid fd', (done) => {
     ;(() => Lib.setUserTimeout(new Net.Socket(), 1)).should.throw(
       'Unable to get socket fd'
     )
