@@ -37,8 +37,7 @@ jobs:
 
       - uses: bahmutov/npm-install@v1
 
-      - name: Test TypeScript definitions
-        run: npm run test:tsd
+      - run: npm run test:tsd
 
   test-coverage:
     runs-on: ubuntu-latest
@@ -47,22 +46,19 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2-beta
 
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - uses: bahmutov/npm-install@v1
 
-      - name: Coverage
-        run: npm run coverage
+      - run: npm test
 
-      - name: Coverage Upload
+      - uses: codecov/codecov-action@v1
         continue-on-error: true
         if: ${{ success() }}
-        uses: codecov/codecov-action@v1
         with:
           file: ./coverage.lcov
 
-  test-integration:
+  test-jest:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -92,16 +88,13 @@ jobs:
         run: |
           sudo chown $(whoami):admin /dev/bpf*
 
-      - name: Setup Node
-        uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v2-beta
         with:
           check-latest: true
           node-version: ${{ matrix.node }}
 
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - uses: bahmutov/npm-install@v1
 
-      - name: Test (integration)
-        run: npm run test:integration
+      - run: npm test

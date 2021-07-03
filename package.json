@@ -8,9 +8,6 @@
     "test": "concurrently npm:test:*",
     "test:jest": "jest",
     "test:tsd": "tsd",
-    "coverage": "npm run coverage:run && npm run coverage:report",
-    "coverage:run": "nyc npm run test:unit",
-    "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov",
     "release": "semantic-release"
   },
   "repository": {
