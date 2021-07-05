@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build:docs": "jsdoc -c .jsdoc.json",
+    "jest": "jest",
     "test": "concurrently npm:test:*",
     "test:coverage": "jest --coverage --testPathIgnorePatterns test/integration/",
     "test:integration": "jest --testPathPattern test/integration/",
