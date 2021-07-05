@@ -42,10 +42,13 @@ jobs:
       - uses: actions/setup-node@v2
       - uses: actions/checkout@v2
       - uses: bahmutov/npm-install@v1
-      - uses: ziishaned/jest-reporter-action@0.1.1
+      - run: npm run test:coverage -- --ci --reporters=default --reporters=jest-Junit --reporters=jest-github-actions-reporter
+      - uses: dorny/test-reporter@v1
+        if: success() || failure()    # run this step even if previous step failed
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          test-command: npm run test:coverage --reporters=default --reporters=jest-github-actions-reporter
+          name: JEST Tests            # Name of the check run which will be created
+          path: reports/jest-*.xml    # Path to test results
+          reporter: jest-junit        # Format of test results
       - uses: codecov/codecov-action@v1
         continue-on-error: true
         if: ${{ success() }}
