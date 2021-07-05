@@ -1,11 +1,8 @@
+jest.disableAutomock()
+
 const { skipSuiteOnWindows } = require('../helpers')
 const withKeepAliveSocket = require('./utils/withKeepAliveSocket')
 const nextInRangeExcept = require('./utils/nextInRangeExcept')
-
-jest.unmock('../helpers')
-jest.unmock('./utils/withKeepAliveSocket')
-jest.unmock('./utils/nextInRangeExcept')
-jest.deepUnmock('../../lib')
 
 describe('TCP_KEEPCNT', () => {
   skipSuiteOnWindows()

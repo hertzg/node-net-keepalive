@@ -1,13 +1,9 @@
+jest.disableAutomock()
+
 const { skipSuiteOnWindows, skipSuiteOnMacOs } = require('../helpers')
 const withKeepAliveSocket = require('./utils/withKeepAliveSocket')
 const { waitForKeepAlivePackets, calculateTimeout } = require('./utils/tcpDump')
 const loopbackInterface = require('./utils/loopbackInterface')
-
-jest.unmock('../helpers')
-jest.unmock('./utils/withKeepAliveSocket')
-jest.unmock('./utils/tcpDump')
-jest.unmock('./utils/loopbackInterface')
-jest.deepUnmock('../../lib')
 
 const INITIAL_DELAY = 1000
 const KEEPALIVE_PACKET_COUNT = 10

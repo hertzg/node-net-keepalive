@@ -1,11 +1,8 @@
+jest.disableAutomock()
+
 const withKeepAliveSocket = require('./utils/withKeepAliveSocket')
 const { skipSuiteOnWindows } = require('../helpers')
 const nextInRangeExcept = require('./utils/nextInRangeExcept')
-
-jest.unmock('../helpers')
-jest.unmock('./utils/withKeepAliveSocket')
-jest.unmock('./utils/nextInRangeExcept')
-jest.deepUnmock('../../lib')
 
 const normalizeInterval = (interval) => ~~(interval / 1000)
 
