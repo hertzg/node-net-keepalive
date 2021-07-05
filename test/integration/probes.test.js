@@ -1,4 +1,6 @@
 jest.disableAutomock()
+jest.unmock('ref-napi')
+jest.unmock('ffi-napi')
 
 const { skipSuiteOnWindows } = require('../helpers')
 const withKeepAliveSocket = require('./utils/withKeepAliveSocket')
