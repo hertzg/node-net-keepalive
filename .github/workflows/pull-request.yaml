@@ -42,7 +42,10 @@ jobs:
       - uses: actions/setup-node@v2
       - uses: actions/checkout@v2
       - uses: bahmutov/npm-install@v1
-      - run: npm run test:coverage
+      - uses: ziishaned/jest-reporter-action@0.1.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          test-command: npm run test:coverage --reporters=default --reporters=jest-github-actions-reporter
       - uses: codecov/codecov-action@v1
         continue-on-error: true
         if: ${{ success() }}

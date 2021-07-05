@@ -6,7 +6,7 @@
   "scripts": {
     "build:docs": "jsdoc -c .jsdoc.json",
     "test": "concurrently npm:test:*",
-    "test:coverage": "jest --testPathPattern test/unit/",
+    "test:coverage": "jest --coverage --testPathIgnorePatterns test/integration/",
     "test:integration": "jest --testPathPattern test/integration/",
     "test:tsd": "tsd",
     "release": "semantic-release"
@@ -67,6 +67,7 @@
     "prettier": "^2.3.2",
     "semantic-release": "^17.1.1",
     "tsd": "^0.17.0",
-    "jest": "^27.0.6"
+    "jest": "^27.0.6",
+    "jest-github-actions-reporter": "^1.0.3"
   }
 }
