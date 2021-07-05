@@ -1,9 +1,0 @@
-*.lcov
-*.pid
-*.seed
-*.log
-*.tgz
-*.tar.gz
-*.tar
-.editorconfig
-.prettierrc

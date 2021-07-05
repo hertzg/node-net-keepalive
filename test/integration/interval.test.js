@@ -1,6 +1,6 @@
-const { withKeepAliveSocket } = require('./utils/withKeepAliveSocket')
+const withKeepAliveSocket = require('./utils/withKeepAliveSocket')
 const { skipSuiteOnWindows } = require('../helpers')
-const { nextInRangeExcept } = require('./utils/nextInRangeExcept')
+const nextInRangeExcept = require('./utils/nextInRangeExcept')
 
 jest.unmock('../helpers')
 jest.unmock('./utils/withKeepAliveSocket')

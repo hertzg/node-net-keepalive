@@ -1,4 +1,4 @@
-const nextInRangeExcept = (min, max, step, except) => {
+module.exports = (min, max, step, except) => {
   if (min >= max || step <= 0) {
     throw new TypeError('Invalid arguments')
   }
@@ -13,8 +13,4 @@ const nextInRangeExcept = (min, max, step, except) => {
     }
   }
   return value
-}
-
-module.exports = {
-  nextInRangeExcept,
 }

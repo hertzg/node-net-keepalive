@@ -1,6 +1,6 @@
-const { nextInRangeExcept } = require('./nextInRangeExcept')
+const nextInRangeExcept = require('../nextInRangeExcept')
 
-jest.unmock('./nextInRangeExcept')
+jest.unmock('../nextInRangeExcept')
 
 it('should give next value in range', () => {
   expect(nextInRangeExcept(1, 10, 1, 5)).toBe(1)
