@@ -13,7 +13,7 @@ describe('[win32] TCP_KEEPINTVL', () => {
 
       expect(() => Lib.setKeepAliveInterval(client, 5000)).not.toThrow()
       expect(() => Lib.getKeepAliveInterval(client)).not.toThrow()
-      expect(Lib.setKeepAliveInterval(client, 5000)).toBeUndefined()
+      expect(Lib.setKeepAliveInterval(client, 5000)).toBe(false)
       expect(Lib.getKeepAliveInterval(client)).toBeUndefined()
     })
   )

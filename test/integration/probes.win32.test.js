@@ -13,7 +13,7 @@ describe('[win32] TCP_KEEPCNT', () => {
 
       expect(() => Lib.setKeepAliveProbes(client, 5)).not.toThrow()
       expect(() => Lib.getKeepAliveProbes(client)).not.toThrow()
-      expect(Lib.setKeepAliveProbes(client, 5)).toBeUndefined()
+      expect(Lib.setKeepAliveProbes(client, 5)).toBe(false)
       expect(Lib.getKeepAliveProbes(client)).toBeUndefined()
     })
   )
