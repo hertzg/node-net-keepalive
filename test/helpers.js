@@ -3,29 +3,20 @@ const { platform } = require('os')
 const itSkipOS = (skipOs, ...args) =>
   (skipOs.includes(platform()) ? it.skip : it)(...args)
 
-const skipSuiteOnWindows = () => {
-  if (platform() === 'win32') {
-    const message = `does not work on windows`
+const skipOnPlatforms = (...platforms) => {
+  if (platforms.includes(platform())) {
+    const message = `is skipped on ${platforms.join(', ')} platforms`
     test.only(message, () => {
-      console.warn(`[SKIP] Skipped as this feature does not work on Windows`)
+      console.warn(`[SKIP] ${message}`)
     })
   }
 }
 
-const skipSuiteOnMacOs = () => {
-  if (platform() === 'darwin') {
-    const message = `does not work on darwin`
+const onlyOnPlatforms = (...platforms) => {
+  if (!platforms.includes(platform())) {
+    const message = `is only run on ${platforms.join(', ')} platforms`
     test.only(message, () => {
-      console.warn(`[SKIP] Skipped as this feature does not work on MacOS`)
-    })
-  }
-}
-
-const skipSuiteOnFreeBsd = () => {
-  if (platform() === 'freebsd') {
-    const message = `does not work on freebsd`
-    test.only(message, () => {
-      console.warn(`[SKIP] Skipped as this feature does not work on FreeBSD`)
+      console.warn(`[SKIP] ${message}`)
     })
   }
 }
@@ -37,9 +28,8 @@ const collectChunks = (stream) => {
 }
 
 module.exports = {
-  skipSuiteOnWindows,
-  skipSuiteOnMacOs,
-  skipSuiteOnFreeBsd,
+  skipOnPlatforms,
+  onlyOnPlatforms,
   collectChunks,
   itSkipOS,
 }

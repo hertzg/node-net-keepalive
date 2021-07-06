@@ -2,30 +2,30 @@ jest.disableAutomock()
 jest.unmock('ref-napi')
 jest.unmock('ffi-napi')
 
-const withKeepAliveSocket = require('./utils/withKeepAliveSocket')
-const { skipSuiteOnWindows } = require('../helpers')
+const withConnection = require('./utils/withConnection')
+const { skipOnPlatforms } = require('../helpers')
 const nextInRangeExcept = require('./utils/nextInRangeExcept')
 
 const normalizeInterval = (interval) => ~~(interval / 1000)
 
-skipSuiteOnWindows()
+skipOnPlatforms('win32')
 describe('TCP_KEEPINTVL', () => {
   it(
     'should set interval different from system default',
-    withKeepAliveSocket(({ socket }, done) => {
+    withConnection(({ client }) => {
+      client.setKeepAlive(true, 1000)
+
       const Lib = require('../../lib')
-      const sysDefaultInterval = Lib.getKeepAliveInterval(socket)
+      const sysDefaultInterval = Lib.getKeepAliveInterval(client)
 
       const interval =
         nextInRangeExcept(1, 3, 1, normalizeInterval(sysDefaultInterval)) * 1000
       expect(interval).not.toBe(sysDefaultInterval)
 
-      Lib.setKeepAliveInterval(socket, interval)
-      const actualInterval = Lib.getKeepAliveInterval(socket)
+      Lib.setKeepAliveInterval(client, interval)
+      const actualInterval = Lib.getKeepAliveInterval(client)
       expect(actualInterval).toBe(interval)
       expect(actualInterval).not.toBe(sysDefaultInterval)
-
-      done()
     })
   )
 })
