@@ -34,10 +34,11 @@ jobs:
     steps:
       - uses: actions/setup-node@v2
       - uses: actions/checkout@v2
+      - uses: bahmutov/npm-install@v1
       - uses: artiomtr/jest-coverage-report-action@v2.0-rc.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          package-manager: npm
+          skip-step: install
           test-script: npm run test:coverage -- --silent --ci --coverageReporters="text" --coverageReporters="text-summary"
 
   test-jest:
