@@ -10,9 +10,9 @@ const loopbackInterface = require('./utils/loopbackInterface')
 const INITIAL_DELAY = 1000
 const KEEPALIVE_PACKET_COUNT = 10
 
+skipSuiteOnMacOs()
+skipSuiteOnWindows()
 describe('tcp-dump', () => {
-  skipSuiteOnWindows()
-  skipSuiteOnMacOs()
 
   const TCPDUMP_TIMEOUT = calculateTimeout(INITIAL_DELAY, 1000, 5)
 

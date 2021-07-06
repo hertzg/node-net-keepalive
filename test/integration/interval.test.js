@@ -8,9 +8,8 @@ const nextInRangeExcept = require('./utils/nextInRangeExcept')
 
 const normalizeInterval = (interval) => ~~(interval / 1000)
 
+skipSuiteOnWindows()
 describe('TCP_KEEPINTVL', () => {
-  skipSuiteOnWindows()
-
   it(
     'should set interval different from system default',
     withKeepAliveSocket(({ socket }, done) => {

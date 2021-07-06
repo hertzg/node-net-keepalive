@@ -6,8 +6,8 @@ const { skipSuiteOnWindows } = require('../helpers')
 const withKeepAliveSocket = require('./utils/withKeepAliveSocket')
 const nextInRangeExcept = require('./utils/nextInRangeExcept')
 
+skipSuiteOnWindows()
 describe('TCP_KEEPCNT', () => {
-  skipSuiteOnWindows()
 
   it(
     'should set probes different from system default',
