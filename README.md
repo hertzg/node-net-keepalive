@@ -32,7 +32,8 @@
 
 The Missing (`TCP_KEEPINTVL` and `TCP_KEEPCNT`) `SO_KEEPALIVE` socket option setters and getters for Node using [`ffi-napi`](https://www.npmjs.com/package/ffi-napi) module.
 
-Tested on 🐧 `linux` & 🍏 `osx` (both `amd64` and `arm64`), should work on 😈 `freebsd` and others. Does not work on 🐄 `win32` (pull requests welcome).
+Tested on 🐧 `linux` & 🍏 `osx` (both `amd64` and `arm64`), should work on 😈 `freebsd` and others. 
+Installs on 🐄 `win32` 🎉 but methods are no-ops (pull requests welcome).
 
 There's also support for getting & setting the `TCP_USER_TIMEOUT` (🐧 `linux`  and 🍏 `osx` only) option, which is closely related to keep-alive.
 
@@ -44,11 +45,12 @@ There's also support for getting & setting the `TCP_USER_TIMEOUT` (🐧 `linux` 
 | 🐧 `linux`   | ✅            | ✅          | ✅                          |
 | 🍏 `osx`     | ✅            | ✅          | ✅ (`TCP_RXT_CONNDROPTIME`) |
 | 😈 `freebsd` | ✅            | ✅          | ❌                          |
-| 🐄 `win32`   | ❌            | ❌          | ❌                          |
+| 🐄 `win32`   | ➖            | ➖          | ➖                          |
 
 Legend:
 
 - ✅ - Supported
+- ➖ - No operation 
 - ❌ - Unsupported (throws)
 
 ## Install
