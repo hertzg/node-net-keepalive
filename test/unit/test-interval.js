@@ -8,6 +8,9 @@ describe('keep-alive interval', () => {
   const itSkipOS = (skipOs, ...args) =>
     (skipOs.includes(OS.platform()) ? it.skip : it)(...args)
 
+  const itOnlyOS = (onlyOs, ...args) =>
+    (onlyOs.includes(OS.platform()) ? it : it.skip)(...args)
+
   it('should be a function', function () {
     Lib.setKeepAliveInterval.should.be.type('function')
   })
@@ -50,8 +53,20 @@ describe('keep-alive interval', () => {
     )
   })
 
+  itOnlyOS(['win32'], 'should be no-op returning false on win32', (done) => {
+    const srv = Net.createServer()
+    srv.listen(0, () => {
+      const socket = Net.createConnection(srv.address(), () => {
+        ;(() => Lib.setKeepAliveInterval(socket, -1)).should.not.throw()
+        Should(Lib.setKeepAliveInterval(socket, -1)).be.false()
+        socket.destroy()
+        srv.close(done)
+      })
+    })
+  })
+
   itSkipOS(
-    ['darwin', 'freebsd'],
+    ['darwin', 'freebsd', 'win32'],
     'should throw when setsockopt returns -1',
     (done) => {
       const srv = Net.createServer()
@@ -67,7 +82,7 @@ describe('keep-alive interval', () => {
     }
   )
 
-  it('should be able to set and get 4 second delay', (done) => {
+  itSkipOS(['win32'], 'should be able to set and get 4 second delay', (done) => {
     const srv = Net.createServer()
     srv.listen(0, () => {
       const expected = 4000
@@ -90,7 +105,7 @@ describe('keep-alive interval', () => {
     })
   })
 
-  it('should throw when trying to get using invalid fd', function (done) {
+  itSkipOS(['win32'],'should throw when trying to get using invalid fd', function (done) {
     ;(() => Lib.setKeepAliveInterval(new Net.Socket(), 1)).should.throw(
       'Unable to get socket fd'
     )

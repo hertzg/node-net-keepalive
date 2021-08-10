@@ -8,6 +8,9 @@ describe('TCP User Timeout', () => {
   const itSkipOS = (skipOs, ...args) =>
     (skipOs.includes(OS.platform()) ? it.skip : it)(...args)
 
+  const itOnlyOS = (onlyOs, ...args) =>
+    (onlyOs.includes(OS.platform()) ? it : it.skip)(...args)
+
   it('should be a function', function () {
     Lib.setUserTimeout.should.be.type('function')
   })
@@ -51,8 +54,20 @@ describe('TCP User Timeout', () => {
     )
   })
 
+  itOnlyOS(['win32'], 'should be no-op returning false on win32', (done) => {
+    const srv = Net.createServer()
+    srv.listen(0, () => {
+      const socket = Net.createConnection(srv.address(), () => {
+        ;(() => Lib.setUserTimeout(socket, -1)).should.not.throw()
+        Should(Lib.setUserTimeout(socket, -1)).be.false()
+        socket.destroy()
+        srv.close(done)
+      })
+    })
+  })
+
   itSkipOS(
-    ['freebsd'],
+    ['freebsd', 'win32'],
     'should throw when setsockopt returns -1',
     (done) => {
       const srv = Net.createServer()
@@ -68,7 +83,7 @@ describe('TCP User Timeout', () => {
     }
   )
 
-  itSkipOS(['freebsd'], 'should be able to set and get 4 second value', (done) => {
+  itSkipOS(['freebsd', 'win32'], 'should be able to set and get 4 second value', (done) => {
     const srv = Net.createServer()
     srv.listen(0, () => {
       const expected = 4000
@@ -91,7 +106,7 @@ describe('TCP User Timeout', () => {
     })
   })
 
-  itSkipOS(['freebsd'], 'should throw when trying to get using invalid fd', (done) => {
+  itSkipOS(['freebsd', 'win32'], 'should throw when trying to get using invalid fd', (done) => {
     ;(() => Lib.setUserTimeout(new Net.Socket(), 1)).should.throw(
       'Unable to get socket fd'
     )
