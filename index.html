@@ -129,7 +129,8 @@
 <h1>🔗 net-keepalive</h1>
 <p><a href="https://nodei.co/npm/net-keepalive/"><img src="https://nodei.co/npm/net-keepalive.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt="NPM"></a></p>
 <p>The Missing (<code>TCP_KEEPINTVL</code> and <code>TCP_KEEPCNT</code>) <code>SO_KEEPALIVE</code> socket option setters and getters for Node using <a href="https://www.npmjs.com/package/ffi-napi"><code>ffi-napi</code></a> module.</p>
-<p>Tested on 🐧 <code>linux</code> &amp; 🍏 <code>osx</code> (both <code>amd64</code> and <code>arm64</code>), should work on 😈 <code>freebsd</code> and others. Does not work on 🐄 <code>win32</code> (pull requests welcome).</p>
+<p>Tested on 🐧 <code>linux</code> &amp; 🍏 <code>osx</code> (both <code>amd64</code> and <code>arm64</code>), should work on 😈 <code>freebsd</code> and others.
+Installs on 🐄 <code>win32</code> 🎉 but methods are no-ops (pull requests welcome).</p>
 <p>There's also support for getting &amp; setting the <code>TCP_USER_TIMEOUT</code> (🐧 <code>linux</code>  and 🍏 <code>osx</code> only) option, which is closely related to keep-alive.</p>
 <h2>Platform support</h2>
 <table>
@@ -162,15 +163,16 @@
 </tr>
 <tr>
 <td>🐄 <code>win32</code></td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
+<td>➖</td>
+<td>➖</td>
+<td>➖</td>
 </tr>
 </tbody>
 </table>
 <p>Legend:</p>
 <ul>
 <li>✅ - Supported</li>
+<li>➖ - No operation</li>
 <li>❌ - Unsupported (throws)</li>
 </ul>
 <h2>Install</h2>

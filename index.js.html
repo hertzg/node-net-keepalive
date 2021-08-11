@@ -122,6 +122,7 @@
 
 const Assert = require('assert'),
   Net = require('net'),
+  OS = require('os'),
   Constants = require('./constants'),
   Ref = require('ref-napi'),
   FFIBindings = require('./ffi-bindings')
@@ -130,7 +131,9 @@ const _isSocket = (socket) => socket instanceof Net.Socket
 
 const _getSocketFD = (socket) => {
   const fd = socket._handle != null ? socket._handle.fd : undefined
-  Assert(fd &amp;&amp; fd !== -1, 'Unable to get socket fd')
+  if (OS.platform() !== 'win32') {
+    Assert(fd &amp;&amp; fd !== -1, 'Unable to get socket fd')
+  }
   return fd
 }
 
