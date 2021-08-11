@@ -81,6 +81,10 @@ const collectChunks = (stream) => {
 describe('tcp-dump', () => {
   let internalIface
   before(function () {
+    if(OS.platform() === 'win32') {
+      this.skip();
+    }
+
     internalIface = findFirstInterfaceWithInternalAddress()
     if (!internalIface) {
       console.log('Skip: could not detect internal (loopback) interface name')
