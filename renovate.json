@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "config:base",
+    ":semanticCommits",
+    ":preserveSemverRanges",
+    ":maintainLockFilesMonthly",
+    "schedule:daily",
+    "group:all"
+  ],
+  "separateMajorMinor": false
+}
