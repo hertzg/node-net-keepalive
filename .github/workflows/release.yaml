@@ -28,7 +28,7 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - uses: bahmutov/npm-install@v1
 
@@ -59,7 +59,7 @@ jobs:
         uses: actions/setup-node@v2-beta
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - uses: bahmutov/npm-install@v1
 
