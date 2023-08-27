@@ -23,7 +23,7 @@
 [codecov_url]: https://codecov.io/gh/hertzg/node-net-keepalive
 [codecov_shield]: https://codecov.io/gh/hertzg/node-net-keepalive/branch/master/graph/badge.svg
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # 🔗 net-keepalive
@@ -166,20 +166,23 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
-  <tr>
-    <td align="center"><a href="http://hertz.gg"><img src="https://avatars3.githubusercontent.com/u/1886698?v=4?s=100" width="100px;" alt=""/><br /><sub><b>George Hertz</b></sub></a><br /><a href="#maintenance-hertzg" title="Maintenance">🚧</a> <a href="https://github.com/hertzg/node-net-keepalive/commits?author=hertzg" title="Code">💻</a> <a href="https://github.com/hertzg/node-net-keepalive/commits?author=hertzg" title="Documentation">📖</a> <a href="https://github.com/hertzg/node-net-keepalive/commits?author=hertzg" title="Tests">⚠️</a> <a href="#platform-hertzg" title="Packaging/porting to new platform">📦</a> <a href="#question-hertzg" title="Answering Questions">💬</a></td>
-    <td align="center"><a href="https://github.com/mildsunrise"><img src="https://avatars0.githubusercontent.com/u/1177304?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Alba Mendez</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/commits?author=mildsunrise" title="Code">💻</a> <a href="https://github.com/hertzg/node-net-keepalive/commits?author=mildsunrise" title="Documentation">📖</a> <a href="https://github.com/hertzg/node-net-keepalive/commits?author=mildsunrise" title="Tests">⚠️</a></td>
-    <td align="center"><a href="https://www.linkedin.com/in/pfcastro/"><img src="https://avatars3.githubusercontent.com/u/15091591?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Paulo Castro</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/issues?q=author%3Apdcastro" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="http://www.immersiveapplications.com/"><img src="https://avatars1.githubusercontent.com/u/481412?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jacob Jewell</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/issues?q=author%3Ajakesjews" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/RMutharaju"><img src="https://avatars0.githubusercontent.com/u/37263240?v=4?s=100" width="100px;" alt=""/><br /><sub><b>RMutharaju</b></sub></a><br /><a href="#security-RMutharaju" title="Security">🛡️</a></td>
-    <td align="center"><a href="https://github.com/borger"><img src="https://avatars0.githubusercontent.com/u/5930158?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Rafael Borges</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/issues?q=author%3Aborger" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/selient"><img src="https://avatars2.githubusercontent.com/u/3947590?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Calvin</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/issues?q=author%3Aselient" title="Bug reports">🐛</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://github.com/ggsubs"><img src="https://avatars2.githubusercontent.com/u/2170237?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ggsubs</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/issues?q=author%3Aggsubs" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://mario.kozjak.io/"><img src="https://avatars1.githubusercontent.com/u/3506172?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mario Kozjak</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/issues?q=author%3Amkozjak" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://codeisland.org/"><img src="https://avatars2.githubusercontent.com/u/692211?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lukas Knuth</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/commits?author=LukasKnuth" title="Code">💻</a></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="http://hertz.gg"><img src="https://avatars3.githubusercontent.com/u/1886698?v=4?s=100" width="100px;" alt="George Hertz"/><br /><sub><b>George Hertz</b></sub></a><br /><a href="#maintenance-hertzg" title="Maintenance">🚧</a> <a href="https://github.com/hertzg/node-net-keepalive/commits?author=hertzg" title="Code">💻</a> <a href="https://github.com/hertzg/node-net-keepalive/commits?author=hertzg" title="Documentation">📖</a> <a href="https://github.com/hertzg/node-net-keepalive/commits?author=hertzg" title="Tests">⚠️</a> <a href="#platform-hertzg" title="Packaging/porting to new platform">📦</a> <a href="#question-hertzg" title="Answering Questions">💬</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/mildsunrise"><img src="https://avatars0.githubusercontent.com/u/1177304?v=4?s=100" width="100px;" alt="Alba Mendez"/><br /><sub><b>Alba Mendez</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/commits?author=mildsunrise" title="Code">💻</a> <a href="https://github.com/hertzg/node-net-keepalive/commits?author=mildsunrise" title="Documentation">📖</a> <a href="https://github.com/hertzg/node-net-keepalive/commits?author=mildsunrise" title="Tests">⚠️</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/pfcastro/"><img src="https://avatars3.githubusercontent.com/u/15091591?v=4?s=100" width="100px;" alt="Paulo Castro"/><br /><sub><b>Paulo Castro</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/issues?q=author%3Apdcastro" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://www.immersiveapplications.com/"><img src="https://avatars1.githubusercontent.com/u/481412?v=4?s=100" width="100px;" alt="Jacob Jewell"/><br /><sub><b>Jacob Jewell</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/issues?q=author%3Ajakesjews" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/RMutharaju"><img src="https://avatars0.githubusercontent.com/u/37263240?v=4?s=100" width="100px;" alt="RMutharaju"/><br /><sub><b>RMutharaju</b></sub></a><br /><a href="#security-RMutharaju" title="Security">🛡️</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/borger"><img src="https://avatars0.githubusercontent.com/u/5930158?v=4?s=100" width="100px;" alt="Rafael Borges"/><br /><sub><b>Rafael Borges</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/issues?q=author%3Aborger" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/selient"><img src="https://avatars2.githubusercontent.com/u/3947590?v=4?s=100" width="100px;" alt="Calvin"/><br /><sub><b>Calvin</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/issues?q=author%3Aselient" title="Bug reports">🐛</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ggsubs"><img src="https://avatars2.githubusercontent.com/u/2170237?v=4?s=100" width="100px;" alt="ggsubs"/><br /><sub><b>ggsubs</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/issues?q=author%3Aggsubs" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://mario.kozjak.io/"><img src="https://avatars1.githubusercontent.com/u/3506172?v=4?s=100" width="100px;" alt="Mario Kozjak"/><br /><sub><b>Mario Kozjak</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/issues?q=author%3Amkozjak" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://codeisland.org/"><img src="https://avatars2.githubusercontent.com/u/692211?v=4?s=100" width="100px;" alt="Lukas Knuth"/><br /><sub><b>Lukas Knuth</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/commits?author=LukasKnuth" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ikb42"><img src="https://avatars.githubusercontent.com/u/5161291?v=4?s=100" width="100px;" alt="Ivan"/><br /><sub><b>Ivan</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/issues?q=author%3Aikb42" title="Bug reports">🐛</a></td>
+    </tr>
+  </tbody>
 </table>
 
 <!-- markdownlint-restore -->
