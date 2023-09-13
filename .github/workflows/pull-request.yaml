@@ -72,8 +72,7 @@ jobs:
           - windows-latest
         node: # https://nodejs.org/en/about/releases/
           - '*' # Current
-          - '14' # Active LTS
-          - '12' # Maintenance LTS
+          - '18' # Active LTS
 
       fail-fast: false
 
