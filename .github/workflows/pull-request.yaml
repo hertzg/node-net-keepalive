@@ -80,13 +80,10 @@ jobs:
       - name: Setup sudoless tcpdump (linux only)
         if: ${{ success() && startsWith(matrix.os, 'ubuntu-') }}
         run: |
-          sudo apt-get install -y tcpdump
           sudo groupadd pcap
           sudo usermod -a -G pcap $USER
-          sudo chgrp pcap /usr/sbin/tcpdump
-          sudo setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
-          sudo ln -s /usr/sbin/tcpdump /usr/bin/tcpdump
-
+          sudo chgrp pcap /usr/bin/tcpdump
+          sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/tcpdump
       - name: Setup sudoless tcpdump (macos only)
         if: ${{ success() && startsWith(matrix.os, 'macos-') }}
         run: |
