@@ -54,24 +54,24 @@
     "ref-napi": "^3.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^15.0.0",
-    "@commitlint/config-conventional": "^15.0.0",
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
     "@semantic-release/changelog": "^6.0.0",
     "@semantic-release/exec": "^6.0.0",
     "@semantic-release/git": "^10.0.0",
-    "@types/node": "^16.0.0",
+    "@types/node": "^18.0.0",
     "all-contributors-cli": "^6.19.0",
     "better-docs": "^2.3.0",
-    "concurrently": "^6.0.0",
-    "husky": "^7.0.0",
-    "jsdoc": "^3.6.4",
-    "mocha": "^9.0.1",
+    "concurrently": "^8.0.0",
+    "husky": "^8.0.0",
+    "jsdoc": "^4.0.0",
+    "mocha": "^10.0.0",
     "mockery": "^2.1.0",
     "nyc": "^15.1.0",
-    "prettier": "^2.0.5",
-    "semantic-release": "^18.0.0",
+    "prettier": "^3.0.0",
+    "semantic-release": "^21.0.0",
     "should": "^13.2.3",
-    "sinon": "^12.0.0",
-    "tsd": "^0.19.0"
+    "sinon": "^16.0.0",
+    "tsd": "^0.29.0"
   }
 }
