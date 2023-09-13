@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), enforced with [semantic-release](https://github.com/semantic-release/semantic-release).
 
+## [3.0.1](https://github.com/hertzg/node-net-keepalive/compare/v3.0.0...v3.0.1) (2023-09-13)
+
+### Bug Fixes
+
+- bump node verions ([67dee2a](https://github.com/hertzg/node-net-keepalive/commit/67dee2a1efc44980b4343f054a7db2c981c67a97))
+- install tcpdump ([aacb8c2](https://github.com/hertzg/node-net-keepalive/commit/aacb8c2372032c3f3d5c9af78d4a3148b2d86391))
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), enforced with [semantic-release](https://github.com/semantic-release/semantic-release).
+
 ## [3.0.0](https://github.com/hertzg/node-net-keepalive/compare/v2.1.0...v3.0.0) (2021-08-11)
 
 ### ⚠ BREAKING CHANGES
