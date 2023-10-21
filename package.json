@@ -54,8 +54,8 @@
     "ref-napi": "^3.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.0.0",
-    "@commitlint/config-conventional": "^17.0.0",
+    "@commitlint/cli": "^18.0.0",
+    "@commitlint/config-conventional": "^18.0.0",
     "@semantic-release/changelog": "^6.0.0",
     "@semantic-release/exec": "^6.0.0",
     "@semantic-release/git": "^10.0.0",
@@ -71,7 +71,7 @@
     "prettier": "^3.0.0",
     "semantic-release": "^22.0.0",
     "should": "^13.2.3",
-    "sinon": "^16.0.0",
+    "sinon": "^17.0.0",
     "tsd": "^0.29.0"
   }
 }
