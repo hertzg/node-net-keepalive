@@ -59,7 +59,7 @@
     "@semantic-release/changelog": "^6.0.0",
     "@semantic-release/exec": "^6.0.0",
     "@semantic-release/git": "^10.0.0",
-    "@types/node": "^18.0.0",
+    "@types/node": "^20.0.0",
     "all-contributors-cli": "^6.19.0",
     "better-docs": "^2.3.0",
     "concurrently": "^8.0.0",
