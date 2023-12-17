@@ -38,28 +38,28 @@ services:
 
   node-lts-dubnium:
     <<: *service_defaults
-    image: node:dubnium-alpine
+    image: node:iron-alpine
     volumes:
       - *service_defaults_volumes_app
       - dubnium_node_modules:/app/node_modules/:rw
 
   node-lts-carbon:
     <<: *service_defaults
-    image: node:carbon-alpine
+    image: node:iron-alpine
     volumes:
       - *service_defaults_volumes_app
       - carbon_node_modules:/app/node_modules/:rw
 
   node-lts-boron:
     <<: *service_defaults
-    image: node:boron-alpine
+    image: node:iron-alpine
     volumes:
       - *service_defaults_volumes_app
       - boron_node_modules:/app/node_modules/:rw
 
   node-lts-argon:
     <<: *service_defaults
-    image: node:argon-alpine
+    image: node:iron-alpine
     volumes:
       - *service_defaults_volumes_app
       - argon_node_modules:/app/node_modules:rw
