@@ -58,7 +58,7 @@ jobs:
       - name: Coverage Upload
         continue-on-error: true
         if: ${{ success() }}
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           file: ./coverage.lcov
 
