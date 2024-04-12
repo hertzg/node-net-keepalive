@@ -71,8 +71,9 @@ jobs:
           - macos-latest
           - windows-latest
         node: # https://nodejs.org/en/about/releases/
-          - '*' # Current
-          - '18' # Active LTS
+          - '*'
+          - '20'
+          - '18'
 
       fail-fast: false
 
