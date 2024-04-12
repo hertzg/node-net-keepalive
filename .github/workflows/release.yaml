@@ -15,8 +15,10 @@ jobs:
           - macos-latest
           - windows-latest
         node: # https://nodejs.org/en/about/releases/
-          - '*' # Current
-          - '18' # Active LTS
+          - '*'
+          - '22'
+          - '20'
+          - '18'
       fail-fast: false
 
     steps:
