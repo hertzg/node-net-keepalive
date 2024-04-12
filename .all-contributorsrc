@@ -110,6 +110,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "otaviojacobi",
+      "name": "Otávio Jacobi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/14330369?v=4",
+      "profile": "https://github.com/otaviojacobi",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
