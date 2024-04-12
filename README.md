@@ -23,7 +23,7 @@
 [codecov_url]: https://codecov.io/gh/hertzg/node-net-keepalive
 [codecov_shield]: https://codecov.io/gh/hertzg/node-net-keepalive/branch/master/graph/badge.svg
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # 🔗 net-keepalive
@@ -181,6 +181,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://mario.kozjak.io/"><img src="https://avatars1.githubusercontent.com/u/3506172?v=4?s=100" width="100px;" alt="Mario Kozjak"/><br /><sub><b>Mario Kozjak</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/issues?q=author%3Amkozjak" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://codeisland.org/"><img src="https://avatars2.githubusercontent.com/u/692211?v=4?s=100" width="100px;" alt="Lukas Knuth"/><br /><sub><b>Lukas Knuth</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/commits?author=LukasKnuth" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ikb42"><img src="https://avatars.githubusercontent.com/u/5161291?v=4?s=100" width="100px;" alt="Ivan"/><br /><sub><b>Ivan</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/issues?q=author%3Aikb42" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/otaviojacobi"><img src="https://avatars.githubusercontent.com/u/14330369?v=4?s=100" width="100px;" alt="Otávio Jacobi"/><br /><sub><b>Otávio Jacobi</b></sub></a><br /><a href="https://github.com/hertzg/node-net-keepalive/issues?q=author%3Aotaviojacobi" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
