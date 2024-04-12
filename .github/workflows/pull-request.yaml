@@ -72,7 +72,6 @@ jobs:
           - windows-latest
         node: # https://nodejs.org/en/about/releases/
           - '*'
-          - '22'
           - '20'
           - '18'
 
