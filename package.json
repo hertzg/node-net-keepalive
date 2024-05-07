@@ -50,11 +50,11 @@
   },
   "homepage": "https://hertzg.github.io/node-net-keepalive/",
   "dependencies": {
-    "ffi-rs": "1.0.60"
+    "ffi-rs": "1.0.74"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.0.0",
-    "@commitlint/config-conventional": "^18.0.0",
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
     "@semantic-release/changelog": "^6.0.0",
     "@semantic-release/exec": "^6.0.0",
     "@semantic-release/git": "^10.0.0",
@@ -62,15 +62,15 @@
     "all-contributors-cli": "^6.19.0",
     "better-docs": "^2.3.0",
     "concurrently": "^8.0.0",
-    "husky": "^8.0.0",
+    "husky": "^9.0.0",
     "jsdoc": "^4.0.0",
     "mocha": "^10.0.0",
     "mockery": "^2.1.0",
     "nyc": "^15.1.0",
     "prettier": "^3.0.0",
-    "semantic-release": "^22.0.0",
+    "semantic-release": "^23.0.0",
     "should": "^13.2.3",
     "sinon": "^17.0.0",
-    "tsd": "^0.29.0"
+    "tsd": "^0.31.0"
   }
 }

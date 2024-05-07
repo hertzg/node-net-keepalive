@@ -22,7 +22,7 @@ jobs:
       - uses: bahmutov/npm-install@v1
 
       - name: Lint Commit Messages
-        uses: wagoid/commitlint-github-action@v5
+        uses: wagoid/commitlint-github-action@v6
         env:
           NODE_PATH: ${{ github.workspace }}/node_modules
 
@@ -58,7 +58,7 @@ jobs:
       - name: Coverage Upload
         continue-on-error: true
         if: ${{ success() }}
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           file: ./coverage.lcov
 
