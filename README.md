@@ -32,7 +32,7 @@
 
 > ℹ️ Since [libuv v1.35.0](https://github.com/libuv/libuv/blame/e45f1ec38db882f8dc17b51f51a6684027034609/src/unix/tcp.c#L387-L390) (Node `v13.12.0` & `v12.17.0`) [both `TCP_KEEPINTVL` and `TCP_KEEPCNT` have somewhat predictable values](https://github.com/libuv/libuv/pull/2669)
 > This package allows you to tweak those values per each socket but at a cost of having to deal with FFI overhead and it's dependencies.
-> [Check the node docs](https://nodejs.org/api/net.html#socketsetkeepaliveenable-initialdelay), if the default values are good enough for you then you don't need to use this package. 
+> [Check the latest node docs for socket.setKeepaliveEnable](https://nodejs.org/api/net.html#socketsetkeepaliveenable-initialdelay), if the default values are good enough for you then you don't need to use this package. 
 
 The Missing (`TCP_KEEPINTVL` and `TCP_KEEPCNT`) `SO_KEEPALIVE` socket option setters and getters for Node using FFI.
 
