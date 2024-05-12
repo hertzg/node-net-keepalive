@@ -30,7 +30,11 @@
 
 [![NPM](https://nodei.co/npm/net-keepalive.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/net-keepalive/)
 
-The Missing (`TCP_KEEPINTVL` and `TCP_KEEPCNT`) `SO_KEEPALIVE` socket option setters and getters for Node using [`ffi-napi`](https://www.npmjs.com/package/ffi-napi) module.
+> ℹ️ Since [libuv v1.35.0](https://github.com/libuv/libuv/blame/e45f1ec38db882f8dc17b51f51a6684027034609/src/unix/tcp.c#L387-L390) (Node `v13.12.0` & `v12.17.0`) [both `TCP_KEEPINTVL` and `TCP_KEEPCNT` have somewhat predictable values](https://github.com/libuv/libuv/pull/2669)
+> This package allows you to tweak those values per each socket but at a cost of having to deal with FFI overhead and it's dependencies.
+> [Check the latest node docs for socket.setKeepaliveEnable](https://nodejs.org/api/net.html#socketsetkeepaliveenable-initialdelay), if the default values are good enough for you then you don't need to use this package. 
+
+The Missing (`TCP_KEEPINTVL` and `TCP_KEEPCNT`) `SO_KEEPALIVE` socket option setters and getters for Node using FFI.
 
 Tested on 🐧 `linux` & 🍏 `osx` (both `amd64` and `arm64`), should work on 😈 `freebsd` and others. 
 Installs on 🐄 `win32` 🎉 but methods are no-ops (pull requests welcome).
@@ -127,6 +131,7 @@ More info about `SO_KEEPALIVE` here: [TCP Keepalive HOWTO](http://tldp.org/HOWTO
 ## Sample
 
 **_Note: For these methods to work you must enable `SO_KEEPALIVE` and set the `TCP_KEEPIDLE` options for socket using `Net.Socket`-s built in method [`socket.setKeepAlive([enable][, initialDelay])`](https://nodejs.org/api/net.html#net_socket_setkeepalive_enable_initialdelay) !_**
+
 
     TCP_KEEPIDLE (since Linux 2.4) The time (in seconds) the connection needs to remain idle before TCP starts sending keepalive probes, if the socket option SO_KEEPALIVE has been set on this socket. This option should not be used in code intended to be portable.
 
