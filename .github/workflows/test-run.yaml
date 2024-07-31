@@ -58,12 +58,9 @@ jobs:
     if: ${{ inputs.testUnit != 'skip' }}
     runs-on: ${{ inputs.runsOn }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4.0.3
+      - uses: ./.github/workflows/actions/setup/action.yaml
         with:
-          check-latest: true
-          node-version: ${{ inputs.nodeVersion }}
-      - uses: bahmutov/npm-install@v1.10.2
+          nodeVersion: ${{ inputs.nodeVersion }}
 
       - if: ${{ inputs.testUnit == 'test' }}
         run: npm run test:unit
@@ -82,12 +79,9 @@ jobs:
     if: ${{ inputs.testIntegration != 'skip' }}
     runs-on: ${{ inputs.runsOn }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4.0.3
+      - uses: ./.github/workflows/actions/setup/action.yaml
         with:
-          check-latest: true
-          node-version: ${{ inputs.nodeVersion }}
-      - uses: bahmutov/npm-install@v1.10.2
+          nodeVersion: ${{ inputs.nodeVersion }}
 
       - name: Setup sudoless tcpdump (linux only)
         if: ${{ success() && startsWith(inputs.runsOn, 'ubuntu-') }}
@@ -109,11 +103,8 @@ jobs:
     if: ${{ inputs.testTsd != 'skip' }}
     runs-on: ${{ inputs.runsOn }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4.0.3
+      - uses: ./.github/workflows/actions/setup/action.yaml
         with:
-          check-latest: true
-          node-version: ${{ inputs.nodeVersion }}
-      - uses: bahmutov/npm-install@v1.10.2
+          nodeVersion: ${{ inputs.nodeVersion }}
 
       - run: npm run test:tsd
