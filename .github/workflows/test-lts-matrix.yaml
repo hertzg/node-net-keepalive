@@ -47,8 +47,7 @@ jobs:
 
             const allVersions = await fetch('https://endoflife.date/api/node.json').then(r => r.json());
             const version = allVersions.filter(v => v.lts).filter(v => isNowWithin(v.lts, v.eol)).map(v => v.cycle)
-            console.log(JSON.stringify(['*', ...version]));
-          result-encoding: string
+            return ['*', ...version]
 
   test-full:
     name: 'Test'
