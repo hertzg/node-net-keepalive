@@ -58,7 +58,7 @@ jobs:
     if: ${{ inputs.testUnit != 'skip' }}
     runs-on: ${{ inputs.runsOn }}
     steps:
-      - uses: ./.github/workflows/actions/setup/action.yaml
+      - uses: ./.github/workflows/actions/setup
         with:
           nodeVersion: ${{ inputs.nodeVersion }}
 
@@ -79,22 +79,13 @@ jobs:
     if: ${{ inputs.testIntegration != 'skip' }}
     runs-on: ${{ inputs.runsOn }}
     steps:
-      - uses: ./.github/workflows/actions/setup/action.yaml
+      - uses: ./.github/workflows/actions/setup
         with:
           nodeVersion: ${{ inputs.nodeVersion }}
 
-      - name: Setup sudoless tcpdump (linux only)
-        if: ${{ success() && startsWith(inputs.runsOn, 'ubuntu-') }}
-        run: |
-          sudo groupadd pcap
-          sudo usermod -a -G pcap $USER
-          sudo chgrp pcap /usr/bin/tcpdump
-          sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/tcpdump
-
-      - name: Setup sudoless tcpdump (macos only)
-        if: ${{ success() && startsWith(inputs.runsOn, 'macos-') }}
-        run: |
-          sudo chown $(whoami):admin /dev/bpf*
+      - uses: ./github/workflows/actions/sudoless-tcpdump
+        with:
+          runsOn: ${{ inputs.runsOn }}
 
       - run: npm run test:integration
 
@@ -103,7 +94,7 @@ jobs:
     if: ${{ inputs.testTsd != 'skip' }}
     runs-on: ${{ inputs.runsOn }}
     steps:
-      - uses: ./.github/workflows/actions/setup/action.yaml
+      - uses: ./.github/workflows/actions/setup
         with:
           nodeVersion: ${{ inputs.nodeVersion }}
 

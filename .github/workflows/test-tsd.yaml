@@ -25,7 +25,7 @@ jobs:
   tsd:
     runs-on: ${{ inputs.runsOn }}
     steps:
-      - uses: ./.github/workflows/actions/setup/action.yaml
+      - uses: ./.github/workflows/actions/setup
         with:
           nodeVersion: ${{ inputs.nodeVersion }}
 
