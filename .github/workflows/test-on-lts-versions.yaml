@@ -11,16 +11,15 @@ on:
           - test
           - test-with-coverage
         default: test
-      testTsd:
-        description: 'TSDefinitions'
+      testIntegration:
+        description: 'Integrations'
         type: choice
         options:
           - skip
           - test
-          - test-on-ubuntu
-        default: test-on-ubuntu
-      testIntegration:
-        description: 'Integrations'
+        default: test
+      testTsd:
+        description: 'Definitions'
         type: choice
         options:
           - skip
@@ -37,13 +36,14 @@ on:
         default: test
       testTsd:
         type: string
-        default: test-on-ubuntu
+        default: test
 
 jobs:
-  versions:
+  ltsVersions:
+    if: ${{ inputs.testUnit != 'skip' || inputs.testIntegration != 'skip' }}
     runs-on: ubuntu-latest
     outputs:
-      nodeVersion: ${{ steps.nodeVersions.outputs.result }}
+      nodeVersions: ${{ steps.nodeVersions.outputs.result }}
     steps:
       - uses: actions/github-script@v7.0.1
         id: nodeVersions
@@ -61,16 +61,27 @@ jobs:
           result-encoding: string
 
   test:
+    if: ${{ inputs.testUnit != 'skip' || inputs.testIntegration != 'skip' }}
     needs:
-      - versions
+      - ltsVersions
     strategy:
       matrix:
         runsOn: [ubuntu-latest, macos-latest, windows-latest]
-        nodeVersion: ${{fromJson(needs.versions.outputs.nodeVersion)}}
+        nodeVersion: ${{fromJson(needs.ltsVersions.outputs.nodeVersions)}}
     uses: ./.github/workflows/test-on-version-and-os.yaml
     with:
       nodeVersion: ${{ matrix.nodeVersion }}
       runsOn: ${{ matrix.runsOn }}
       testUnit: ${{ inputs.testUnit }}
       testIntegration: ${{ inputs.testIntegration }}
-      testTsd: ${{ inputs.testTsd }}
+      testTsd: skip
+
+  test-tsd:
+    if: ${{ inputs.testTsd == 'test' }}
+    uses: ./.github/workflows/test-on-version-and-os.yaml
+    with:
+      nodeVersion: '*'
+      runsOn: ubuntu-latest
+      testUnit: skip
+      testIntegration: skip
+      testTsd: test

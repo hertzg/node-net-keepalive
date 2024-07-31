@@ -28,7 +28,7 @@ on:
           - test
         default: test
       testTsd:
-        description: 'TSDefinitions'
+        description: 'Definitions'
         type: choice
         options:
           - skip
@@ -38,12 +38,9 @@ on:
   workflow_call:
     inputs:
       runsOn:
-        required: true
         type: string
       nodeVersion:
-        required: true
         type: string
-
       testUnit:
         type: string
         default: test
@@ -106,7 +103,7 @@ jobs:
 
   tsd:
     if: ${{ inputs.testTsd != 'skip' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ inputs.runsOn }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4.0.3
