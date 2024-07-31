@@ -54,7 +54,6 @@ on:
 
 jobs:
   unit:
-    name: 'Unit: ${{ inputs.testUnit }}'
     if: ${{ inputs.testUnit != 'skip' }}
     runs-on: ${{ inputs.runsOn }}
     steps:
@@ -76,7 +75,6 @@ jobs:
           file: ./coverage.lcov
 
   integration:
-    name: 'Integration: ${{ inputs.testIntegration }}'
     if: ${{ inputs.testIntegration != 'skip' }}
     runs-on: ${{ inputs.runsOn }}
     steps:
@@ -85,7 +83,7 @@ jobs:
         with:
           nodeVersion: ${{ inputs.nodeVersion }}
 
-      - uses: ./github/workflows/actions/sudoless-tcpdump
+      - uses: ./.github/workflows/actions/sudoless-tcpdump
         with:
           runsOn: ${{ inputs.runsOn }}
 
