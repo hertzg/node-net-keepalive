@@ -102,7 +102,7 @@
         <article>
             <pre class="prettyprint source linenums"><code>/**
  * The Missing (TCP_KEEPINTVL and TCP_KEEPCNT) SO_KEEPALIVE socket option setters and getters for Node using
- * ffi-napi module.
+ * ffi-rs module.
  *
  * Note: For methods provided by this module to work you must enable SO_KEEPALIVE and set the TCP_KEEPIDLE options for
  * socket using Net.Socket-s built in method socket.setKeepAlive([enable][, initialDelay]) !
@@ -124,7 +124,7 @@ const Assert = require('assert'),
   Net = require('net'),
   OS = require('os'),
   Constants = require('./constants'),
-  Ref = require('ref-napi'),
+  { DataType, createPointer, restorePointer } = require('ffi-rs'),
   FFIBindings = require('./ffi-bindings')
 
 const _isSocket = (socket) => socket instanceof Net.Socket
@@ -177,8 +177,12 @@ module.exports.setKeepAliveInterval = function setKeepAliveInterval(
 
   const fd = _getSocketFD(socket),
     seconds = ~~(msecs / 1000),
-    intvlVal = Ref.alloc('int', seconds),
-    intvlValLn = intvlVal.type.size
+    dataType = DataType.I32,
+    [intvlVal] = createPointer({
+      paramsType: [dataType],
+      paramsValue: [seconds],
+    }),
+    intvlValLn = 4 // sizeof int
 
   return FFIBindings.setsockopt(
     fd,
@@ -216,8 +220,15 @@ module.exports.getKeepAliveInterval = function getKeepAliveInterval(socket) {
   )
 
   const fd = _getSocketFD(socket),
-    intvlVal = Ref.alloc(Ref.types.uint32),
-    intvlValLn = Ref.alloc(Ref.types.uint32, intvlVal.type.size)
+    dataType = DataType.I32,
+    [intvlVal] = createPointer({
+      paramsType: [dataType],
+      paramsValue: [0],
+    }),
+    [intvlValLn] = createPointer({
+      paramsType: [DataType.I32],
+      paramsValue: [4], // sizeof int
+    })
 
   FFIBindings.getsockopt(
     fd,
@@ -227,7 +238,12 @@ module.exports.getKeepAliveInterval = function getKeepAliveInterval(socket) {
     intvlValLn
   )
 
-  return intvlVal.deref() * 1000
+  const [value] = restorePointer({
+    retType: [dataType],
+    paramsValue: [intvlVal],
+  })
+
+  return value * 1000
 }
 
 /**
@@ -266,8 +282,12 @@ module.exports.setKeepAliveProbes = function setKeepAliveProbes(socket, cnt) {
 
   const fd = _getSocketFD(socket),
     count = ~~cnt,
-    cntVal = Ref.alloc('int', count),
-    cntValLn = cntVal.type.size
+    dataType = DataType.I32,
+    [cntVal] = createPointer({
+      paramsType: [dataType],
+      paramsValue: [count],
+    }),
+    cntValLn = 4 // sizeof int
 
   return FFIBindings.setsockopt(
     fd,
@@ -305,8 +325,15 @@ module.exports.getKeepAliveProbes = function getKeepAliveProbes(socket) {
   )
 
   const fd = _getSocketFD(socket),
-    cntVal = Ref.alloc(Ref.types.int),
-    cntValLn = Ref.alloc(Ref.types.int, cntVal.type.size)
+    dataType = DataType.I32,
+    [cntVal] = createPointer({
+      paramsType: [dataType],
+      paramsValue: [0],
+    }),
+    [cntValLn] = createPointer({
+      paramsType: [DataType.I32],
+      paramsValue: [4], // sizeof int
+    })
 
   FFIBindings.getsockopt(
     fd,
@@ -316,7 +343,12 @@ module.exports.getKeepAliveProbes = function getKeepAliveProbes(socket) {
     cntValLn
   )
 
-  return cntVal.deref()
+  const [value] = restorePointer({
+    retType: [dataType],
+    paramsValue: [cntVal],
+  })
+
+  return value
 }
 
 /**
@@ -366,8 +398,12 @@ module.exports.setUserTimeout = function setUserTimeout(socket, msecs) {
 
   const fd = _getSocketFD(socket),
     msecInt = ~~msecs,
-    msecVal = Ref.alloc('int', msecInt),
-    msecValLn = msecVal.type.size
+    dataType = DataType.I32,
+    [msecVal] = createPointer({
+      paramsType: [dataType],
+      paramsValue: [msecInt],
+    }),
+    msecValLn = 4 // sizeof int
 
   return FFIBindings.setsockopt(
     fd,
@@ -412,8 +448,15 @@ module.exports.getUserTimeout = function getUserTimeout(socket) {
   )
 
   const fd = _getSocketFD(socket),
-    msecVal = Ref.alloc(Ref.types.uint32),
-    msecValLn = Ref.alloc(Ref.types.uint32, msecVal.type.size)
+    dataType = DataType.I32,
+    [msecVal] = createPointer({
+      paramsType: [dataType],
+      paramsValue: [0],
+    }),
+    [msecValLn] = createPointer({
+      paramsType: [DataType.I32],
+      paramsValue: [4], // sizeof int
+    })
 
   FFIBindings.getsockopt(
     fd,
@@ -423,7 +466,12 @@ module.exports.getUserTimeout = function getUserTimeout(socket) {
     msecValLn
   )
 
-  return msecVal.deref()
+  const [value] = restorePointer({
+    retType: [dataType],
+    paramsValue: [msecVal],
+  })
+
+  return value
 }
 </code></pre>
         </article>
