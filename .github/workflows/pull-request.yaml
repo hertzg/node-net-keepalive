@@ -27,7 +27,7 @@ jobs:
     uses: ./.github/workflows/test-tsd.yaml
 
   full-with-coverage:
-    name: 'Tests: Unit (+coverage) & Integration
+    name: 'Tests: Unit (+coverage) & Integration'
     uses: ./.github/workflows/test-lts-matrix.yaml
     with:
       testUnit: test-with-coverage
