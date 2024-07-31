@@ -74,6 +74,8 @@ jobs:
         uses: codecov/codecov-action@v4.5.0
         with:
           file: ./coverage.lcov
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   integration:
     name: 'Integration (node-${{ inputs.nodeVersion}}, ${{ inputs.runsOn }})'
