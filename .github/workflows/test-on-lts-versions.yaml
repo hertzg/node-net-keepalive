@@ -40,7 +40,7 @@ on:
 
 jobs:
   ltsVersions:
-    if: ${{ inputs.testUnit != 'skip' || inputs.testIntegration != 'skip' }}
+    if: ${{ inputs.testUnit != 'skip' && inputs.testIntegration != 'skip' }}
     runs-on: ubuntu-latest
     outputs:
       nodeVersions: ${{ steps.nodeVersions.outputs.result }}
@@ -60,14 +60,17 @@ jobs:
             console.log(JSON.stringify(['*', ...version]));
           result-encoding: string
 
-  test:
-    if: ${{ inputs.testUnit != 'skip' || inputs.testIntegration != 'skip' }}
+  test-full:
+    if: ${{ inputs.testUnit != 'skip' && inputs.testIntegration != 'skip' }}
     needs:
       - ltsVersions
     strategy:
       matrix:
-        runsOn: [ubuntu-latest, macos-latest, windows-latest]
         nodeVersion: ${{fromJson(needs.ltsVersions.outputs.nodeVersions)}}
+        runsOn:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
     uses: ./.github/workflows/test-on-version-and-os.yaml
     with:
       nodeVersion: ${{ matrix.nodeVersion }}
