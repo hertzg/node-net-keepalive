@@ -5,7 +5,14 @@
     ":preserveSemverRanges",
     ":maintainLockFilesMonthly",
     "schedule:daily",
-    "group:all"
+    ":library"
   ],
-  "separateMajorMinor": false
+  "dependencyDashboard": false,
+  "separateMajorMinor": false,
+  "packageRules": [
+    {
+      "depTypeList": ["devDependencies"],
+      "enabled": false
+    }
+  ]
 }
