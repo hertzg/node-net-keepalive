@@ -50,7 +50,7 @@ jobs:
             return ['*', ...version]
 
   test-full:
-    name: 'Test'
+    name: 'Test node-v${{ matrix.nodeVersion }}-${{ matrix.runsOn }}'
     needs:
       - ltsVersions
     strategy:
