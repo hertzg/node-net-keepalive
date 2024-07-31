@@ -24,9 +24,7 @@ jobs:
 
   test-tsd:
     name: 'Test TypeScript definitions'
-    uses: ./.github/workflows/test-run.yaml
-    with:
-      testTsd: test
+    uses: ./.github/workflows/test-tsd.yaml
 
   full-with-coverage:
     name: 'Full test with coverage'

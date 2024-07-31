@@ -90,15 +90,3 @@ jobs:
           runsOn: ${{ inputs.runsOn }}
 
       - run: npm run test:integration
-
-  tsd:
-    name: 'TDS: ${{ inputs.testTsd }}'
-    if: ${{ inputs.testTsd != 'skip' }}
-    runs-on: ${{ inputs.runsOn }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/workflows/actions/setup
-        with:
-          nodeVersion: ${{ inputs.nodeVersion }}
-
-      - run: npm run test:tsd
