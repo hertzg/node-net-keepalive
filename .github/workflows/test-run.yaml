@@ -54,6 +54,7 @@ on:
 
 jobs:
   unit:
+    name: 'Unit: ${{ inputs.testUnit }}'
     if: ${{ inputs.testUnit != 'skip' }}
     runs-on: ${{ inputs.runsOn }}
     steps:
@@ -77,6 +78,7 @@ jobs:
           file: ./coverage.lcov
 
   integration:
+    name: 'Unit: ${{ inputs.testIntegration }}'
     if: ${{ inputs.testIntegration != 'skip' }}
     runs-on: ${{ inputs.runsOn }}
     steps:
@@ -103,6 +105,7 @@ jobs:
       - run: npm run test:integration
 
   tsd:
+    name: 'TDS: ${{ inputs.testTsd }}'
     if: ${{ inputs.testTsd != 'skip' }}
     runs-on: ${{ inputs.runsOn }}
     steps:
