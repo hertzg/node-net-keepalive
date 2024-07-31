@@ -78,7 +78,7 @@ jobs:
           file: ./coverage.lcov
 
   integration:
-    name: 'Unit: ${{ inputs.testIntegration }}'
+    name: 'Integration: ${{ inputs.testIntegration }}'
     if: ${{ inputs.testIntegration != 'skip' }}
     runs-on: ${{ inputs.runsOn }}
     steps:
