@@ -1,0 +1,76 @@
+name: Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      testUnit:
+        description: 'Units'
+        type: choice
+        options:
+          - skip
+          - test
+          - test-with-coverage
+        default: test
+      testTsd:
+        description: 'TSDefinitions'
+        type: choice
+        options:
+          - skip
+          - test
+          - test-on-ubuntu
+        default: test-on-ubuntu
+      testIntegration:
+        description: 'Integrations'
+        type: choice
+        options:
+          - skip
+          - test
+        default: test
+
+  workflow_call:
+    inputs:
+      testUnit:
+        type: string
+        default: test
+      testIntegration:
+        type: string
+        default: test
+      testTsd:
+        type: string
+        default: test-on-ubuntu
+
+jobs:
+  versions:
+    runs-on: ubuntu-latest
+    outputs:
+      nodeVersion: ${{ steps.nodeVersions.outputs.result }}
+    steps:
+      - uses: actions/github-script@v7.0.1
+        id: nodeVersions
+        with:
+          script: |
+            const isNowWithin = (a, b) => {
+              const toDateNumber = date => Number(date.split('-').join(''));
+              const now = toDateNumber(new Date().toISOString().split('T')[0]);
+              return toDateNumber(a) <= now && now <= toDateNumber(b);
+            }
+
+            const allVersions = await fetch('https://endoflife.date/api/node.json').then(r => r.json());
+            const version = allVersions.filter(v => v.lts).filter(v => isNowWithin(v.lts, v.eol)).map(v => v.cycle)
+            console.log(JSON.stringify(['*', ...version]));
+          result-encoding: string
+
+  test:
+    needs:
+      - versions
+    strategy:
+      matrix:
+        runsOn: [ubuntu-latest, macos-latest, windows-latest]
+        nodeVersion: ${{fromJson(needs.versions.outputs.nodeVersion)}}
+    uses: ./.github/workflows/test-on-version-and-os.yaml
+    with:
+      nodeVersion: ${{ matrix.nodeVersion }}
+      runsOn: ${{ matrix.runsOn }}
+      testUnit: ${{ inputs.testUnit }}
+      testIntegration: ${{ inputs.testIntegration }}
+      testTsd: ${{ inputs.testTsd }}

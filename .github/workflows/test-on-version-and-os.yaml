@@ -1,0 +1,118 @@
+name: Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      runsOn:
+        description: 'OS (ubuntu-latest, macos-latest, windows-latest, ...)'
+        type: string
+        default: ubuntu-latest
+      nodeVersion:
+        description: 'Node (* for latest or 20, 18, ...)'
+        type: string
+        default: '*'
+
+      testUnit:
+        description: 'Units'
+        type: choice
+        options:
+          - skip
+          - test
+          - test-with-coverage
+        default: test
+      testIntegration:
+        description: 'Integrations'
+        type: choice
+        options:
+          - skip
+          - test
+        default: test
+      testTsd:
+        description: 'TSDefinitions'
+        type: choice
+        options:
+          - skip
+          - test
+        default: test
+
+  workflow_call:
+    inputs:
+      runsOn:
+        required: true
+        type: string
+      nodeVersion:
+        required: true
+        type: string
+
+      testUnit:
+        type: string
+        default: test
+      testIntegration:
+        type: string
+        default: test
+      testTsd:
+        type: string
+        default: test
+
+jobs:
+  unit:
+    if: ${{ inputs.testUnit != 'skip' }}
+    runs-on: ${{ inputs.runsOn }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4.0.3
+        with:
+          check-latest: true
+          node-version: ${{ inputs.nodeVersion }}
+      - uses: bahmutov/npm-install@v1.10.2
+
+      - if: ${{ inputs.testUnit == 'test' }}
+        run: npm run test:unit
+
+      - if: ${{ inputs.testUnit == 'test-with-coverage' }}
+        run: npm run coverage
+
+      - if: ${{ success() && inputs.testUnit == 'test-with-coverage' }}
+        continue-on-error: true
+        uses: codecov/codecov-action@v4.5.0
+        with:
+          file: ./coverage.lcov
+
+  integration:
+    if: ${{ inputs.testIntegration != 'skip' }}
+    runs-on: ${{ inputs.runsOn }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4.0.3
+        with:
+          check-latest: true
+          node-version: ${{ inputs.nodeVersion }}
+      - uses: bahmutov/npm-install@v1.10.2
+
+      - name: Setup sudoless tcpdump (linux only)
+        if: ${{ success() && startsWith(inputs.runsOn, 'ubuntu-') }}
+        run: |
+          sudo groupadd pcap
+          sudo usermod -a -G pcap $USER
+          sudo chgrp pcap /usr/bin/tcpdump
+          sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/tcpdump
+
+      - name: Setup sudoless tcpdump (macos only)
+        if: ${{ success() && startsWith(inputs.runsOn, 'macos-') }}
+        run: |
+          sudo chown $(whoami):admin /dev/bpf*
+
+      - run: npm run test:integration
+
+  tsd:
+    if: ${{ inputs.testTsd != 'skip' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4.0.3
+        with:
+          check-latest: true
+          node-version: ${{ inputs.nodeVersion }}
+      - uses: bahmutov/npm-install@v1.10.2
+
+      - run: npm run test:tsd
