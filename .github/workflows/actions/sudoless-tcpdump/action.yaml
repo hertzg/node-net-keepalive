@@ -11,6 +11,7 @@ runs:
   steps:
     - name: Setup sudoless tcpdump (linux only)
       if: ${{ success() && startsWith(inputs.runsOn, 'ubuntu-') }}
+      shell: bash
       run: |
         sudo groupadd pcap
         sudo usermod -a -G pcap $USER
@@ -19,5 +20,6 @@ runs:
 
     - name: Setup sudoless tcpdump (macos only)
       if: ${{ success() && startsWith(inputs.runsOn, 'macos-') }}
+      shell: bash
       run: |
         sudo chown $(whoami):admin /dev/bpf*
