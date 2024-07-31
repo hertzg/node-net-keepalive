@@ -54,7 +54,7 @@ on:
 
 jobs:
   unit:
-    name: '${{ runner.os }}/node-${{ inputs.nodeVersion }}/unit'
+    name: 'Unit (node-${{ inputs.nodeVersion}}, ${{ inputs.runsOn }})'
     if: ${{ inputs.testUnit != 'skip' }}
     runs-on: ${{ inputs.runsOn }}
     steps:
@@ -76,7 +76,7 @@ jobs:
           file: ./coverage.lcov
 
   integration:
-    name: '${{ runner.os }}/node-${{ inputs.nodeVersion }}/integration'
+    name: 'Integration (node-${{ inputs.nodeVersion}}, ${{ inputs.runsOn }})'
     if: ${{ inputs.testIntegration != 'skip' }}
     runs-on: ${{ inputs.runsOn }}
     steps:
