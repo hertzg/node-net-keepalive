@@ -1,4 +1,4 @@
-name: Checkout + Setup Node + install deps
+name: Setup Node + install deps
 
 inputs:
   nodeVersion:
@@ -9,7 +9,6 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v4
     - uses: actions/setup-node@v4.0.3
       with:
         check-latest: true
