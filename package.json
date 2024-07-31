@@ -72,5 +72,8 @@
     "should": "^13.2.3",
     "sinon": "^18.0.0",
     "tsd": "^0.31.0"
+  },
+  "overrides": {
+    "conventional-changelog-conventionalcommits": ">= 8.0.0"
   }
 }
