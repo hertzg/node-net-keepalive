@@ -23,12 +23,13 @@ jobs:
           NODE_PATH: ${{ github.workspace }}/node_modules
 
   test-tsd:
-    name: 'Test TypeScript definitions'
+    name: 'Test: TSD'
     uses: ./.github/workflows/test-tsd.yaml
 
   full-with-coverage:
-    name: 'Full test with coverage'
+    name: 'Tests: Unit (+coverage) & Integration
     uses: ./.github/workflows/test-lts-matrix.yaml
     with:
       testUnit: test-with-coverage
       testIntegration: test
+    secrets: inherit

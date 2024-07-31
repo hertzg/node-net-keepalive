@@ -65,3 +65,4 @@ jobs:
       runsOn: ${{ matrix.runsOn }}
       testUnit: ${{ inputs.testUnit }}
       testIntegration: ${{ inputs.testIntegration }}
+    secrets: inherit
