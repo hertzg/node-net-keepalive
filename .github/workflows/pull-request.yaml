@@ -22,22 +22,12 @@ jobs:
           NODE_PATH: ${{ github.workspace }}/node_modules
 
   test-tsd:
-    uses: ./.github/workflows/test-on-lts-versions.yaml
+    uses: ./.github/workflows/test-run.yaml
     with:
-      testUnit: skip
-      testIntegration: skip
       testTsd: test
 
-  test-coverage:
-    uses: ./.github/workflows/test-on-lts-versions.yaml
+  full-with-coverage:
+    uses: ./.github/workflows/test-lts-matrix.yaml
     with:
       testUnit: test-with-coverage
-      testIntegration: skip
-      testTsd: skip
-
-  test-integration:
-    uses: ./.github/workflows/test-on-lts-versions.yaml
-    with:
-      testUnit: skip
       testIntegration: test
-      testTsd: skip

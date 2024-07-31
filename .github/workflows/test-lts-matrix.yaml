@@ -1,4 +1,4 @@
-name: Test
+name: 'test:lts-matrix'
 
 on:
   workflow_dispatch:
@@ -18,13 +18,6 @@ on:
           - skip
           - test
         default: test
-      testTsd:
-        description: 'Definitions'
-        type: choice
-        options:
-          - skip
-          - test
-        default: test
 
   workflow_call:
     inputs:
@@ -34,13 +27,9 @@ on:
       testIntegration:
         type: string
         default: test
-      testTsd:
-        type: string
-        default: test
 
 jobs:
   ltsVersions:
-    if: ${{ inputs.testUnit != 'skip' && inputs.testIntegration != 'skip' }}
     runs-on: ubuntu-latest
     outputs:
       nodeVersions: ${{ steps.nodeVersions.outputs.result }}
@@ -61,30 +50,18 @@ jobs:
           result-encoding: string
 
   test-full:
-    if: ${{ inputs.testUnit != 'skip' && inputs.testIntegration != 'skip' }}
     needs:
       - ltsVersions
     strategy:
       matrix:
-        nodeVersion: ${{fromJson(needs.ltsVersions.outputs.nodeVersions)}}
         runsOn:
           - ubuntu-latest
           - macos-latest
           - windows-latest
-    uses: ./.github/workflows/test-on-version-and-os.yaml
+        nodeVersion: ${{fromJson(needs.ltsVersions.outputs.nodeVersions)}}
+    uses: ./.github/workflows/test-run.yaml
     with:
       nodeVersion: ${{ matrix.nodeVersion }}
       runsOn: ${{ matrix.runsOn }}
       testUnit: ${{ inputs.testUnit }}
       testIntegration: ${{ inputs.testIntegration }}
-      testTsd: skip
-
-  test-tsd:
-    if: ${{ inputs.testTsd == 'test' }}
-    uses: ./.github/workflows/test-on-version-and-os.yaml
-    with:
-      nodeVersion: '*'
-      runsOn: ubuntu-latest
-      testUnit: skip
-      testIntegration: skip
-      testTsd: test
