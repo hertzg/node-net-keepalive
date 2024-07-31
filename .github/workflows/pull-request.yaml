@@ -15,8 +15,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4.0.3
-      - uses: bahmutov/npm-install@v1.10.2
+      - uses: ./.github/workflows/actions/setup
+        with:
+          nodeVersion: '*'
 
       - uses: wagoid/commitlint-github-action@v6
         env:
