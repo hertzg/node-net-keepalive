@@ -6,61 +6,28 @@ on:
       - master
 
 jobs:
-  test:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os:
-          - ubuntu-latest
-          - macos-latest
-          - windows-latest
-        node: # https://nodejs.org/en/about/releases/
-          - '*'
-          - '20'
-          - '18'
-      fail-fast: false
+  test-tsd:
+    name: 'Test: TSD'
+    uses: ./.github/workflows/test-tsd.yaml
 
-    steps:
-      - name: Setup Node
-        uses: actions/setup-node@v2-beta
-        with:
-          check-latest: true
-          node-version: ${{ matrix.node }}
-
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - uses: bahmutov/npm-install@v1
-
-      - name: Allow sudoless tcpdump (linux only)
-        if: ${{ success() && startsWith(matrix.os, 'ubuntu-') }}
-        run: |
-          sudo groupadd pcap
-          sudo usermod -a -G pcap $USER
-          sudo chgrp pcap /usr/bin/tcpdump
-          sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/tcpdump
-
-      - name: Allow sudoless tcpdump (macos only)
-        if: ${{ success() && startsWith(matrix.os, 'macos-') }}
-        run: |
-          sudo chmod o+r /dev/bpf*
-
-      - name: Test (full)
-        run: npm run test
+  test-full:
+    name: 'Tests: Unit (+coverage) & Integration'
+    uses: ./.github/workflows/test-lts-matrix.yaml
+    with:
+      testUnit: test-with-coverage
+      testIntegration: test
+    secrets: inherit
 
   release:
     runs-on: ubuntu-latest
-    needs:
-      - test
     if: ${{ success() && github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'hertzg/node-net-keepalive' }}
+    needs:
+      - test-full
     steps:
-      - name: Setup Node
-        uses: actions/setup-node@v2-beta
-
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - uses: bahmutov/npm-install@v1
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/actions/setup
+        with:
+          nodeVersion: '*'
 
       - name: Release
         env:

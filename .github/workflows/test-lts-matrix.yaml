@@ -1,0 +1,68 @@
+name: 'test:lts-matrix'
+
+on:
+  workflow_dispatch:
+    inputs:
+      testUnit:
+        description: 'Units'
+        type: choice
+        options:
+          - skip
+          - test
+          - test-with-coverage
+        default: test
+      testIntegration:
+        description: 'Integrations'
+        type: choice
+        options:
+          - skip
+          - test
+        default: test
+
+  workflow_call:
+    inputs:
+      testUnit:
+        type: string
+        default: test
+      testIntegration:
+        type: string
+        default: test
+
+jobs:
+  ltsVersions:
+    name: 'LTS Versions'
+    runs-on: ubuntu-latest
+    outputs:
+      nodeVersions: ${{ steps.nodeVersions.outputs.result }}
+    steps:
+      - uses: actions/github-script@v7.0.1
+        id: nodeVersions
+        with:
+          script: |
+            const isNowWithin = (a, b) => {
+              const toDateNumber = date => Number(date.split('-').join(''));
+              const now = toDateNumber(new Date().toISOString().split('T')[0]);
+              return toDateNumber(a) <= now && now <= toDateNumber(b);
+            }
+
+            const allVersions = await fetch('https://endoflife.date/api/node.json').then(r => r.json());
+            const version = allVersions.filter(v => v.lts).filter(v => isNowWithin(v.lts, v.eol)).map(v => v.cycle)
+            return ['*', ...version]
+
+  test-full:
+    needs:
+      - ltsVersions
+    strategy:
+      matrix:
+        runsOn:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+        nodeVersion: ${{ fromJson(needs.ltsVersions.outputs.nodeVersions) }}
+    uses: ./.github/workflows/test-run.yaml
+    with:
+      nodeVersion: ${{ matrix.nodeVersion }}
+      runsOn: ${{ matrix.runsOn }}
+      testUnit: ${{ inputs.testUnit }}
+      testIntegration: ${{ inputs.testIntegration }}
+    secrets: inherit

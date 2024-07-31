@@ -1,0 +1,16 @@
+name: Setup Node + install deps
+
+inputs:
+  nodeVersion:
+    description: 'Node (* for latest or 20, 18, ...)'
+    type: string
+    default: '*'
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4.0.3
+      with:
+        check-latest: true
+        node-version: ${{ inputs.nodeVersion }}
+    - uses: bahmutov/npm-install@v1.10.2

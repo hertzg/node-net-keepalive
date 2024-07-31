@@ -10,14 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup Node.js
-        uses: actions/setup-node@v2-beta
-
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: npm i
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/actions/setup
+        with:
+          nodeVersion: '*'
 
       - name: Build docs
         run: npm run build:docs

@@ -1,0 +1,94 @@
+name: 'test:run'
+
+on:
+  workflow_dispatch:
+    inputs:
+      runsOn:
+        description: 'OS (ubuntu-latest, macos-latest, windows-latest, ...)'
+        type: string
+        default: ubuntu-latest
+      nodeVersion:
+        description: 'Node (* for latest or 20, 18, ...)'
+        type: string
+        default: '*'
+      testUnit:
+        description: 'Units'
+        type: choice
+        options:
+          - skip
+          - test
+          - test-with-coverage
+        default: test
+      testIntegration:
+        description: 'Integrations'
+        type: choice
+        options:
+          - skip
+          - test
+        default: test
+      testTsd:
+        description: 'Definitions'
+        type: choice
+        options:
+          - skip
+          - test
+        default: test
+
+  workflow_call:
+    inputs:
+      runsOn:
+        type: string
+        default: ubuntu-latest
+      nodeVersion:
+        type: string
+        default: '*'
+      testUnit:
+        type: string
+        default: skip
+      testIntegration:
+        type: string
+        default: skip
+      testTsd:
+        type: string
+        default: skip
+
+jobs:
+  unit:
+    name: 'Unit (node-${{ inputs.nodeVersion}}, ${{ inputs.runsOn }})'
+    if: ${{ inputs.testUnit != 'skip' }}
+    runs-on: ${{ inputs.runsOn }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/actions/setup
+        with:
+          nodeVersion: ${{ inputs.nodeVersion }}
+
+      - if: ${{ inputs.testUnit == 'test' }}
+        run: npm run test:unit
+
+      - if: ${{ inputs.testUnit == 'test-with-coverage' }}
+        run: npm run coverage
+
+      - if: ${{ success() && inputs.testUnit == 'test-with-coverage' }}
+        continue-on-error: true
+        uses: codecov/codecov-action@v4.5.0
+        with:
+          file: ./coverage.lcov
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+  integration:
+    name: 'Integration (node-${{ inputs.nodeVersion}}, ${{ inputs.runsOn }})'
+    if: ${{ inputs.testIntegration != 'skip' }}
+    runs-on: ${{ inputs.runsOn }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/actions/setup
+        with:
+          nodeVersion: ${{ inputs.nodeVersion }}
+
+      - uses: ./.github/workflows/actions/sudoless-tcpdump
+        with:
+          runsOn: ${{ inputs.runsOn }}
+
+      - run: npm run test:integration
