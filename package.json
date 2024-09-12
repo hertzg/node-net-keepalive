@@ -50,7 +50,7 @@
   },
   "homepage": "https://hertzg.github.io/node-net-keepalive/",
   "dependencies": {
-    "ffi-rs": "1.0.91"
+    "ffi-rs": "1.0.93"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.0.0",
