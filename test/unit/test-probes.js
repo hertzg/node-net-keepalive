@@ -17,39 +17,39 @@ describe('keep-alive probes', () => {
 
   it('should validate passed arguments', function () {
     ;(() => Lib.setKeepAliveProbes()).should.throw(
-      'setKeepAliveProbes requires two arguments'
+      /^setKeepAliveProbes requires two arguments/
     )
     ;(() => Lib.setKeepAliveProbes('')).should.throw(
-      'setKeepAliveProbes requires two arguments'
+      /^setKeepAliveProbes requires two arguments/
     )
     ;(() => Lib.setKeepAliveProbes('', '', '')).should.throw(
-      'setKeepAliveProbes requires two arguments'
+      /^setKeepAliveProbes requires two arguments/
     )
     ;(() => Lib.setKeepAliveProbes(null, 1)).should.throw(
-      'setKeepAliveProbes expects an instance of socket as its first argument'
+      /^setKeepAliveProbes expects an instance of socket as its first argument/
     )
     ;(() => Lib.setKeepAliveProbes({}, 1)).should.throw(
-      'setKeepAliveProbes expects an instance of socket as its first argument'
+      /^setKeepAliveProbes expects an instance of socket as its first argument/
     )
     ;(() => Lib.setKeepAliveProbes(new (class {})(), 1)).should.throw(
-      'setKeepAliveProbes expects an instance of socket as its first argument'
+      /^setKeepAliveProbes expects an instance of socket as its first argument/
     )
     ;(() => Lib.setKeepAliveProbes(new Stream.PassThrough(), 1)).should.throw(
-      'setKeepAliveProbes expects an instance of socket as its first argument'
+      /^setKeepAliveProbes expects an instance of socket as its first argument/
     )
 
     const socket = new Net.Socket()
     ;(() => Lib.setKeepAliveProbes(socket, null)).should.throw(
-      'setKeepAliveProbes requires cnt to be a Number'
+      /^setKeepAliveProbes requires cnt to be a Number/
     )
     ;(() => Lib.setKeepAliveProbes(socket, '')).should.throw(
-      'setKeepAliveProbes requires cnt to be a Number'
+      /^setKeepAliveProbes requires cnt to be a Number/
     )
     ;(() => Lib.setKeepAliveProbes(socket, true)).should.throw(
-      'setKeepAliveProbes requires cnt to be a Number'
+      /^setKeepAliveProbes requires cnt to be a Number/
     )
     ;(() => Lib.setKeepAliveProbes(socket, {})).should.throw(
-      'setKeepAliveProbes requires cnt to be a Number'
+      /^setKeepAliveProbes requires cnt to be a Number/
     )
   })
 

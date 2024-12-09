@@ -17,39 +17,39 @@ describe('keep-alive interval', () => {
 
   it('should validate passed arguments', function () {
     ;(() => Lib.setKeepAliveInterval()).should.throw(
-      'setKeepAliveInterval requires two arguments'
+      /^setKeepAliveInterval requires two arguments/
     )
     ;(() => Lib.setKeepAliveInterval('')).should.throw(
-      'setKeepAliveInterval requires two arguments'
+      /^setKeepAliveInterval requires two arguments/
     )
     ;(() => Lib.setKeepAliveInterval('', '', '')).should.throw(
-      'setKeepAliveInterval requires two arguments'
+      /^setKeepAliveInterval requires two arguments/
     )
     ;(() => Lib.setKeepAliveInterval(null, 1)).should.throw(
-      'setKeepAliveInterval expects an instance of socket as its first argument'
+      /^setKeepAliveInterval expects an instance of socket as its first argument/
     )
     ;(() => Lib.setKeepAliveInterval({}, 1)).should.throw(
-      'setKeepAliveInterval expects an instance of socket as its first argument'
+      /^setKeepAliveInterval expects an instance of socket as its first argument/
     )
     ;(() => Lib.setKeepAliveInterval(new (class {})(), 1)).should.throw(
-      'setKeepAliveInterval expects an instance of socket as its first argument'
+      /^setKeepAliveInterval expects an instance of socket as its first argument/
     )
     ;(() => Lib.setKeepAliveInterval(new Stream.PassThrough(), 1)).should.throw(
-      'setKeepAliveInterval expects an instance of socket as its first argument'
+      /^setKeepAliveInterval expects an instance of socket as its first argument/
     )
 
     const socket = new Net.Socket()
     ;(() => Lib.setKeepAliveInterval(socket, null)).should.throw(
-      'setKeepAliveInterval requires msec to be a Number'
+      /^setKeepAliveInterval requires msec to be a Number/
     )
     ;(() => Lib.setKeepAliveInterval(socket, '')).should.throw(
-      'setKeepAliveInterval requires msec to be a Number'
+      /^setKeepAliveInterval requires msec to be a Number/
     )
     ;(() => Lib.setKeepAliveInterval(socket, true)).should.throw(
-      'setKeepAliveInterval requires msec to be a Number'
+      /^setKeepAliveInterval requires msec to be a Number/
     )
     ;(() => Lib.setKeepAliveInterval(socket, {})).should.throw(
-      'setKeepAliveInterval requires msec to be a Number'
+      /^setKeepAliveInterval requires msec to be a Number/
     )
   })
 
