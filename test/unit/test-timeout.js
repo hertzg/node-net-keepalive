@@ -18,39 +18,39 @@ describe('TCP User Timeout', () => {
   itSkipOS(
     ['freebsd'],'should validate passed arguments', function () {
     ;(() => Lib.setUserTimeout()).should.throw(
-      'setUserTimeout requires two arguments'
+      /^setUserTimeout requires two arguments/
     )
     ;(() => Lib.setUserTimeout('')).should.throw(
-      'setUserTimeout requires two arguments'
+      /^setUserTimeout requires two arguments/
     )
     ;(() => Lib.setUserTimeout('', '', '')).should.throw(
-      'setUserTimeout requires two arguments'
+      /^setUserTimeout requires two arguments/
     )
     ;(() => Lib.setUserTimeout(null, 1)).should.throw(
-      'setUserTimeout expects an instance of socket as its first argument'
+      /^setUserTimeout expects an instance of socket as its first argument/
     )
     ;(() => Lib.setUserTimeout({}, 1)).should.throw(
-      'setUserTimeout expects an instance of socket as its first argument'
+      /^setUserTimeout expects an instance of socket as its first argument/
     )
     ;(() => Lib.setUserTimeout(new (class {})(), 1)).should.throw(
-      'setUserTimeout expects an instance of socket as its first argument'
+      /^setUserTimeout expects an instance of socket as its first argument/
     )
     ;(() => Lib.setUserTimeout(new Stream.PassThrough(), 1)).should.throw(
-      'setUserTimeout expects an instance of socket as its first argument'
+      /^setUserTimeout expects an instance of socket as its first argument/
     )
 
     const socket = new Net.Socket()
     ;(() => Lib.setUserTimeout(socket, null)).should.throw(
-      'setUserTimeout requires msec to be a Number'
+      /^setUserTimeout requires msec to be a Number/
     )
     ;(() => Lib.setUserTimeout(socket, '')).should.throw(
-      'setUserTimeout requires msec to be a Number'
+      /^setUserTimeout requires msec to be a Number/
     )
     ;(() => Lib.setUserTimeout(socket, true)).should.throw(
-      'setUserTimeout requires msec to be a Number'
+      /^setUserTimeout requires msec to be a Number/
     )
     ;(() => Lib.setUserTimeout(socket, {})).should.throw(
-      'setUserTimeout requires msec to be a Number'
+      /^setUserTimeout requires msec to be a Number/
     )
   })
 
