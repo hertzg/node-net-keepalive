@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), enforced with [semantic-release](https://github.com/semantic-release/semantic-release).
 
+## [4.0.12](https://github.com/hertzg/node-net-keepalive/compare/v4.0.11...v4.0.12) (2024-12-24)
+
+### Bug Fixes
+
+- **deps:** update dependency ffi-rs to v1.2.1 ([#352](https://github.com/hertzg/node-net-keepalive/issues/352)) ([e2a6a56](https://github.com/hertzg/node-net-keepalive/commit/e2a6a562e1237498f28b826e180bd1dba9440d06))
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), enforced with [semantic-release](https://github.com/semantic-release/semantic-release).
+
 ## [4.0.11](https://github.com/hertzg/node-net-keepalive/compare/v4.0.10...v4.0.11) (2024-12-09)
 
 ### Bug Fixes
