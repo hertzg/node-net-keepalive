@@ -71,7 +71,7 @@ jobs:
 
       - if: ${{ success() && inputs.testUnit == 'test-with-coverage' }}
         continue-on-error: true
-        uses: codecov/codecov-action@v5.4.0
+        uses: codecov/codecov-action@v5.4.2
         with:
           file: ./coverage.lcov
         env:
