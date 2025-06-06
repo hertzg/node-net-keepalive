@@ -9,8 +9,8 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/setup-node@v4.0.4
+    - uses: actions/setup-node@v4.4.0
       with:
         check-latest: true
         node-version: ${{ inputs.nodeVersion }}
-    - uses: bahmutov/npm-install@v1.10.5
+    - uses: bahmutov/npm-install@v1.10.9

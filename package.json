@@ -1,6 +1,6 @@
 {
   "name": "net-keepalive",
-  "version": "4.0.12",
+  "version": "4.0.19",
   "description": "Provides high-level access to socket options like TCP_KEEPIDLE, TCP_KEEPINTVL, TCP_KEEPCNT",
   "main": "index.js",
   "scripts": {
@@ -50,7 +50,7 @@
   },
   "homepage": "https://hertzg.github.io/node-net-keepalive/",
   "dependencies": {
-    "ffi-rs": "1.2.1"
+    "ffi-rs": "1.2.10"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.0.0",
