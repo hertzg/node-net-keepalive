@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), enforced with [semantic-release](https://github.com/semantic-release/semantic-release).
 
+## [4.0.23](https://github.com/hertzg/node-net-keepalive/compare/v4.0.22...v4.0.23) (2025-07-19)
+
+### Bug Fixes
+
+- **deps:** update dependency ffi-rs to v1.3.0 ([#379](https://github.com/hertzg/node-net-keepalive/issues/379)) ([19f5331](https://github.com/hertzg/node-net-keepalive/commit/19f5331f543e6a33bb43d8593c4dcd1eda1b4553))
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), enforced with [semantic-release](https://github.com/semantic-release/semantic-release).
+
+## [4.0.22](https://github.com/hertzg/node-net-keepalive/compare/v4.0.21...v4.0.22) (2025-07-14)
+
+### Bug Fixes
+
+- **deps:** update dependency ffi-rs to v1.2.15 ([#378](https://github.com/hertzg/node-net-keepalive/issues/378)) ([33d43be](https://github.com/hertzg/node-net-keepalive/commit/33d43be8984ca000a8cc7e5505c571be004b865e))
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), enforced with [semantic-release](https://github.com/semantic-release/semantic-release).
+
+## [4.0.21](https://github.com/hertzg/node-net-keepalive/compare/v4.0.20...v4.0.21) (2025-07-06)
+
+### Bug Fixes
+
+- **deps:** update dependency ffi-rs to v1.2.13 ([#377](https://github.com/hertzg/node-net-keepalive/issues/377)) ([1b6b6ec](https://github.com/hertzg/node-net-keepalive/commit/1b6b6ec52d31ff2a4cc928660ce71002a0a6c8a8))
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), enforced with [semantic-release](https://github.com/semantic-release/semantic-release).
+
 ## [4.0.20](https://github.com/hertzg/node-net-keepalive/compare/v4.0.19...v4.0.20) (2025-06-08)
 
 ### Bug Fixes
