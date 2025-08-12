@@ -58,7 +58,7 @@ jobs:
     if: ${{ inputs.testUnit != 'skip' }}
     runs-on: ${{ inputs.runsOn }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: ./.github/workflows/actions/setup
         with:
           nodeVersion: ${{ inputs.nodeVersion }}
@@ -82,7 +82,7 @@ jobs:
     if: ${{ inputs.testIntegration != 'skip' }}
     runs-on: ${{ inputs.runsOn }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: ./.github/workflows/actions/setup
         with:
           nodeVersion: ${{ inputs.nodeVersion }}

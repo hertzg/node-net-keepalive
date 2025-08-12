@@ -24,7 +24,7 @@ jobs:
     needs:
       - test-full
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: ./.github/workflows/actions/setup
         with:
           nodeVersion: '*'
