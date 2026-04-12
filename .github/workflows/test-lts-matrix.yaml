@@ -35,7 +35,7 @@ jobs:
     outputs:
       nodeVersions: ${{ steps.nodeVersions.outputs.result }}
     steps:
-      - uses: actions/github-script@v8.0.0
+      - uses: actions/github-script@v9.0.0
         id: nodeVersions
         with:
           script: |
