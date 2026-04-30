@@ -21,6 +21,11 @@ jobs:
   release:
     runs-on: ubuntu-latest
     if: ${{ success() && github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'hertzg/node-net-keepalive' }}
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
     needs:
       - test-full
     steps:
@@ -29,8 +34,10 @@ jobs:
         with:
           nodeVersion: '*'
 
+      - name: Upgrade npm to a version that supports OIDC trusted publishing
+        run: npm install --global npm@latest
+
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm run release
