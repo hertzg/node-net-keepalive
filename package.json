@@ -58,6 +58,7 @@
     "@semantic-release/changelog": "^6.0.0",
     "@semantic-release/exec": "^6.0.0",
     "@semantic-release/git": "^10.0.0",
+    "@semantic-release/npm": "^13.1.5",
     "@types/node": "^20.0.0",
     "all-contributors-cli": "^6.19.0",
     "better-docs": "2.3.2",
@@ -68,7 +69,7 @@
     "mockery": "^2.1.0",
     "nyc": "^17.0.0",
     "prettier": "^3.0.0",
-    "semantic-release": "^24.0.0",
+    "semantic-release": "^25.0.3",
     "should": "^13.2.3",
     "sinon": "^18.0.0",
     "tsd": "^0.31.0"
